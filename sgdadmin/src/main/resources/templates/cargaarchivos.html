@@ -66,7 +66,45 @@ ing_farias@live.com
     <!-- modernizr JS
 		============================================ -->
     <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+ 
+    
+    
+    
 </head>
+    
+    <style>
+    #customFile .custom-file-control::after {
+        content: "Select file...";
+    }
+
+    #customFile .custom-file-control::before {
+        content: "Click me";
+    }
+
+    #customFile .custom-file-control:lang(es)::after {
+        content: "Seleccionar archivo...";
+    }
+
+    #customFile .custom-file-control:lang(es)::before {
+        content: "Seleccionar";
+    }
+
+    .custom-file-control.selected:lang(en)::after {
+        content: "" !important;
+    }
+
+    .custom-file {
+        overflow: hidden;
+    }
+    .custom-file-control {
+        white-space: nowrap;
+    }
+</style>
 
 
 <body>
@@ -157,78 +195,8 @@ ing_farias@live.com
                             <div class="mobile-menu">
                                 <nav id="dropdown">
                                     <ul class="mobile-menu-nav">
-                                        <li><a data-toggle="collapse" data-target="#Charts" >Documentacion Legal<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul class="collapse dropdown-header-top">
-                                                <li><a href="escrituras">Escrituras</a></li>
-                                                <li><a href="identificaciones">Identificaciones</a></li>
-                                                <li><a href="rfc">RFC</a></li>
-                                                <li><a href="fiel">Fiel</a></li>
-                                                <li><a href="sellodigital">Sello Digital</a></li>
-                                                <li><a href="avisoprivacidad">Aviso de Privacidad</a></li>
-                                                <li><a href="cumnplimientoobligaciones">Cumplimiento de Obligaciones</a></li>
-                                                <li><a href="comprobantedomicilio">Comprobante de Domicilio</a></li>
-                                                <li><a href="asamblea">Asamblea Ordinaria Aumento Capital</a></li>
-                                            </ul>
-                                        </li>
                                         <li><a href="events.html">Estados Financieros</a></li>
-                                        <li><a data-toggle="collapse" data-target="#demoevent" >Contratos Firmados<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="demoevent" class="collapse dropdown-header-top">
-                                                <li><a href="financieros">Financieros</a>
-                                                </li>
-                                                <li><a href="proveedores">Proveedores</a>
-                                                </li>
-                                                <li><a href="clientes">Clientes</a>
-                                                </li>
-                                                <li><a href="personal">Personal</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                         <li><a href="reporteventas">Reporte de Ventas Mensual</a></li>
-                                         <li><a href="sagarpa">Sagarpa</a></li>
-                                         <li><a href="presentacionescorporativas">Presentaciones Corporativas</a></li>
-                                        <li><a data-toggle="collapse" data-target="#demopro" >Gobierno Corporativo<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="demopro" class="collapse dropdown-header-top">
-                                                <li><a href="asambleaaccionistas">Asamblea de Accionistas</a>
-                                                </li>
-                                                <li><a href="consejo">Consejo</a>
-                                                </li>
-                                                <li><a href="comites">Comites</a>
-                                                </li>
-                                                <li><a href="protocoloaccionistas">Protocolo de Accionistas</a>
-                                                </li>
-                                                <li><a href="reglasoperacion">Reglas de Operacion</a>
-                                                </li>
-                                                <li><a href="plandetrabajo">Plan de Trabajo Anual</a>
-                                                </li>
-                                                <li><a href="actividadesmensuales">Informe de Actividades Mensuales</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                         <li><a href="facturaactivos">Facturas de Activos</a></li>
-                                         <li><a href="seguros">Seguros</a></li>
-                                         <li><a href="avaluoactivos">Avaluo de Activos</a></li>
-                                         <li><a href="estructuraorganigrama">Estructura de Organigramas</a></li>
-                                        <li><a data-toggle="collapse" data-target="#democrou" href="#">Informacion de la Industria<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="democrou" class="collapse dropdown-header-top">
-                                                <li><a href="estudioseconomicos">Estudios Economicos</a>
-                                                </li>
-                                                <li><a href="precioganadoenpie">Precio KG Ganado en Pie</a>
-                                                </li>
-                                                <li><a href="preciocarnecanal">Precio KG Carne en Canal</a>
-                                                </li>
-                                                <li><a href="precioalimento">Precio Alimento</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li><a data-toggle="collapse" data-target="#demolibra" href="#">Administracion de Usuarios <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
-                                            <ul id="demolibra" class="collapse dropdown-header-top">
-                                                <li><a href="altausuarios">Alta de Usuarios</a>
-                                                </li>
-                                                <li><a href="modificausuarios">Moficacion de Usuarios</a>
-                                                </li>
-
-                                            </ul>
-                                        </li>
+                                        <li><a href="events.html">Estados Financieros</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -262,11 +230,24 @@ ing_farias@live.com
         </div>
 
         
-        <div class="breadcome-area">
-            
-            <h1> AQUI VA TODO EL DESMADRE ESTA ES LA VENTANA PRINCIPAL</h1>
-            
+      <div class="container" style="margin-top: 30px">
+    <div class="card">
+        <div class="jumbotron">
+            <h1 style="text-align: center;">Un archivo</h1>
         </div>
+        <form method="post" th:action="@{/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
+            <div class="form-group">
+                <label class="custom-file" id="customFile">
+                    <input type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
+                    <span class="custom-file-control form-control-file"></span>
+                </label>
+            </div>
+            <div style="margin-bottom: 10px">
+                <button type="submit" class="btn btn-success">Enviar</button>
+            </div>
+        </form>
+    </div>
+</div>
         
         
         
@@ -347,5 +328,10 @@ ing_farias@live.com
 		============================================ -->
     <script src="static/js/main.js"></script>
 </body>
+    <script>
+    $('.custom-file-input').on('change',function(){
+        $(this).next('.form-control-file').addClass("selected").html($(this).val());
+    })
+</script>
 
 </html>
