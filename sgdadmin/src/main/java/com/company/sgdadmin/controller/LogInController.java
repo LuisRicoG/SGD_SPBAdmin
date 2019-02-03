@@ -10,18 +10,19 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LogInController {
 	
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = "/index")
     public ModelAndView getLogin() {
     	ModelAndView mv = new ModelAndView();
         mv.addObject("user", new Login());
         mv.setViewName("index");
         return mv;
     }
+    /**
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public ModelAndView menu(Login login) {
         System.out.println("usuario: " + login.getUsuario());
         System.out.println("contraseña: " + login.getContrasena());
         return new ModelAndView("redirect:/menu.mvc");
-    }
+    }**/
 }
 
