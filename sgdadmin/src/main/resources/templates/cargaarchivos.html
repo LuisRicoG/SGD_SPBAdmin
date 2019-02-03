@@ -74,7 +74,6 @@ ing_farias@live.com
  
     
     
-    
 </head>
     
     <style>
@@ -232,10 +231,137 @@ ing_farias@live.com
         
       <div class="container" style="margin-top: 30px">
     <div class="card">
+        
         <div class="jumbotron">
-            <h1 style="text-align: center;">Un archivo</h1>
+            <h1 style="text-align: center;">Carga de Archivos</h1>
         </div>
         <form method="post" th:action="@{/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
+            
+            <div>
+                
+        <select id="menu" name="menu">
+        <option codigo="01" value="01">Documentacion Legal</option>
+		<option codigo="02" value="02">Estados Financieros</option>
+		<option codigo="03" value="03">Contratos Firmados</option>
+	    <option codigo="04" value="04">Reporte de Ventas Mensual</option>
+		<option codigo="05" value="05">Sagarpa</option>
+	    <option codigo="06" value="06">Presentaciones Corporativas</option>
+	    <option codigo="07" value="07">Gobierno Corporativo</option>
+		<option codigo="08" value="08">Factura de Activos</option>
+		<option codigo="09" value="09">Seguros</option>
+        <option codigo="10" value="10">Avaluo de Activos</option>
+		<option codigo="11" value="11">Estructura Organigramas</option>
+		<option codigo="12" value="12">Informacion de la Industria</option>
+    </select>
+
+    <select id="submenu" name="submenu">
+	<option codigo="01" value="1">Escrituras</option>
+	<option codigo="01" value="2">Identificaciones</option>
+	<option codigo="01" value="3">Rfc</option>
+	<option codigo="01" value="4">Fiel</option>
+	<option codigo="01" value="5">Sello Digital</option>
+	<option codigo="01" value="6">Aviso de Privacidad</option>
+	<option codigo="01" value="7">Cumplimiento de Obligaciones</option>
+	<option codigo="01" value="8">Comprobante de Domicilio</option>
+	<option codigo="01" value="9">Asamblea Ordinaria</option>
+	<option codigo="02" value="10">2018</option>
+	<option codigo="02" value="11">2019</option>
+	<option codigo="02" value="12">2020</option>
+	<option codigo="03" value="12">Financieros</option>
+    <option codigo="03" value="13">Provedores</option>
+	<option codigo="03" value="14">Clientes</option>
+	<option codigo="03" value="15">Personal</option>
+    <option codigo="04" value="16">2018</option>
+	<option codigo="04" value="17">2019</option>
+	<option codigo="04" value="18">2020</option>
+	<option codigo="05" value="19">Documento de Solicitud</option>
+	<option codigo="05" value="20">Deposito</option>
+	<option codigo="05" value="21">Comprobante de Pagos</option>
+    <option codigo="07" value="22">Asamblea de Accionistas</option>
+	<option codigo="07" value="23">Consejo</option>
+	<option codigo="07" value="24">Comites</option>
+    <option codigo="07" value="25">Protocolo de Accionistas</option>
+	<option codigo="07" value="26">Reglas de Accionistas</option>
+	<option codigo="07" value="27">Plan de Trabajo Anual</option>
+	<option codigo="07" value="28">Informe de Actividades Mensuales</option>
+    </select>
+	
+	
+	    <select id="submenu2" name="submenu2">
+	<option codigo="" value="1"></option>	
+	<option codigo="02" value="1">Enero</option>
+	<option codigo="02" value="2">Febrero</option>
+	<option codigo="02" value="3">Marzo</option>   
+    </select>
+    
+    <script type="text/javascript">
+        // Consigue el elemento provincias/poblaciones por su identificador id. Es un método del DOM de HTML
+        var id1 = document.getElementById("menu");
+        var id2 = document.getElementById("submenu");
+        
+        // Añade un evento change al elemento id1, asociado a la función cambiar()
+        if (id1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
+            id1.addEventListener("change", cambiar);
+        } else if (id1.attachEvent) {   // Para IE 8 y anteriores
+            id1.attachEvent("change", cambiar); // attachEvent() es el método equivalente a addEventListener()
+        }
+
+        // Definición de la función cambiar()
+        function cambiar() {
+            for (var i = 0; i < id2.options.length; i++)
+            
+            // -- Inicio del comentario -- 
+            // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
+            if(id2.options[i].getAttribute("codigo") == id1.options[id1.selectedIndex].getAttribute("codigo")){
+                id2.options[i].style.display = "block";
+            }else{
+                id2.options[i].style.display = "none";
+            }
+            // -- Fin del comentario --
+                    
+            id2.value = "";
+        }
+
+        // Llamada a la función cambiar()
+        cambiar();
+    </script>
+	
+	<script type="text/javascript">
+        // Consigue el elemento provincias/poblaciones por su identificador id. Es un método del DOM de HTML
+        var ids1 = document.getElementById("submenu");
+        var ids2 = document.getElementById("submenu2");
+        
+        // Añade un evento change al elemento id1, asociado a la función cambiar()
+        if (ids1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
+            ids1.addEventListener("change", cambiar2);
+        } else if (ids1.attachEvent) {   // Para IE 8 y anteriores
+            ids1.attachEvent("change", cambiar2); // attachEvent() es el método equivalente a addEventListener()
+        }
+
+        // Definición de la función cambiar()
+        function cambiar2() {
+            for (var i = 0; i < ids2.options.length; i++)
+            
+            // -- Inicio del comentario -- 
+            // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
+            if(ids2.options[i].getAttribute("codigo") == ids1.options[ids1.selectedIndex].getAttribute("codigo")){
+                ids2.options[i].style.display = "block";
+            }else{
+                ids2.options[i].style.display = "none";
+            }
+            // -- Fin del comentario --
+                    
+            ids2.value = "";
+        }
+
+        // Llamada a la función cambiar()
+        cambiar2();
+    </script>               
+                
+            </div>
+            <br>
+                <br>
+            
             <div class="form-group">
                 <label class="custom-file" id="customFile">
                     <input type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
