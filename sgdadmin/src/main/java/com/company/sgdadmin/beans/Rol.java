@@ -9,7 +9,6 @@ package com.company.sgdadmin.beans;
  */
 public class Rol {
 	private Integer rolid;
-	private Integer usuarioid;
 	private String nombre;
 	/**
 	 * @return the rolid
@@ -22,18 +21,6 @@ public class Rol {
 	 */
 	public void setRolid(Integer rolid) {
 		this.rolid = rolid;
-	}
-	/**
-	 * @return the usuarioid
-	 */
-	public Integer getUsuarioid() {
-		return usuarioid;
-	}
-	/**
-	 * @param usuarioid the usuarioid to set
-	 */
-	public void setUsuarioid(Integer usuarioid) {
-		this.usuarioid = usuarioid;
 	}
 	/**
 	 * @return the nombre

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+   <title>Registro de Usuario</title>
+   <!-- =============== VENDOR STYLES ===============-->
+   <!-- FONT AWESOME-->
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/brands.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/regular.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/solid.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/fontawesome.css">
+   <!-- SIMPLE LINE ICONS-->
+   <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+   <!-- ANIMATE.CSS-->
+   <link rel="stylesheet" href="vendor/animate.css/animate.css">
+   <!-- WHIRL (spinners)-->
+   <link rel="stylesheet" href="vendor/whirl/dist/whirl.css">
+   <!-- =============== PAGE VENDOR STYLES ===============-->
+   <!-- =============== BOOTSTRAP STYLES ===============-->
+   <link rel="stylesheet" href="css/bootstrap.css" id="bscss">
+   <!-- =============== APP STYLES ===============-->
+   <link rel="stylesheet" href="css/app.css" id="maincss">
+</head>
+
+<body>
+   <div class="wrapper">      
+	  <section class="section-container">
+         <!-- Page content-->
+         <div class="content-wrapper">			
+			<div class="row">
+               <div class="col-lg-12">
+                  <form class="form-horizontal" method="post" th:action="@{/registro}" th:object="${registro}" data-parsley-validate="" novalidate="">
+                     <!-- START card-->
+                     <div class="card card-default">
+                        <div class="card-header">
+                           <div class="card-title">Registro de usuario</div>
+                        </div>
+                        <div class="bg-gray-lighter px-3 py-2 my-3">Los campos marcados con (*) son requeridos</div>
+                        <div class="card-body">
+                           <fieldset>
+                              <div class="form-group row">
+                                 <label for="nombre1" class="col-md-2 col-form-label">Nombre</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{nombre1}" class="form-control" type="text" name="nombre1" id="nombre1" required="required">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="nombre2" class="col-md-2 col-form-label">Segundo Nombre</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{nombre1}" class="form-control" type="text" name="nombre2" id="nombre2">
+                                 </div>
+                                 <div class="col-md-4"><code></code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="apellidopaterno" class="col-md-2 col-form-label">Apellido Paterno</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{apellidopaterno}" class="form-control" type="text" name="apellidopaterno" id="apellidopaterno" required="required">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="apellidomaterno" class="col-md-2 col-form-label">Apellido Materno</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{apellidomaterno}" class="form-control" type="text" name="apellidomaterno" id="apellidomaterno" required="required">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>						   
+                           <fieldset>
+                              <div class="form-group row">
+                                 <label for="correoelectronico" class="col-md-2 col-form-label">Correo Electrónico</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{correoelectronico}" class="form-control" type="email" name="correoelectronico" id="correoelectronico" required="required" data-parsley-type="email">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+                           <fieldset>
+                              <div class="form-group row">
+                                 <label for="telefono" class="col-md-2 col-form-label">Teléfono</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{telefono}" class="form-control" type="text" name="telefono" id="telefono" required="required" data-parsley-type="digits">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="estatus" class="col-md-2 col-form-label">Estatus</label>
+                                    <select th:field="*{estatus}" class="col-md-6">
+							           <option th:value="0" th:text="Inactivo"></option>
+							           <option th:value="1" th:text="Activo"></option>
+						            </select>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="usuario" class="col-md-2 col-form-label">Usuario</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{usuario}" class="form-control" type="text" name="usuario" id="usuario" required="required">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="contrasena" class="col-md-2 col-form-label">Password</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{contrasena}" class="form-control" type="password" name="contrasena" id="contrasena" required="required">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="rolid" class="col-md-2 col-form-label">Perfil</label>
+                                    <select th:field="*{rolid}" class="col-md-6">
+							           <option th:value="1" th:text="Usuario"></option>
+							           <option th:value="2" th:text="Administrador"></option>
+						            </select>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>                           
+                        </div>                        
+                        <div class="card-footer text-center">
+                           <button class="btn btn-info" type="submit">Registrar</button>
+                        </div>
+                     </div>
+                     <!-- END card-->
+                  </form>
+               </div>
+            </div>
+            <!-- END row-->
+         </div>
+      </section>
+      <!-- Page footer-->
+      <footer class="footer-container">
+         <span></span>
+      </footer>
+   </div>
+   <!-- =============== VENDOR SCRIPTS ===============-->
+   <!-- MODERNIZR-->
+   <script src="vendor/modernizr/modernizr.custom.js"></script>
+   <!-- STORAGE API-->
+   <script src="vendor/js-storage/js.storage.js"></script>
+   <!-- SCREENFULL-->
+   <script src="vendor/screenfull/dist/screenfull.js"></script>
+   <!-- i18next-->
+   <script src="vendor/i18next/i18next.js"></script>
+   <script src="vendor/i18next-xhr-backend/i18nextXHRBackend.js"></script>
+   <script src="vendor/jquery/dist/jquery.js"></script>
+   <script src="vendor/popper.js/dist/umd/popper.js"></script>
+   <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+   <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+   <!-- PARSLEY-->
+   <script src="vendor/parsleyjs/dist/parsley.js"></script>
+   <!-- =============== APP SCRIPTS ===============-->
+   <script src="js/app.js"></script>
+</body>
+
+</html>

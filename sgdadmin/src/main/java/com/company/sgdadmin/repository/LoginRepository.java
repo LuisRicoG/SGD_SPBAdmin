@@ -13,8 +13,7 @@ import org.springframework.stereotype.Repository;
  *
  */
 @Repository
-public interface LoginRepository extends CrudRepository<LoginEntity,Integer>{
-	
-	LoginEntity findByUsuarioAndContrasena(String usuario,String contrasena);
-
+public interface LoginRepository extends CrudRepository<LoginEntity,Integer>{	
+    LoginEntity findByUsuarioAndContrasena(String usuario,String contrasena);
+    LoginEntity findByUsuario(String usuario);
 }
