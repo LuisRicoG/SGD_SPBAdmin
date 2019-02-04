@@ -17,9 +17,10 @@ public class Login {
 	private String apellidomaterno;
 	private String correoelectronico;
 	private String telefono;
-	private String estatus;	
+	private Integer estatus;	
 	private String usuario;	
 	private String contrasena;
+        private Integer rolid;
 
 	/**
 	 * @return the usuarioid
@@ -122,14 +123,14 @@ public class Login {
 	/**
 	 * @return the estatus
 	 */
-	public String getEstatus() {
+	public Integer getEstatus() {
 		return estatus;
 	}
 
 	/**
 	 * @param estatus the estatus to set
 	 */
-	public void setEstatus(String estatus) {
+	public void setEstatus(Integer estatus) {
 		this.estatus = estatus;
 	}
 
@@ -160,5 +161,12 @@ public class Login {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
-	
+        
+        public Integer getRolid() {
+            return rolid;
+        }
+
+        public void setRolid(Integer rolid) {
+            this.rolid = rolid;
+        }	
 }

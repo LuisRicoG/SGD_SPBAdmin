@@ -19,7 +19,6 @@ public class RolEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Integer rol_id;
-	public Integer usuario_id;
 	public String nombre;
 	/**
 	 * @return the rol_id
@@ -32,18 +31,6 @@ public class RolEntity {
 	 */
 	public void setRol_id(Integer rol_id) {
 		this.rol_id = rol_id;
-	}
-	/**
-	 * @return the usuario_id
-	 */
-	public Integer getUsuario_id() {
-		return usuario_id;
-	}
-	/**
-	 * @param usuario_id the usuario_id to set
-	 */
-	public void setUsuario_id(Integer usuario_id) {
-		this.usuario_id = usuario_id;
 	}
 	/**
 	 * @return the nombre

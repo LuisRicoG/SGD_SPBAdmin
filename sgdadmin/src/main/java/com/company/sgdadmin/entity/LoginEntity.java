@@ -29,13 +29,14 @@ public class LoginEntity {
 	public String apellido_materno;
 	public String correo_electronico;
 	public String telefono;
-	public String estatus;
+	public Integer estatus;
 	public String usuario;
 	public String contrasena;
+        public Integer rol_id;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "rol")
-	@JoinColumn(name = "usuario_id",referencedColumnName="usuario_id",insertable=false, updatable=false)
+	@JoinColumn(name = "rol_id",referencedColumnName="rol_id",insertable=false, updatable=false)
 	private List<RolEntity> roles;
 	
 	/**
@@ -137,13 +138,13 @@ public class LoginEntity {
 	/**
 	 * @return the estatus
 	 */
-	public String getEstatus() {
+	public Integer getEstatus() {
 		return estatus;
 	}
 	/**
 	 * @param estatus the estatus to set
 	 */
-	public void setEstatus(String estatus) {
+	public void setEstatus(Integer estatus) {
 		this.estatus = estatus;
 	}
 	/**
@@ -169,5 +170,13 @@ public class LoginEntity {
 	 */
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
-	}		
+	}
+        
+        public Integer getRol_id() {
+            return rol_id;
+        }
+
+        public void setRol_id(Integer rol_id) {
+            this.rol_id = rol_id;
+        }
 }

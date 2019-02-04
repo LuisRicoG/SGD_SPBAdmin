@@ -35,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Value("select usuario as username, contrasena as password, estatus as enabled from usuario where usuario=?")
     private String userQuery;
 
-    @Value("select u.usuario as username, r.nombre as authority from usuario u join rol r on(u.usuario_id = r.usuario_id) where u.usuario = ? ")
+    @Value("select u.usuario as username, r.nombre as authority from usuario u join rol r on(u.rol_id = r.rol_id) where u.usuario = ? ")
     private String roleQuery;
 
     @Autowired
@@ -55,9 +55,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
             .antMatchers("/static/**").permitAll()
             .antMatchers("/css/**").permitAll()
             .antMatchers("/images/**").permitAll()
+            .antMatchers("/vendor/**").permitAll()
             .antMatchers("/js/**").permitAll()
             .antMatchers("/menu").hasRole("ADMIN")
-            .antMatchers("/listausuarios").hasRole("ADMIN")     
+            .antMatchers("/listausuarios").hasRole("ADMIN")
+            .antMatchers("/nuevousuario").hasRole("ADMIN")
+            .antMatchers("/registro").hasRole("ADMIN")    
             .antMatchers("/administradorusuarios").hasRole("ADMIN")
             .antMatchers("/cargaarchivos").hasRole("ADMIN")
             .anyRequest().authenticated()

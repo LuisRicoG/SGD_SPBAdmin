@@ -14,11 +14,19 @@ public class WebConfig  implements WebMvcConfigurer  {
         registry.addResourceHandler(
                 "/static/images/**",
                 "/static/css/**",
-                "/static/js/**")
+                "/static/js/**",
+                "/images/**",
+                "/css/**",
+                "/js/**",
+                "/vendor/**")
                 .addResourceLocations(
                         "classpath:/static/images/",
                         "classpath:/static/css/",
-                        "classpath:/static/js/");	
+                        "classpath:/static/js/",
+                        "classpath:/images/",
+                        "classpath:/css/",
+                        "classpath:/js/",
+                        "classpath:/vendor/");	
 		
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 	}
