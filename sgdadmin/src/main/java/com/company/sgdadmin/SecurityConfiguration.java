@@ -25,11 +25,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  */
 @Configuration
 @EnableAutoConfiguration
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+
     @Autowired
     private DataSource dataSource;
 
-    @Autowired 
+    @Autowired
     LoginRepository loginRepository;
 
     @Value("select usuario as username, contrasena as password, estatus as enabled from usuario where usuario=?")
@@ -41,64 +42,65 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Autowired
     protected void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
-            .dataSource(dataSource)
-            .usersByUsernameQuery(userQuery)
-            .authoritiesByUsernameQuery(roleQuery)
-            .passwordEncoder(new BCryptPasswordEncoder());
+                .dataSource(dataSource)
+                .usersByUsernameQuery(userQuery)
+                .authoritiesByUsernameQuery(roleQuery)
+                .passwordEncoder(new BCryptPasswordEncoder());
     }
-	
+
     @Override
-    protected void configure(HttpSecurity http) throws Exception {		
-	http
-            .authorizeRequests()
-            .antMatchers("/","/index").permitAll()
-            .antMatchers("/static/**").permitAll()
-            .antMatchers("/css/**").permitAll()
-            .antMatchers("/images/**").permitAll()
-            .antMatchers("/vendor/**").permitAll()
-            .antMatchers("/js/**").permitAll()
-            .antMatchers("/menu").hasRole("ADMIN")
-            .antMatchers("/listausuarios").hasRole("ADMIN")
-            .antMatchers("/nuevousuario").hasRole("ADMIN")
-            .antMatchers("/registro").hasRole("ADMIN")    
-            .antMatchers("/administradorusuarios").hasRole("ADMIN")
-            .antMatchers("/cargaarchivos").hasRole("ADMIN")
-            .antMatchers("/upload").hasRole("ADMIN")
-            .antMatchers("/js").hasRole("ADMIN")
-            .antMatchers("/selectdinamico").hasRole("ADMIN")
-            .anyRequest().authenticated()
-            .and()
-        .formLogin()
-            .loginPage("/index").failureUrl("/500")
-            .permitAll()
-            .and()               
-        .logout()
-            .permitAll()
-            .clearAuthentication(true);
-		
-	http
-            .formLogin()
-            .permitAll().and().sessionManagement().maximumSessions(1);
-    
-	http
-            .headers()
-            .contentTypeOptions()
-            .and()
-            .xssProtection()
-            .and()
-            .cacheControl()
-            .and()
-            .httpStrictTransportSecurity()
-            .and()
-            .frameOptions();
-   
-	http
-            .exceptionHandling()
-            .accessDeniedPage("/403");
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .authorizeRequests()
+                .antMatchers("/", "/index").permitAll()
+                .antMatchers("/static/**").permitAll()
+                .antMatchers("/css/**").permitAll()
+                .antMatchers("/images/**").permitAll()
+                .antMatchers("/vendor/**").permitAll()
+                .antMatchers("/js/**").permitAll()
+                .antMatchers("/menu").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/listausuarios").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/nuevousuario").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/registro").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/administradorusuarios").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/cargaarchivos").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/upload").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/js").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/selectdinamico").hasAnyRole("USER", "ADMIN")
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/index").failureUrl("/500")
+                .permitAll()
+                .defaultSuccessUrl("/menu", true)
+                .and()
+                .logout()
+                .permitAll()
+                .clearAuthentication(true);
+
+        http
+                .formLogin()
+                .permitAll().and().sessionManagement().maximumSessions(1);
+
+        http
+                .headers()
+                .contentTypeOptions()
+                .and()
+                .xssProtection()
+                .and()
+                .cacheControl()
+                .and()
+                .httpStrictTransportSecurity()
+                .and()
+                .frameOptions();
+
+        http
+                .exceptionHandling()
+                .accessDeniedPage("/403");
     }
 
     @Bean
     public static NoOpPasswordEncoder passwordEncoder() {
-	return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
+        return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
     }
 }
