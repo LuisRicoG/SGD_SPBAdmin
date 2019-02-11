@@ -65,7 +65,13 @@ ing_farias@live.com
     <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
     <!-- modernizr JS
 		============================================ -->
+    <script src="static/js/jquery.bootgrid.min.js"></script>
+    <!-- modernizr JS
+		============================================ -->
     <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- modernizr JS
+		============================================ -->
+    <script src="static/js/vendor/administadorusuarios.js"></script>
 </head>
 
 
@@ -85,11 +91,11 @@ ing_farias@live.com
                     <ul class="metismenu" id="menu1">
 
                         <li>
-                            <a title="estadosfinancieros" href="/sgd/cargaarchivos" aria-expanded="false"><span class="mini-click-non">CARGA DE ARCHIVOS</span></a>
+                            <a title="estadosfinancieros" href="/SGDADMIN/cargaarchivos" aria-expanded="false"><span class="mini-click-non">CARGA DE ARCHIVOS</span></a>
                         </li>
 
                          <li>
-                            <a title="reporteventas" href="/sgd/administradorusuarios" aria-expanded="false"><span  aria-hidden="true"></span> <span class="mini-click-non">ADMINISTRACION DE <br>USUARIOS</span></a>
+                            <a title="reporteventas" href="/SGDADMIN/administradorusuarios" aria-expanded="false"><span  aria-hidden="true"></span> <span class="mini-click-non">ADMINISTRACION DE <br>USUARIOS</span></a>
                         </li>      
                           
                        
@@ -226,7 +232,6 @@ ing_farias@live.com
                                                 </li>
                                                 <li><a href="modificausuarios">Moficacion de Usuarios</a>
                                                 </li>
-
                                             </ul>
                                         </li>
                                     </ul>
@@ -261,20 +266,86 @@ ing_farias@live.com
             </div>
         </div>
 
-        
+<!--        
         <div class="breadcome-area">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th th:text="nombre" />
+                        <th th:text="ap_paterno" />
+                        <th th:text="ap_materno" />
+                        <th th:text="estatus" />
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="usuario, iStat : ${loginPage.content}"
+                        th:style="${iStat.odd}? 'font-weight: bold;'"
+                        th:alt-title="${iStat.even}? 'even' : 'odd'">
+                        <td th:text="${usuario.nombre1} +' '+ ${usuario.nombre2}" />
+                        <td th:text="${usuario.apellido_paterno}" />
+                        <td th:text="${usuario.apellido_materno}" />
+                        <td th:text="${usuario.estatus}" />
+                     </tr>
+                </tbody>
+            </table>-->
+            <div>
+                <h4>Usuarios</h4>
+                <div class="add-product">
+                    <a href="add-department.html">Add Departments</a>
+                </div>
+                <div class="asset-inner">
+                <table id="grid-data" class="table table-condensed table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">nombre</span><span class="icon fa"></span></a></th>
+                            <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ap.paterno</span><span class="icon fa"></span></a></th>
+                            <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ap.materno</span><span class="icon fa"></span></a></th>
+                            <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">estatus</span><span class="icon fa"></span></a></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="usuario, iStat : ${loginPage.content}"
+                            th:style="${iStat.odd}? 'font-weight: bold;'"
+                            th:alt-title="${iStat.even}? 'even' : 'odd'">
+                            <td th:text="${usuario.nombre1} +' '+ ${usuario.nombre2}" />
+                            <td th:text="${usuario.apellido_paterno}" />
+                            <td th:text="${usuario.apellido_materno}" />
+                            <td >
+                                <button th:style="${usuario.estatus}=='1'? 'pd-setting':'ds-setting'">Active</button>
+                            </td>
+                         </tr>
+                    </tbody>
+                </table>
+                </div>
+                <div class="custom-pagination">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination" th:if="${loginPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+                            <li class="page-item"><a th:href="@{/administradorusuarios(size=${loginPage.size}, page=${pageNumber})}" 
+                            th:text=${pageNumber} th:class="page-link"></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
             
-            <h1> AQUI VA TODO EL DESMADRE ESTA ES LA VENTANA PRINCIPAL</h1>
-            
+<!--            <nav aria-label="Page navigation example">
+                <ul class="pagination" th:if="${loginPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
+                    <li class="page-item"><a th:href="@{/administradorusuarios(size=${loginPage.size}, page=${pageNumber})}" 
+                    th:text=${pageNumber} th:class="page-link"></a>
+                    </li>
+                </ul>
+            </nav>-->
+<!--            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>-->
         </div>
-        
-        
-        
-        
-        
-        
-        
-        
+
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
