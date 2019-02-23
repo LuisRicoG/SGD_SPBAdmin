@@ -5,7 +5,6 @@ package com.company.sgdadmin.controller;
 
 import com.company.sgdadmin.util.Encoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.ui.Model;
 import com.company.sgdadmin.beans.Login;
@@ -13,7 +12,6 @@ import com.company.sgdadmin.entity.LoginEntity;
 import com.company.sgdadmin.repository.LoginRepository;
 import com.company.sgdadmin.service.ListaUsuariosService;
 import com.company.sgdadmin.service.UsuarioService;
-import java.awt.print.Book;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
