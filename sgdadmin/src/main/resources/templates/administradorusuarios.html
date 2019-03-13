@@ -42,9 +42,6 @@ ing_farias@live.com
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="static/js/vendor/administadorusuarios.js"></script>
     
     <!-- jquery
                 ============================================ -->
@@ -58,6 +55,15 @@ ing_farias@live.com
     <!-- main JS
                 ============================================ -->
     <script src="static/js/main.js"></script>    
+    <!-- jsGrid
+                ============================================ -->    
+    <link type="text/css" rel="stylesheet" href="static/js/jsgrid/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="static/js/jsgrid/jsgrid-theme.min.css" />
+
+    <script type="text/javascript" src="static/js/jsgrid/jsgrid.min.js"></script> 
+    <!-- view JS
+		============================================ -->
+    <script src="static/js/view/administadorusuarios.js"></script>    
 </head>
     <body>
         <!--[if lt IE 8]>
@@ -129,155 +135,9 @@ ing_farias@live.com
                     </div>
                 </div>
             </div>
-            <div>
-                <h4>Usuarios</h4>             
-                <div class="asset-inner">
-                    <table id="grid-data" class="table table-condensed table-hover table-striped">
-                            <thead>
-                                    <tr>
-                                <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">nombre</span><span class="icon fa"></span></a></th>
-                                <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ap.paterno</span><span class="icon fa"></span></a></th>
-                                <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ap.materno</span><span class="icon fa"></span></a></th>
-                                <th data-column-id="id" class="text-left"><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">estatus</span><span class="icon fa"></span></a></th>
-                                        </tr>
-                                </thead>
-                            <tbody>
-                                    <tr th:each="usuario, iStat : ${loginPage.content}" 
-                                        th:style="${iStat.odd}? 'font-weight: bold;'" 
-                                        th:alt-title="${iStat.even}? 'even' : 'odd'">
-                                            <td th:text="${usuario.nombre1} +' '+ ${usuario.nombre2}" />
-                                            <td th:text="${usuario.apellido_paterno}" />
-                                            <td th:text="${usuario.apellido_materno}" />
-                                            <td><button th:style="${usuario.estatus}=='1'? 'pd-setting':'ds-setting'"
-                                                        data-toggle="modal" data-target="#exampleModal">Active</button></td>
-                                    </tr>
-                            </tbody>
-                    </table>
-                </div>
-                <div class="custom-pagination">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination" th:if="${loginPage.totalPages > 0}" th:each="pageNumber : ${pageNumbers}">
-                            <li class="page-item"><a th:href="@{/administradorusuarios(size=${loginPage.size}, page=${pageNumber})}" 
-                                                     th:text=${pageNumber} th:class="page-link"></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="card-body">
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="nombre1" class="col-md-2 col-form-label">Nombre</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{nombre1}" class="form-control" type="text" name="nombre1" id="nombre1" required="required">
-                                            </div>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="nombre2" class="col-md-2 col-form-label">Segundo Nombre</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{nombre1}" class="form-control" type="text" name="nombre2" id="nombre2">
-                                            </div>
-                                            <div class="col-md-4"><code></code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="apellidopaterno" class="col-md-2 col-form-label">Apellido Paterno</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{apellidopaterno}" class="form-control" type="text" name="apellidopaterno" id="apellidopaterno" required="required">
-                                            </div>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="apellidomaterno" class="col-md-2 col-form-label">Apellido Materno</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{apellidomaterno}" class="form-control" type="text" name="apellidomaterno" id="apellidomaterno" required="required">
-                                            </div>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>						   
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="correoelectronico" class="col-md-2 col-form-label">Correo Electrónico</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{correoelectronico}" class="form-control" type="email" name="correoelectronico" id="correoelectronico" required="required" data-parsley-type="email">
-                                            </div>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="telefono" class="col-md-2 col-form-label">Teléfono</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{telefono}" class="form-control" type="text" name="telefono" id="telefono" required="required" data-parsley-type="digits">
-                                            </div>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="estatus" class="col-md-2 col-form-label">Estatus</label>
-                                            <select th:field="*{estatus}" class="col-md-6">
-                                                <option th:value="0" th:text="Inactivo"></option>
-                                                <option th:value="1" th:text="Activo"></option>
-                                            </select>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="usuario" class="col-md-2 col-form-label">Usuario</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{usuario}" class="form-control" type="text" name="usuario" id="usuario" required="required">
-                                            </div>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="contrasena" class="col-md-2 col-form-label">Password</label>
-                                            <div class="col-md-6">
-                                                <input th:field="*{contrasena}" class="form-control" type="password" name="contrasena" id="contrasena" required="required">
-                                            </div>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="form-group row">
-                                            <label for="rolid" class="col-md-2 col-form-label">Perfil</label>
-                                            <select th:field="*{rolid}" class="col-md-6">
-                                                <option th:value="1" th:text="Usuario"></option>
-                                                <option th:value="2" th:text="Administrador"></option>
-                                            </select>
-                                            <div class="col-md-4"><code>*</code></div>
-                                        </div>
-                                    </fieldset>                           
-                                </div>                        
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>                   
-            </div>           
-        </div>
+
+            <div id="jsGrid"></div>
+            
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">

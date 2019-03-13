@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class AdmintradorUsuariosController {
@@ -100,5 +101,11 @@ public class AdmintradorUsuariosController {
             model.addAttribute("pageNumbers", pageNumbers);
         }
         return "administradorusuarios";
+    }
+    
+    @GetMapping("/jsonlist")
+    @ResponseBody
+    public List<LoginEntity> listaJSON() {
+        return (List<LoginEntity>) loginRepository.findAll();
     }
 }
