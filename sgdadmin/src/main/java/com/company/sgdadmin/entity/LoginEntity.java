@@ -34,23 +34,6 @@ public class LoginEntity {
 	public String contrasena;
         public Integer rol_id;
 	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "rol")
-	@JoinColumn(name = "rol_id",referencedColumnName="rol_id",insertable=false, updatable=false)
-	private List<RolEntity> roles;
-	
-	/**
-	 * @return the roles
-	 */
-	public List<RolEntity> getRoles() {
-		return roles;
-	}
-	/**
-	 * @param roles the roles to set
-	 */
-	public void setRoles(List<RolEntity> roles) {
-		this.roles = roles;
-	}
 	/**
 	 * @return the usuario_id
 	 */
