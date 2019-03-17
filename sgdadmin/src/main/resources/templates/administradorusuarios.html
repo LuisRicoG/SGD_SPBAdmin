@@ -1,0 +1,154 @@
+<!--
+ing_farias@live.com
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Administrador de Usuarios</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="images/x-icon" href="static/images/favicon.ico">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/font-awesome.min.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/main.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
+    
+    <!-- jquery
+                ============================================ -->
+    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+                ============================================ -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- plugins JS
+                ============================================ -->
+    <script src="static/js/plugins.js"></script>
+    <!-- main JS
+                ============================================ -->
+    <script src="static/js/main.js"></script>    
+    <!-- jsGrid
+                ============================================ -->    
+    <link type="text/css" rel="stylesheet" href="static/js/jsgrid/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="static/js/jsgrid/jsgrid-theme.min.css" />
+
+    <script type="text/javascript" src="static/js/jsgrid/jsgrid.min.js"></script> 
+    <!-- view JS
+		============================================ -->
+    <script src="static/js/view/administadorusuarios.js"></script>    
+</head>
+    <body>
+        <!--[if lt IE 8]>
+                    <p class="browserupgrade">You are using an <strong>outdated</strong> browser.</p>
+            <![endif]-->
+        <!-- Start Header menu area -->
+        <div class="left-sidebar-pro">
+            <nav id="sidebar" class="">
+                <div class="sidebar-header">
+                    <a href="menu.mvc"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                    <strong><a href="login.mvc"><img src="static/images/logo/logocow.png" alt="" /></a></strong>
+                </div>
+                <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                    <nav class="sidebar-nav left-sidebar-menu-pro">
+                        <ul class="metismenu" id="menu1">
+                            <li>
+                                <a title="estadosfinancieros" href="/SGDADMIN/cargaarchivos" aria-expanded="false"><span class="mini-click-non">CARGA DE ARCHIVOS</span></a>
+                            </li>
+                            <li>
+                                <a title="reporteventas" href="/SGDADMIN/administradorusuarios" aria-expanded="false"><span  aria-hidden="true"></span> <span class="mini-click-non">ADMINISTRACION DE <br>USUARIOS</span></a>
+                            </li>    
+                        </ul>
+                    </nav>
+                </div>
+            </nav>
+        </div>
+        <!-- End Header menu area -->
+        <!-- Start Welcome area -->
+        <div class="all-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="logo-pro">
+                            <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-advance-area">
+                <div class="header-top-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="header-top-wraper">
+                                    <div class="row">
+                                        <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                            <div class="menu-switcher-pro">
+                                                <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn"></button>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                            <div class="header-right-info">
+                                                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                    <li class="nav-item">
+                                                        <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                            <span class="admin-name">Usuario</span>
+                                                        </a>
+                                                        <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                            <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="jsGrid"></div>
+            
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>
