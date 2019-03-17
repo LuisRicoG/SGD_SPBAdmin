@@ -17,7 +17,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 import com.company.sgdadmin.repository.LoginRepository;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -60,18 +59,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/vendor/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/menu").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/jsonlist").permitAll()
                 .antMatchers("/listausuarios").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/nuevousuario").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/registro").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/administradorusuarios").hasAnyRole("USER", "ADMIN")
-//                .antMatchers("/cargaarchivos").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/cargaarchivos").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/upload").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/js").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/selectdinamico").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/escrituras").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.GET, "/cargaarchivos").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/administradorusuarios").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/editarcifras").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/registrocifra").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
