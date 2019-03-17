@@ -18,6 +18,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import javax.faces.bean.ManagedBean;
 import javax.servlet.http.HttpServletResponse;
@@ -38,41 +41,12 @@ public class FileManagerImpl implements FileManager {
     HttpServletResponse response;
 
     //private static final Logger LOGGER = Logger.getLogger(FileManagerImpl.class);
-    public String uploading(FileManagerDTO dto) throws IOException {
-
-        String message = "";
-        MultipartFile file = dto.getFile();
-
-        try {
-            byte[] bytes = file.getBytes();
-
-            // Creating the directory to store file
-            String rootPath = System.getProperty("catalina.home");
-            File dir = new File(rootPath + File.separator + dirPrincipal);
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-
-            // Create the file on server
-            System.out.println("file name:" + file.getOriginalFilename());
-            File serverFile = new File(dir.getAbsolutePath()
-                    + File.separator + file.getOriginalFilename());
-            BufferedOutputStream stream = new BufferedOutputStream(
-                    new FileOutputStream(serverFile));
-            stream.write(bytes);
-            stream.close();
-
-            DocumentosActivosEntity entity = new DocumentosActivosEntity();
-            entity.setFecha(new Timestamp(System.currentTimeMillis()));
-            entity.setRuta(dir.getAbsolutePath());
-            entity.setNombre(file.getOriginalFilename());
-            entity.setUsuario_id(1);
-            repository.save(entity);
-            message = "You successfully uploaded file=" + file.getOriginalFilename();
-        } catch (Exception e) {
-//                return "You failed to upload " + name + " => " + e.getMessage();
+    public void uploading(FileManagerDTO dto) throws IOException {
+  if(!dto.getFile().isEmpty()){
+            byte[] bytes = dto.getFile().getBytes();
+            Path path = Paths.get(dto.getName());
+            Files.write(path,bytes);
         }
-        return message;
     }
 
     /**
