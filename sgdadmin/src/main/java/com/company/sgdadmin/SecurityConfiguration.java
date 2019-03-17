@@ -67,6 +67,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/upload").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/js").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/selectdinamico").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/editarcifras").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/registrocifra").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
