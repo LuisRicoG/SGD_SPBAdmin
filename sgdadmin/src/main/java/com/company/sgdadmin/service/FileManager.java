@@ -13,6 +13,6 @@ import java.io.IOException;
  * @author JEPPLAP
  */
 public interface FileManager {
-public String uploading(FileManagerDTO dto) throws IOException;
+public void uploading(FileManagerDTO dto) throws IOException;
 public void downloadFile(DocumentosActivosEntity entidad) throws IOException;
 }

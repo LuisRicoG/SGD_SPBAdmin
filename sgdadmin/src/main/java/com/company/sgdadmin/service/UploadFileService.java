@@ -10,6 +10,8 @@ import java.nio.file.Paths;
 
 @Service
 public class UploadFileService {
+    
+
 
     String rootPath = System.getProperty("catalina.home");
     private String upload_folder = "rootPath + File.separator + \"almacendocumental\\\\docunicos\\\\DocLegal\\\\escrituras\\\\actaconstitutiva\" + File.separator";
