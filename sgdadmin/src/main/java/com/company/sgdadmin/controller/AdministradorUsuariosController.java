@@ -19,14 +19,23 @@ import java.util.stream.IntStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class AdmintradorUsuariosController {
+@RequestMapping("/administradorusuarios")
+
+public class AdministradorUsuariosController {
 
     @Autowired
     private LoginRepository loginRepository;
@@ -37,16 +46,14 @@ public class AdmintradorUsuariosController {
     @Autowired
     private ListaUsuariosService service;
 
-     AdmintradorUsuariosController(ListaUsuariosService listaUsuariosService){
-         this.service = listaUsuariosService;
-        
+    AdministradorUsuariosController(ListaUsuariosService listaUsuariosService) {
+        this.service = listaUsuariosService;
+
     }
-    //@RequestMapping(value = "/administradorusuarios")
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView sayHello() {
         ModelAndView mv = new ModelAndView();
-        //mv.addObject("message", "Hello Reader!");
         mv.setViewName("administradorusuarios");
-        //listaUsuarios(mv.get, 0, 10);
         return mv;
     }
 
@@ -81,7 +88,7 @@ public class AdmintradorUsuariosController {
         }
     }
 
-    @GetMapping("/administradorusuarios")
+
     public String listaUsuarios(
             Model model,
             @RequestParam("page") Optional<Integer> page,
@@ -102,10 +109,22 @@ public class AdmintradorUsuariosController {
         }
         return "administradorusuarios";
     }
-    
-    @GetMapping("/jsonlist")
+
+    @GetMapping("/userlist")
     @ResponseBody
     public List<LoginEntity> listaJSON() {
         return (List<LoginEntity>) loginRepository.findAll();
+    }
+
+    @PutMapping("updateUser/{id}")
+    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody Login login) {
+
+        //login = customerDAO.update(id, login);
+
+        if (null == login) {
+            return new ResponseEntity("No Customer found for ID " + id, HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity(login, HttpStatus.OK);
     }
 }

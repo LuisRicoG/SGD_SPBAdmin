@@ -70,6 +70,7 @@ $(document).ready(function () {
     var formSubmitHandler = $.noop;
 
     var showDetailsDialog = function (dialogType, client) {
+        $("#usuarioid").val(client.usuarioid);
         $("#nombre1").val(client.nombre1);
         $("#nombre2").val(client.nombre2);
         $("#apellido_paterno").val(client.apellido_paterno);
@@ -90,6 +91,7 @@ $(document).ready(function () {
 
     var saveClient = function (client, isNew) {
         $.extend(client, {
+            usuario_id: $("#usuario_id").val(client.usuario_id),
             nombre1: $("#nombre1").val(client.nombre1),
             nombre2: $("#nombre2").val(client.nombre2),
             apellido_paterno: $("#apellido_paterno").val(client.apellido_paterno),
@@ -97,8 +99,14 @@ $(document).ready(function () {
             correo_electronico: $("#correo_electronico").val(client.correo_electronico),
             telefono: $("#telefono").val(client.telefono),
             estatus: $("#estatus").val(client.estatus),
-            usuario: $("#usuario").val(client.usuario)          
+            usuario: $("#usuario").val(client.usuario),          
+            pass: $("#pass").val(client.pass),          
+            pass1: $("#pass1").val(client.pass1)          
         });
+        
+        if(client.pass !==client.pass1){
+            alert("las contraseñas ingresadas deben ser iguales");
+        }
 
         $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", client);
 
@@ -106,14 +114,14 @@ $(document).ready(function () {
     };
 });
 
-var url = "/SGDADMIN/";
+var url = "/SGDADMIN/administradorusuarios/";
 var clients;
 var controllers = {
     loadData: function () {
         var deferred = $.Deferred();
 
         $.ajax({
-            url: url + "jsonlist",
+            url: url + "userlist",
             success: function (data) {
                 deferred.resolve(data);
             }
@@ -133,8 +141,11 @@ var controllers = {
     updateItem: function (item) {
         return $.ajax({
             type: "PUT",
-            url: "/items",
-            data: item
+            url: "/updateUser",
+            data: item,
+            success: function (data) {
+                return data;
+            }            
         });
     },
 

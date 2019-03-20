@@ -7,21 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/menu")
 public class MenuController {
-	
-    @RequestMapping(value = "/menu")
+
+    @RequestMapping(method = RequestMethod.GET)
     public ModelAndView sayHello() {
-    	ModelAndView mv = new ModelAndView();
-        //mv.addObject("message", "Hello Reader!");
-        mv.setViewName("menu2");
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("menu");
         return mv;
     }
-    @RequestMapping(value = "/menu", method = RequestMethod.POST)
-    public ModelAndView menu(@ModelAttribute String vinculo) {
-        System.out.println("ingreso :" + vinculo);
-    	ModelAndView mv = new ModelAndView();
-        mv.setViewName("menu2");
-        return mv;
-    }    
 }
-
