@@ -14,10 +14,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class Encoder {
 	
     public static void main(String args[]){
-        System.out.println(Encoder.getEncodePassword("reach2106"));
-        System.out.println(Encoder.getEncodePassword("luisrico23"));
-        System.out.println(Encoder.getEncodePassword("georchito"));
-        System.out.println(Encoder.getEncodePassword("chuwy"));
+        System.out.println("Allan " + Encoder.getEncodePassword("reach2106"));
+        System.out.println("Luis " + Encoder.getEncodePassword("luisrico23"));
+        System.out.println("yo " + Encoder.getEncodePassword("jepp"));
+        System.out.println("Chuwy " + Encoder.getEncodePassword("chuwy"));
     }
 	
     public static String getEncodePassword(String password) {
