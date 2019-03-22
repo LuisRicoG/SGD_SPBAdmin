@@ -8,7 +8,7 @@ $(document).ready(function () {
         sorting: true,
         paging: true,
         autoload: true,
-        pageSize: 15,
+        pageSize: 5,
         pageButtonCount: 5,
         rowClick: function (args) {
             showDetailsDialog("Editar", args.item);
@@ -29,6 +29,8 @@ $(document).ready(function () {
                 type: "control",
                 modeSwitchButton: false,
                 editButton: false,
+                addButton: false,
+                deleteButton: false,
                 headerTemplate: function () {
                     return $("<button>").attr("type", "button").text("Add")
                             .on("click", function () {
