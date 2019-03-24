@@ -9,7 +9,14 @@ $(document).ready(function () {
         paging: true,
         autoload: true,
         pageSize: 5,
-        pageButtonCount: 5,
+        pageButtonCount: 5, 
+        pagerFormat: "Pag: {first} {prev} {pages} {next} {last}    {pageIndex} of {pageCount}",
+        pagePrevText: "Prev",
+        pageNextText: "Siguiente",
+        pageFirstText: "Primero",
+        pageLastText: "Último",
+        pageNavigatorNextText: "...",
+        pageNavigatorPrevText: "...",
         rowClick: function (args) {
             showDetailsDialog("Editar", args.item);
         },
@@ -41,17 +48,16 @@ $(document).ready(function () {
         ]
     });
 
-
     $("#detailsDialog").dialog({
         autoOpen: false,
         width: 400,
         close: function () {
-            //$("#detailsForm").validate().resetForm();
+            $("#detailsForm").validate().resetForm();
             $("#detailsForm").find(".error").removeClass("error");
         }
     });
 
-//    $("#detailsForm").validate({
+    $("#detailsForm").validate({
 //        rules: {
 //            name: "required",
 //            age: {required: true, range: [18, 150]},
@@ -64,15 +70,15 @@ $(document).ready(function () {
 //            address: "Please enter address (more than 10 chars)",
 //            country: "Please select country"
 //        },
-//        submitHandler: function () {
-//            formSubmitHandler();
-//        }
-//    });
+        submitHandler: function () {
+            formSubmitHandler();
+        }
+    });
 
     var formSubmitHandler = $.noop;
 
     var showDetailsDialog = function (dialogType, client) {
-        $("#usuarioid").val(client.usuarioid);
+        $("#usuario_id").val(client.usuario_id);
         $("#nombre1").val(client.nombre1);
         $("#nombre2").val(client.nombre2);
         $("#apellido_paterno").val(client.apellido_paterno);
@@ -81,8 +87,10 @@ $(document).ready(function () {
         $("#telefono").val(client.telefono);
         $("#estatus").val(client.estatus);
         $("#usuario").val(client.usuario);
+        $("#pass").val(client.contrasena);
+        $("#pass1").val(client.contrasena);        
 
-      
+
         formSubmitHandler = function () {
             saveClient(client, dialogType === "Agregar");
         };
@@ -93,20 +101,19 @@ $(document).ready(function () {
 
     var saveClient = function (client, isNew) {
         $.extend(client, {
-            usuario_id: $("#usuario_id").val(client.usuario_id),
-            nombre1: $("#nombre1").val(client.nombre1),
-            nombre2: $("#nombre2").val(client.nombre2),
-            apellido_paterno: $("#apellido_paterno").val(client.apellido_paterno),
-            apellido_materno: $("#apellido_materno").val(client.apellido_materno),
-            correo_electronico: $("#correo_electronico").val(client.correo_electronico),
-            telefono: $("#telefono").val(client.telefono),
-            estatus: $("#estatus").val(client.estatus),
-            usuario: $("#usuario").val(client.usuario),          
-            pass: $("#pass").val(client.pass),          
-            pass1: $("#pass1").val(client.pass1)          
+            usuario_id: $("#usuario_id").val(),
+            nombre1: $("#nombre1").val(),
+            nombre2: $("#nombre2").val(),
+            apellido_paterno: $("#apellido_paterno").val(),
+            apellido_materno: $("#apellido_materno").val(),
+            correo_electronico: $("#correo_electronico").val(),
+            telefono: $("#telefono").val(),
+            estatus: $("#estatus").val(),
+            usuario: $("#usuario").val(),
+            contrasena: $("#pass").val()
         });
-        
-        if(client.pass !==client.pass1){
+
+        if (client.pass !== client.pass1) {
             alert("las contraseñas ingresadas deben ser iguales");
         }
 
@@ -143,11 +150,11 @@ var controllers = {
     updateItem: function (item) {
         return $.ajax({
             type: "PUT",
-            url: "/updateUser",
+            url: url + "updateUser",
             data: item,
             success: function (data) {
                 return data;
-            }            
+            }
         });
     },
 

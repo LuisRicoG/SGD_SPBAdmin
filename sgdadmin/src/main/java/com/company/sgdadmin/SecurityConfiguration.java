@@ -17,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 import com.company.sgdadmin.repository.LoginRepository;
+import javax.ws.rs.HttpMethod;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -69,6 +70,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/js").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/selectdinamico").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/administradorusuarios").hasAnyRole("USER", "ADMIN")
+                .antMatchers(HttpMethod.PUT,"/updateUser").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
