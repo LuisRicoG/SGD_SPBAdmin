@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/", "/index").permitAll()
+                .antMatchers("/index").permitAll()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/images/**").permitAll()
