@@ -8,18 +8,26 @@ ing_farias@live.com
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Administrador de Usuarios</title>
+    <title>Menu Administrador</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="images/x-icon" href="static/images/favicon.ico">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/bootstrap.min.css">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.theme.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.transitions.css">
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/animate.css">
@@ -32,26 +40,35 @@ ing_farias@live.com
     <!-- main CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/main.css">
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/educate-custon-icon.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/scrollbar/jquery.mCustomScrollbar.min.css">
     <!-- metisMenu CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/style.css">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
-    
+    <!-- modernizr JS
+		============================================ -->
+    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
     <!-- jquery
-                ============================================ -->
-    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-                ============================================ -->
-    <script src="static/js/bootstrap.min.js"></script>
-    <!-- plugins JS
-                ============================================ -->
-    <script src="static/js/plugins.js"></script>  
+		============================================  -->
+    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>    
     <!-- jsGrid
                 ============================================ -->    
     <link type="text/css" rel="stylesheet" href="js/jsgrid/jsgrid.min.css" />
@@ -68,19 +85,19 @@ ing_farias@live.com
     <!-- estilo para administrador de usuarios
                 ============================================ -->    
     <link type="text/css" rel="stylesheet" href="js/view/administradorusuarios.css" />
-
+    
     <script type="text/javascript" src="static/js/jqueryui/jquery-ui.min.js"></script>     
-    <script type="text/javascript" src="js/jqueryvalidation/jquery.validate.min.js"></script>     
+    <script type="text/javascript" src="js/jqueryvalidation/jquery.validate.min.js"></script>         
 </head>
-    <body>
-        <!--[if lt IE 8]>
-                    <p class="browserupgrade">You are using an <strong>outdated</strong> browser.</p>
-            <![endif]-->
-        <!-- Start Header menu area -->
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Header menu area -->
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">                
-                    <a href="menu.mvc"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                <a href="/SGDADMIN/menu"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
                 <strong><a href="login.mvc"><img src="static/images/logo/logocow.png" alt="" /></a></strong>
             </div>
             <div class="left-custom-menu-adp-wrap comment-scrollbar">
@@ -237,18 +254,17 @@ ing_farias@live.com
                                      </ul>
                                 </li>
                               
-                                  <li> 
+                                 <li> 
                                   <a class="has-arrow" aria-expanded="false"> <span class="mini-click-non">Corporativo</span></a>
                                      <ul class="submenu-angle" aria-expanded="false">
-                                <li><a href="cargaarchivos?direccion=seguroscorpoinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
-                                <li><a href="cargaarchivos?direccion=seguroscorpomaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
-                                <li><a href="cargaarchivos?direccion=seguroscorpotransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
-                                <li><a href="cargaarchivos?direccion=seguroscorpomobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
-                                <li><a href="cargaarchivos?direccion=seguroscorpoequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
+                                        <li><a href="cargaarchivos?direccion=seguroscorpoinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=seguroscorpomaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=seguroscorpotransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=seguroscorpomobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
+                                        <li><a href="cargaarchivos?direccion=seguroscorpoequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
                                      </ul>
                                 </li>
-                               </ul>
-                        
+                               </ul>                        
                         </li> 
                         
                       <li>
@@ -257,46 +273,44 @@ ing_farias@live.com
                                  <li> 
                                      <a class="has-arrow" aria-expanded="false"> <span class="mini-click-non">Engorda</span></a>
                                      <ul class="submenu-angle" aria-expanded="false">
-                                <li><a href="cargaarchivos?direccion=avaluoengordainmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluoengordamaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluoengordatransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluoengordamobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
-                                <li><a href="cargaarchivos?direccion=avaluoengordaequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
+                                        <li><a href="cargaarchivos?direccion=avaluoengordainmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluoengordamaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluoengordatransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluoengordamobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
+                                        <li><a href="cargaarchivos?direccion=avaluoengordaequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
                                      </ul>
                                 </li>
-                              <li> 
+                                <li> 
                                      <a class="has-arrow" aria-expanded="false"> <span class="mini-click-non">Rastro Tif</span></a>
                                      <ul class="submenu-angle" aria-expanded="false">
-                                  <li><a href="cargaarchivos?direccion=avaluorastroinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluorastroamaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluorastrotransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluorastromobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
-                                <li><a href="cargaarchivos?direccion=avaluorastroequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
+                                        <li><a href="cargaarchivos?direccion=avaluorastroinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluorastroamaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluorastrotransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluorastromobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
+                                        <li><a href="cargaarchivos?direccion=avaluorastroequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
                                      </ul>
                                 </li>
-                              <li> 
+                                <li> 
                                   <a class="has-arrow" aria-expanded="false"> <span class="mini-click-non">Sala de<br> Cortes</span></a>
                                      <ul class="submenu-angle" aria-expanded="false">
-                                  <li><a href="cargaarchivos?direccion=avaluocortesinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluocortesmaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluocortestransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluocortesmobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
-                                <li><a href="cargaarchivos?direccion=avaluocortesequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
+                                        <li><a href="cargaarchivos?direccion=avaluocortesinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluocortesmaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluocortestransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluocortesmobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
+                                        <li><a href="cargaarchivos?direccion=avaluocortesequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
                                      </ul>
-                                </li>
-                              
-                                  <li> 
+                                </li>                              
+                                <li> 
                                   <a class="has-arrow" aria-expanded="false"> <span class="mini-click-non">Corporativo</span></a>
                                      <ul class="submenu-angle" aria-expanded="false">
-                                <li><a href="cargaarchivos?direccion=avaluocorpoinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluocorpomaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluocorpotransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
-                                <li><a href="cargaarchivos?direccion=avaluocorpomobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
-                                <li><a href="cargaarchivos?direccion=avaluocorpoequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
+                                        <li><a href="cargaarchivos?direccion=avaluocorpoinmuebles"><span class="mini-sub-pro">Inmuebles</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluocorpomaquinaria"><span class="mini-sub-pro">Maquinaria y<br>Equipo</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluocorpotransporte"><span class="mini-sub-pro">Equipo de<br>Transporte</span></a></li>
+                                        <li><a href="cargaarchivos?direccion=avaluocorpomobiliario"><span class="mini-sub-pro">Mobiliario</span></a></li> 
+                                        <li><a href="cargaarchivos?direccion=avaluocorpoequipo"><span class="mini-sub-pro">Equipo de<br>Computo</span></a></li>  
                                      </ul>
                                 </li>
-                               </ul>
-                        
+                               </ul>                        
                         </li>  
                         <li>
                             <a href="cargaarchivos?direccion=organigrama" aria-expanded="false"><span  aria-hidden="true"></span> <span class="mini-click-non">Estructura de <br>Organigramas</span></a>
@@ -318,23 +332,23 @@ ing_farias@live.com
                                 <li><a title="modificausuarios" href="administradorusuarios"><span class="mini-sub-pro">Moficacion de<br> Usuarios</span></a></li>
                             </ul>
                         </li>
-                            </ul>  
+                    </ul>
                 </nav>
             </div>
         </nav>
-        </div>
-        <!-- End Header menu area -->
-        <!-- Start Welcome area -->
-        <div class="all-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="logo-pro">
+    </div>
+    <!-- End Header menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
                             <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
-                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         <div class="header-advance-area">
             <div class="header-top-area">
                 <div class="container-fluid">
@@ -344,24 +358,18 @@ ing_farias@live.com
                                 <div class="row">
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-					
-					</button>
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn"></button>
                                         </div>
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
-
                                                 <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">															
                                                         <span class="admin-name">Bienvenido, </span>
-															<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
-															
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    
+                                                        <span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>															
+                                                    </a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">                                                    
                                                         <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
                                                             <form th:action="@{/logout}" method="post">
                                                                 <input type="submit" value="Cerrar sesión" class="header-btn"/>
@@ -378,62 +386,167 @@ ing_farias@live.com
                     </div>
                 </div>
             </div>
-
-<div id="jsGrid" class="jsgrid" style="position: relative; height: 70%; width: 100%;"><div class="jsgrid-grid-header jsgrid-header-scrollbar"><table class="jsgrid-table"><tbody><tr class="jsgrid-header-row"><th class="jsgrid-header-cell" style="width: 150px;">Name</th><th class="jsgrid-header-cell jsgrid-align-right" style="width: 50px;">Age</th><th class="jsgrid-header-cell" style="width: 200px;">Address</th><th class="jsgrid-header-cell jsgrid-align-center" style="width: 100px;">Country</th><th class="jsgrid-header-cell jsgrid-align-center" style="width: 100px;">Is Married</th><th class="jsgrid-header-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><button type="button">Add</button></th></tr><tr class="jsgrid-filter-row" style="display: none;"><td class="jsgrid-cell" style="width: 150px;"><input type="text"></td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;"><input type="number"></td><td class="jsgrid-cell" style="width: 200px;"><input type="text"></td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><select><option value="0"></option><option value="1">United States</option><option value="2">Canada</option><option value="3">United Kingdom</option><option value="4">France</option><option value="5">Brazil</option><option value="6">China</option><option value="7">Russia</option></select></td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" readonly=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-search-button" type="button" title="Search"><input class="jsgrid-button jsgrid-clear-filter-button" type="button" title="Clear filter"></td></tr><tr class="jsgrid-insert-row" style="display: none;"><td class="jsgrid-cell" style="width: 150px;"><input type="text"></td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;"><input type="number"></td><td class="jsgrid-cell" style="width: 200px;"><input type="text"></td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><select><option value="0"></option><option value="1">United States</option><option value="2">Canada</option><option value="3">United Kingdom</option><option value="4">France</option><option value="5">Brazil</option><option value="6">China</option><option value="7">Russia</option></select></td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox"></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-insert-button" type="button" title="Insert"></td></tr></tbody></table></div><div class="jsgrid-grid-body" style="height: 461px;"><table class="jsgrid-table"><tbody><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Otto Clay</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">61</td><td class="jsgrid-cell" style="width: 200px;">Ap #897-1459 Quam Avenue</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">China</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Connor Johnston</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">73</td><td class="jsgrid-cell" style="width: 200px;">Ap #370-4647 Dis Av.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Russia</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Lacey Hess</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">29</td><td class="jsgrid-cell" style="width: 200px;">Ap #365-8835 Integer St.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Russia</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Timothy Henson</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">78</td><td class="jsgrid-cell" style="width: 200px;">911-5143 Luctus Ave</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Ramona Benton</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">43</td><td class="jsgrid-cell" style="width: 200px;">Ap #614-689 Vehicula Street</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Brazil</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Ezra Tillman</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">51</td><td class="jsgrid-cell" style="width: 200px;">P.O. Box 738, 7583 Quisque St.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Dante Carter</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">59</td><td class="jsgrid-cell" style="width: 200px;">P.O. Box 976, 6316 Lorem, St.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Christopher Mcclure</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">58</td><td class="jsgrid-cell" style="width: 200px;">847-4303 Dictum Av.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Ruby Rocha</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">62</td><td class="jsgrid-cell" style="width: 200px;">5212 Sagittis Ave</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Canada</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Imelda Hardin</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">39</td><td class="jsgrid-cell" style="width: 200px;">719-7009 Auctor Av.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Brazil</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Jonah Johns</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">28</td><td class="jsgrid-cell" style="width: 200px;">P.O. Box 939, 9310 A Ave</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Brazil</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Herman Rosa</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">49</td><td class="jsgrid-cell" style="width: 200px;">718-7162 Molestie Av.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Russia</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Arthur Gay</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">20</td><td class="jsgrid-cell" style="width: 200px;">5497 Neque Street</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Russia</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Xena Wilkerson</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">63</td><td class="jsgrid-cell" style="width: 200px;">Ap #303-6974 Proin Street</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Lilah Atkins</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">33</td><td class="jsgrid-cell" style="width: 200px;">622-8602 Gravida Ave</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Brazil</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Malik Shepard</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">59</td><td class="jsgrid-cell" style="width: 200px;">967-5176 Tincidunt Av.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Keely Silva</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">24</td><td class="jsgrid-cell" style="width: 200px;">P.O. Box 153, 8995 Praesent Ave</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">United States</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Hunter Pate</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">73</td><td class="jsgrid-cell" style="width: 200px;">P.O. Box 771, 7599 Ante, Road</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Russia</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-row"><td class="jsgrid-cell" style="width: 150px;">Mikayla Roach</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">55</td><td class="jsgrid-cell" style="width: 200px;">Ap #438-9886 Donec Rd.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">Brazil</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr><tr class="jsgrid-alt-row"><td class="jsgrid-cell" style="width: 150px;">Upton Joseph</td><td class="jsgrid-cell jsgrid-align-right" style="width: 50px;">48</td><td class="jsgrid-cell" style="width: 200px;">Ap #896-7592 Habitant St.</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;">France</td><td class="jsgrid-cell jsgrid-align-center" style="width: 100px;"><input type="checkbox" disabled=""></td><td class="jsgrid-cell jsgrid-control-field jsgrid-align-center" style="width: 50px;"><input class="jsgrid-button jsgrid-delete-button" type="button" title="Delete"></td></tr></tbody></table></div><div class="jsgrid-pager-container" style="display: block;"><div class="jsgrid-pager">Pages: <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a href="javascript:void(0);">First</a></span> <span class="jsgrid-pager-nav-button jsgrid-pager-nav-inactive-button"><a href="javascript:void(0);">Prev</a></span> <span class="jsgrid-pager-page jsgrid-pager-current-page">1</span><span class="jsgrid-pager-page"><a href="javascript:void(0);">2</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">3</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">4</a></span><span class="jsgrid-pager-page"><a href="javascript:void(0);">5</a></span> <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Next</a></span> <span class="jsgrid-pager-nav-button"><a href="javascript:void(0);">Last</a></span> &nbsp;&nbsp; 1 of 5 </div></div><div class="jsgrid-load-shader" style="display: none; position: absolute; top: 0px; right: 0px; bottom: 0px; left: 0px; z-index: 1000;"></div><div class="jsgrid-load-panel" style="display: none; position: absolute; top: 50%; left: 50%; z-index: 1000;">Please, wait...</div></div>
-
-<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="detailsDialog" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 450px; top: 210.5px; left: 312px; display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Edit Client</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="detailsDialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 93px; max-height: none; height: auto;">
-    <form id="detailsForm" novalidate="novalidate">
-        <input id="usuario_id" name="usuario_id" type="text" hidden="true">
-        <div class="details-form-field">
-            <label for="nombre1">Nombre:</label>
-            <input id="nombre1" name="nombre1" type="text" class="valid">
+            <!-- Mobile Menu start -->
+           <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                <nav id="dropdown">
+                                    <ul class="mobile-menu-nav">
+                                        <li><a data-toggle="collapse" data-target="#Charts" >Documentacion Legal<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul class="collapse dropdown-header-top">
+                                                <li><a href="cargaarchivos?direccion=escrituras">Escrituras</a></li>
+                                                <li><a href="identificaciones">Identificaciones</a></li>
+                                                <li><a href="rfc">RFC</a></li>
+                                                <li><a href="fiel">Fiel</a></li>
+                                                <li><a href="sellodigital">Sello Digital</a></li>
+                                                <li><a href="avisoprivacidad">Aviso de Privacidad</a></li>
+                                                <li><a href="cumnplimientoobligaciones">Cumplimiento de Obligaciones</a></li>
+                                                <li><a href="comprobantedomicilio">Comprobante de Domicilio</a></li>
+                                                <li><a href="asamblea">Asamblea Ordinaria Aumento Capital</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="events.html">Estados Financieros</a></li>
+                                        <li><a data-toggle="collapse" data-target="#demoevent" >Contratos Firmados<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demoevent" class="collapse dropdown-header-top">
+                                                <li><a href="financieros">Financieros</a>
+                                                </li>
+                                                <li><a href="proveedores">Proveedores</a>
+                                                </li>
+                                                <li><a href="clientes">Clientes</a>
+                                                </li>
+                                                <li><a href="personal">Personal</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                         <li><a href="reporteventas">Reporte de Ventas Mensual</a></li>
+                                         <li><a href="sagarpa">Sagarpa</a></li>
+                                         <li><a href="presentacionescorporativas">Presentaciones Corporativas</a></li>
+                                        <li><a data-toggle="collapse" data-target="#demopro" >Gobierno Corporativo<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demopro" class="collapse dropdown-header-top">
+                                                <li><a href="asambleaaccionistas">Asamblea de Accionistas</a>
+                                                </li>
+                                                <li><a href="consejo">Consejo</a>
+                                                </li>
+                                                <li><a href="comites">Comites</a>
+                                                </li>
+                                                <li><a href="protocoloaccionistas">Protocolo de Accionistas</a>
+                                                </li>
+                                                <li><a href="reglasoperacion">Reglas de Operacion</a>
+                                                </li>
+                                                <li><a href="plandetrabajo">Plan de Trabajo Anual</a>
+                                                </li>
+                                                <li><a href="actividadesmensuales">Informe de Actividades Mensuales</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                         <li><a href="facturaactivos">Facturas de Activos</a></li>
+                                         <li><a href="seguros">Seguros</a></li>
+                                         <li><a href="avaluoactivos">Avaluo de Activos</a></li>
+                                         <li><a href="estructuraorganigrama">Estructura de Organigramas</a></li>
+                                        <li><a data-toggle="collapse" data-target="#democrou" href="#">Informacion de la Industria<span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="democrou" class="collapse dropdown-header-top">
+                                                <li><a href="estudioseconomicos">Estudios Economicos</a>
+                                                </li>
+                                                <li><a href="cargaarchivos/precioganadoenpie">Precio KG Ganado en Pie</a>
+                                                </li>
+                                                <li><a href="preciocarnecanal">Precio KG Carne en Canal</a>
+                                                </li>
+                                                <li><a href="precioalimento">Precio Alimento</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a data-toggle="collapse" data-target="#demolibra" href="#">Administracion de Usuarios <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                            <ul id="demolibra" class="collapse dropdown-header-top">
+                                                <li><a href="altausuarios">Alta de Usuarios</a>
+                                                </li>
+                                                <li>
+                                                    <a href="administradorusuarios">Moficacion de Usuarios</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+        <div class="breadcome-area">
+            <div id="jsGrid" class="jsgrid" style="position: relative; height: 70%; width: 100%;"></div>
+            <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="detailsDialog" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 450px; top: 210.5px; left: 312px; display: none;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle"><span id="ui-id-1" class="ui-dialog-title">Edit Client</span><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="detailsDialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 93px; max-height: none; height: auto;">
+                    <form id="detailsForm" novalidate="novalidate">
+                        <input id="usuario_id" name="usuario_id" type="text" hidden="true">
+                            <div class="details-form-field">
+                                <label for="nombre1">Nombre:</label>
+                                <input id="nombre1" name="nombre1" type="text" class="valid">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="nombre2">Segundo Nombre:</label>
+                                <input id="nombre2" name="nombre2" type="text">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="apellido_paterno">Apellido Paterno:</label>
+                                <input id="apellido_paterno" name="apellido_paterno" type="text">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="apellido_materno">Apellido Materno:</label>
+                                <input id="apellido_materno" name="apellido_materno" type="text">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="correo_electronico">Correo Electronico:</label>
+                                <input id="correo_electronico" name="correo_electronico" type="text" class="valid">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="telefono">Teléfono:</label>
+                                <input id="telefono" name="telefono" type="text" class="valid">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="estatus">Estatus:</label>
+                                <select id="estatus" name="estatus">
+                                    <option value="">(Seleccione)</option>
+                                    <option value="1">Activo</option>
+                                    <option value="2">Inactivo</option>
+                                </select>
+                            </div>
+                            <div class="details-form-field">
+                                <label for="rol_id">Tipo:</label>
+                                <select id="rol_id" name="rol_id">
+                                    <option value="">(Seleccione)</option>
+                                    <option value="1">Usuario</option>
+                                    <option value="2">Administrador</option>
+                                </select>
+                            </div>
+                            <div class="details-form-field">
+                                <label for="usuario">Nombre de Usuario:</label>
+                                <input id="usuario" name="usuario" type="text">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="pass">Password:</label>
+                                <input id="pass" name="pass" type="password">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="pass1">Confirmar Password:</label>
+                                <input id="pass1" name="pass1" type="password">
+                            </div>
+                            <div class="details-form-field">
+                                <button type="submit" id="save">Guardar</button>
+                            </div>
+                    </form>
+                </div>
+                <div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div>    
+            </div>            
+        </div>                        
         </div>
-        <div class="details-form-field">
-            <label for="nombre2">Segundo Nombre:</label>
-            <input id="nombre2" name="nombre2" type="text">
-        </div>
-        <div class="details-form-field">
-            <label for="apellido_paterno">Apellido Paterno:</label>
-            <input id="apellido_paterno" name="apellido_paterno" type="text">
-        </div>
-        <div class="details-form-field">
-            <label for="apellido_materno">Apellido Materno:</label>
-            <input id="apellido_materno" name="apellido_materno" type="text">
-        </div>
-        <div class="details-form-field">
-            <label for="correo_electronico">Correo Electronico:</label>
-            <input id="correo_electronico" name="correo_electronico" type="text" class="valid">
-        </div>
-        <div class="details-form-field">
-            <label for="telefono">Teléfono:</label>
-            <input id="telefono" name="telefono" type="text" class="valid">
-        </div>
-        <div class="details-form-field">
-            <label for="estatus">Estatus</label>
-            <select id="estatus" name="estatus">
-                <option value="">(Seleccione)</option>
-                <option value="1">Activo</option>
-                <option value="2">Inactivo</option>
-            </select>
-        </div>
-        <div class="details-form-field">
-            <label for="usuario">Nombre de Usuario</label>
-            <input id="usuario" name="usuario" type="text">
-        </div>
-        <div class="details-form-field">
-            <label for="pass">Password</label>
-            <input id="pass" name="pass" type="password">
-        </div>
-        <div class="details-form-field">
-            <label for="pass1">Confirmar Password</label>
-            <input id="pass1" name="pass1" type="password">
-        </div>
-        <div class="details-form-field">
-            <button type="submit" id="save">Guardar</button>
-        </div>
-    </form>
-</div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div>
-            
         <div class="footer-copyright-area">
             <div class="container-fluid">
                 <div class="row">
@@ -445,6 +558,55 @@ ing_farias@live.com
                 </div>
             </div>
         </div>
-        </div>
-    </body>
+    </div>
+
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="static/js/wow.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="static/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="static/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="static/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="static/js/jquery.scrollUp.min.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="static/js/counterup/jquery.counterup.min.js"></script>
+    <script src="static/js/counterup/waypoints.min.js"></script>
+    <script src="static/js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="static/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="static/js/metisMenu/metisMenu.min.js"></script>
+    <script src="static/js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="static/js/sparkline/sparkline-active.js"></script>
+    <!-- calendar JS
+		============================================ -->
+    <script src="static/js/calendar/moment.min.js"></script>
+    <script src="static/js/calendar/fullcalendar.min.js"></script>
+    <script src="static/js/calendar/fullcalendar-active.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="static/js/plugins.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="static/js/main.js"></script>
+</body>
+
 </html>

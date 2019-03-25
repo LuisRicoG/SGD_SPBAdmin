@@ -19,16 +19,7 @@ public class UsuarioService {
     @Autowired
     public LoginRepository loginRepository;
 	
-    public boolean registro(LoginEntity login) {
-    //1.-Validar que el usuario no exista
-    LoginEntity LoginBD=loginRepository.findByUsuario(login.getUsuario());
-		
-    //2.-Si existe --- false
-    if(LoginBD!=null)
-    return false;
-		
-    //3.-Si no existe crear
-    else
+    public boolean registro(LoginEntity login) {		
     login=loginRepository.save(login);
 		
     //4.-Obtener id de registro
