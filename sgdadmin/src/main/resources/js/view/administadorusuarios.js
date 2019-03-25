@@ -36,7 +36,6 @@ $(document).ready(function () {
                 type: "control",
                 modeSwitchButton: false,
                 editButton: false,
-                addButton: false,
                 deleteButton: false,
                 headerTemplate: function () {
                     return $("<button>").attr("type", "button").text("Add")
@@ -58,18 +57,50 @@ $(document).ready(function () {
     });
 
     $("#detailsForm").validate({
-//        rules: {
-//            name: "required",
-//            age: {required: true, range: [18, 150]},
-//            address: {required: true, minlength: 10},
-//            country: "required"
-//        },
-//        messages: {
-//            name: "Please enter name",
-//            age: "Please enter valid age",
-//            address: "Please enter address (more than 10 chars)",
-//            country: "Please select country"
-//        },
+        rules: {
+            nombre1: "required",
+            apellido_paterno: "required",
+            apellido_materno: "required",
+            estatus: "required",
+            rol_id: "required",
+            usuario: {
+              required: true,
+              minlength: 6
+            },            
+            pass: {
+              required: true,
+              minlength: 6
+            },            
+            correo_electronico: {
+              required: true,
+              email: true
+            },            
+            pass1: {
+                equalTo: "#pass"
+            }            
+        },
+        messages: {
+            nombre1: "requerido",
+            apellido_paterno: "requerido",
+            apellido_materno: "requerido",
+            estatus: "requerido",
+            rol_id: "requerido",
+            usuario: {
+              required: "requerido",
+              minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
+            pass: {
+              required: "requerido",
+              minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
+            pass1: {
+                equalTo: "Las contraseñas deben coincidir"
+            },            
+            correo_electronico: {
+              required: "Requerido",
+              email: "Formato para email debe ser del tipo name@domain.com"
+            }            
+        },
         submitHandler: function () {
             formSubmitHandler();
         }
