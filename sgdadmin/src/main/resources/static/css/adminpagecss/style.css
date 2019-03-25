@@ -4724,3 +4724,22 @@ div#sparklinehome canvas {
 	color:#fff;
 	text-decoration:none;
 }
+.header-btn {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 120px;
+  height: 40px;
+  margin: 3px;
+  padding: 3px;
+  border: none;
+  font: normal normal bold 18px/normal "Times New Roman", Times, serif;
+  color: rgba(0,0,0,0.9);
+  background-color:transparent;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+}
+.header-btn:hover {
+    background-color:transparent;
+}

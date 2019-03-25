@@ -18,6 +18,7 @@ public class Encoder {
         System.out.println("Luis " + Encoder.getEncodePassword("luisrico23"));
         System.out.println("yo " + Encoder.getEncodePassword("jepp"));
         System.out.println("Chuwy " + Encoder.getEncodePassword("chuwy"));
+        System.out.println("Patron " + Encoder.getEncodePassword("STAPIA2019"));
     }
 	
     public static String getEncodePassword(String password) {

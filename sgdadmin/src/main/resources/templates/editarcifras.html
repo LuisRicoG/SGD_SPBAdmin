@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+   <title>Editar Totales de Avaluos de Activos</title>
+   <!-- =============== VENDOR STYLES ===============-->
+   <!-- FONT AWESOME-->
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/brands.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/regular.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/solid.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/fontawesome.css">
+   <!-- SIMPLE LINE ICONS-->
+   <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+   <!-- ANIMATE.CSS-->
+   <link rel="stylesheet" href="vendor/animate.css/animate.css">
+   <!-- WHIRL (spinners)-->
+   <link rel="stylesheet" href="vendor/whirl/dist/whirl.css">
+   <!-- =============== PAGE VENDOR STYLES ===============-->
+   <!-- =============== BOOTSTRAP STYLES ===============-->
+   <link rel="stylesheet" href="css/bootstrap.css" id="bscss">
+   <!-- =============== APP STYLES ===============-->
+   <link rel="stylesheet" href="css/app.css" id="maincss">
+</head>
+
+<body>
+   <div class="wrapper">      
+	  <section class="section-container">
+         <!-- Page content-->
+         <div class="content-wrapper">			
+			<div class="row">
+               <div class="col-lg-12">
+                  <form class="form-horizontal" method="post" th:action="@{/registrocifra}" th:object="${registrocifra}" data-parsley-validate="" novalidate="">
+                     <!-- START card-->
+                     <!--<table style="border: hidden">
+                     <tr style="border: hidden" th:each="cifras : ${editarcifras}">-->
+                     <div class="card card-default">
+                        <div class="card-header">
+                           <div class="card-title">Edición de Cifras</div>
+                        </div>
+                        <div class="bg-gray-lighter px-3 py-2 my-3">Los campos marcados con (*) son requeridos</div>
+                        <div class="card-body">
+                           <fieldset>
+                              <div class="form-group row">
+                                 <label for="inmuebles" class="col-md-2 col-form-label">Inmuebles</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{inmuebles}" class="form-control" type="text" name="inmuebles" id="inmuebles" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="maqyeq" class="col-md-2 col-form-label">Maquinaria y Equipo</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{maqyeq}" class="form-control" type="text" name="maqyeq" id="maqyeq" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="eqtrans" class="col-md-2 col-form-label">Equipo de Transporte</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{eqtrans}" class="form-control" type="text" name="eqtrans" id="eqtrans" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="mobiliario" class="col-md-2 col-form-label">Mobiliario</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{mobiliario}" class="form-control" type="text" name="mobiliario" id="mobiliario" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>						   
+                           <fieldset>
+                              <div class="form-group row">
+                                 <label for="eqcomputo" class="col-md-2 col-form-label">Equipo de Cómputo</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{eqcomputo}" class="form-control" type="text" name="eqcomputo" id="eqcomputo" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>                        
+                        </div>                        
+                        <div class="card-footer text-center">
+                           <button class="btn btn-info" type="submit">Actualizar</button>
+                        </div>
+                     </div>
+                     <!--</tr>
+                     </table>-->
+                     <!-- END card-->
+                  </form>
+               </div>
+            </div>
+            <!-- END row-->
+         </div>
+      </section>
+      <!-- Page footer-->
+      <footer class="footer-container">
+         <span></span>
+      </footer>
+   </div>
+   <!-- =============== VENDOR SCRIPTS ===============-->
+   <!-- MODERNIZR-->
+   <script src="vendor/modernizr/modernizr.custom.js"></script>
+   <!-- STORAGE API-->
+   <script src="vendor/js-storage/js.storage.js"></script>
+   <!-- SCREENFULL-->
+   <script src="vendor/screenfull/dist/screenfull.js"></script>
+   <!-- i18next-->
+   <script src="vendor/i18next/i18next.js"></script>
+   <script src="vendor/i18next-xhr-backend/i18nextXHRBackend.js"></script>
+   <script src="vendor/jquery/dist/jquery.js"></script>
+   <script src="vendor/popper.js/dist/umd/popper.js"></script>
+   <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+   <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+   <!-- PARSLEY-->
+   <script src="vendor/parsleyjs/dist/parsley.js"></script>
+   <!-- =============== APP SCRIPTS ===============-->
+   <script src="js/app.js"></script>
+</body>
+
+</html>

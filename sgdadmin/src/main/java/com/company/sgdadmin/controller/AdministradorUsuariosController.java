@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -116,8 +117,8 @@ public class AdministradorUsuariosController {
         return (List<LoginEntity>) loginRepository.findAll();
     }
 
-    @PutMapping("updateUser/{id}")
-    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody Login login) {
+    @PutMapping(value ="/updateUser/{id}",  consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity updateUser(@PathVariable Long id, @RequestBody LoginEntity login) {
 
         //login = customerDAO.update(id, login);
 

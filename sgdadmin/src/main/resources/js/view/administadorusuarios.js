@@ -101,23 +101,36 @@ $(document).ready(function () {
 
     var saveClient = function (client, isNew) {
         $.extend(client, {
-            usuario_id: $("#usuario_id").val(),
-            nombre1: $("#nombre1").val(),
-            nombre2: $("#nombre2").val(),
-            apellido_paterno: $("#apellido_paterno").val(),
-            apellido_materno: $("#apellido_materno").val(),
-            correo_electronico: $("#correo_electronico").val(),
-            telefono: $("#telefono").val(),
-            estatus: $("#estatus").val(),
-            usuario: $("#usuario").val(),
-            contrasena: $("#pass").val()
+            Usuario_id: $("#usuario_id").val(),
+            Nombre1: $("#nombre1").val(),
+            Nombre2: $("#nombre2").val(),
+            Apellido_paterno: $("#apellido_paterno").val(),
+            Apellido_materno: $("#apellido_materno").val(),
+            Correo_electronico: $("#correo_electronico").val(),
+            Telefono: $("#telefono").val(),
+            Estatus: $("#estatus").val(),
+            Usuario: $("#usuario").val(),
+            Contrasena: $("#pass").val()
         });
+
+        var test = {
+            Usuario_id: $("#usuario_id").val(),
+            Nombre1: $("#nombre1").val(),
+            Nombre2: $("#nombre2").val(),
+            Apellido_paterno: $("#apellido_paterno").val(),
+            Apellido_materno: $("#apellido_materno").val(),
+            Correo_electronico: $("#correo_electronico").val(),
+            Telefono: $("#telefono").val(),
+            Estatus: $("#estatus").val(),
+            Usuario: $("#usuario").val(),
+            Contrasena: $("#pass").val()
+        };
 
         if (client.pass !== client.pass1) {
             alert("las contraseñas ingresadas deben ser iguales");
         }
 
-        $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", client);
+        $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", test);
 
         $("#detailsDialog").dialog("close");
     };
@@ -142,16 +155,19 @@ var controllers = {
     insertItem: function (item) {
         return $.ajax({
             type: "POST",
-            url: "/items",
+            url: "registro",
             data: item
         });
     },
 
     updateItem: function (item) {
+        
+        var test = '{"usuario_id":1,"nombre1":"Allan1","nombre2":"","apellido_paterno":"Flores","apellido_materno":"Rojas","correo_electronico":"correo2@mail.com","telefono":"5464654654654","estatus":"1","usuario":"allan","contrasena":"$2a$10$Xt3gTH/P0VzPxw/bwPfl2OtnwZMg55bA.1lUm.xTkrQwp44i001Qq","rol_id":1}';
         return $.ajax({
             type: "PUT",
-            url: url + "updateUser",
-            data: item,
+            url: url + "updateUser/1",
+            //data: test,,
+            data: JSON.stringify(item),
             success: function (data) {
                 return data;
             }
