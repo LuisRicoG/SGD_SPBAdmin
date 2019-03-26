@@ -75,7 +75,7 @@ public class AdministradorUsuariosController {
     public ResponseEntity updateUser(@RequestBody LoginEntity login) {
 
         boolean respuesta = usuarioService.registro(login);
-        if (respuesta) {
+        if (!respuesta) {
             return new ResponseEntity("No Customer found for ID " + login.getUsuario_id(), HttpStatus.NOT_FOUND);
         }
 

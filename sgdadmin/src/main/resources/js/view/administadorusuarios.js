@@ -9,7 +9,7 @@ $(document).ready(function () {
         paging: true,
         autoload: true,
         pageSize: 5,
-        pageButtonCount: 5, 
+        pageButtonCount: 5,
         pagerFormat: "Pag: {first} {prev} {pages} {next} {last}    {pageIndex} of {pageCount}",
         pagePrevText: "Prev",
         pageNextText: "Siguiente",
@@ -31,6 +31,18 @@ $(document).ready(function () {
             {name: "correo_electronico", type: "text", width: "130", title: "Correo Electrónico"},
             {name: "telefono", type: "text", title: "Teléfono"},
             {name: "estatus", type: "select", title: "Estatus"},
+            {
+                type: "text",
+                modeSwitchButton: false,
+                editButton: false,
+                deleteButton: false,
+                headerTemplate: function () {
+                    return $("<button>").attr("type", "button").text("Add")
+                            .on("click", function () {
+                                showDetailsDialog("Agregar", {});
+                            });
+                }
+            }            
             {name: "usuario", type: "text", title: "Usuario"},
             {
                 type: "control",
@@ -64,20 +76,20 @@ $(document).ready(function () {
             estatus: "required",
             rol_id: "required",
             usuario: {
-              required: true,
-              minlength: 6
-            },            
+                required: true,
+                minlength: 6
+            },
             pass: {
-              required: true,
-              minlength: 6
-            },            
+                required: true,
+                minlength: 6
+            },
             correo_electronico: {
-              required: true,
-              email: true
-            },            
+                required: true,
+                email: true
+            },
             pass1: {
                 equalTo: "#pass"
-            }            
+            }
         },
         messages: {
             nombre1: "requerido",
@@ -86,20 +98,20 @@ $(document).ready(function () {
             estatus: "requerido",
             rol_id: "requerido",
             usuario: {
-              required: "requerido",
-              minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+                required: "requerido",
+                minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
             },
             pass: {
-              required: "requerido",
-              minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+                required: "requerido",
+                minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
             },
             pass1: {
                 equalTo: "Las contraseñas deben coincidir"
-            },            
+            },
             correo_electronico: {
-              required: "Requerido",
-              email: "Formato para email debe ser del tipo name@domain.com"
-            }            
+                required: "Requerido",
+                email: "Formato para email debe ser del tipo name@domain.com"
+            }
         },
         submitHandler: function () {
             formSubmitHandler();
@@ -119,8 +131,8 @@ $(document).ready(function () {
         $("#estatus").val(client.estatus);
         $("#usuario").val(client.usuario);
         $("#pass").val(client.contrasena);
-        $("#pass1").val(client.contrasena);        
-        $("#rol_id").val(client.rol_id);        
+        $("#pass1").val(client.contrasena);
+        $("#rol_id").val(client.rol_id);
 
 
         formSubmitHandler = function () {
@@ -146,7 +158,7 @@ $(document).ready(function () {
             contrasena: $("#pass").val(),
             rol_id: $("#rol_id").val()
         };
-        
+
         if (client.pass !== client.pass1) {
             alert("las contraseñas ingresadas deben ser iguales");
         }
@@ -178,23 +190,25 @@ var controllers = {
             type: "POST",
             url: url + "registro",
             dataType: 'json',
-            contentType: 'application/json',            
+            contentType: 'application/json',
             data: JSON.stringify(item),
             success: function (data) {
+                $("#jsGrid").jsGrid("loadData");
                 return data;
             }
         });
     },
 
     updateItem: function (item) {
-        
+
         return $.ajax({
             type: "PUT",
             url: url + "updateUser",
             dataType: 'json',
-            contentType: 'application/json',            
+            contentType: 'application/json',
             data: JSON.stringify(item),
             success: function (data) {
+                $("#jsGrid").jsGrid("loadData");
                 return data;
             }
         });
