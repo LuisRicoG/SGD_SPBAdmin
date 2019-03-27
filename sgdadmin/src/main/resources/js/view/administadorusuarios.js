@@ -3,8 +3,8 @@ $(document).ready(function () {
         width: "100%",
         height: "400px",
 
-        inserting: true,
-        editing: true,
+        inserting: false,
+        editing: false,
         sorting: true,
         paging: true,
         autoload: true,
@@ -30,19 +30,7 @@ $(document).ready(function () {
             {name: "apellido_materno", type: "text", title: "Apellido Materno"},
             {name: "correo_electronico", type: "text", width: "130", title: "Correo Electrónico"},
             {name: "telefono", type: "text", title: "Teléfono"},
-            {name: "estatus", type: "select", title: "Estatus"},
-            {
-                type: "text",
-                modeSwitchButton: false,
-                editButton: false,
-                deleteButton: false,
-                headerTemplate: function () {
-                    return $("<button>").attr("type", "button").text("Add")
-                            .on("click", function () {
-                                showDetailsDialog("Agregar", {});
-                            });
-                }
-            }            
+            {name: "estatus", type: "text", title: "Estatus"},
             {name: "usuario", type: "text", title: "Usuario"},
             {
                 type: "control",
@@ -50,7 +38,7 @@ $(document).ready(function () {
                 editButton: false,
                 deleteButton: false,
                 headerTemplate: function () {
-                    return $("<button>").attr("type", "button").text("Add")
+                    return $("<button>").attr("type", "button").text("Agregar")
                             .on("click", function () {
                                 showDetailsDialog("Agregar", {});
                             });
@@ -128,7 +116,7 @@ $(document).ready(function () {
         $("#apellido_materno").val(client.apellido_materno);
         $("#correo_electronico").val(client.correo_electronico);
         $("#telefono").val(client.telefono);
-        $("#estatus").val(client.estatus);
+        $("#estatus").val(client.estatus === 'Activo' ? 1 : client.estatus === 'Inactivo' ? 0 : '');
         $("#usuario").val(client.usuario);
         $("#pass").val(client.contrasena);
         $("#pass1").val(client.contrasena);
@@ -178,6 +166,9 @@ var controllers = {
         $.ajax({
             url: url + "userlist",
             success: function (data) {
+                $.each(data, function (k, v) {
+                    v.estatus = v.estatus === 1 ? 'Activo' : 'Inactivo';
+                });
                 deferred.resolve(data);
             }
         });
