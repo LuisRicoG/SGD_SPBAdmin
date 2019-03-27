@@ -2,7 +2,6 @@ $(document).ready(function () {
     $("#jsGrid").jsGrid({
         width: "100%",
         height: "400px",
-
         inserting: false,
         editing: false,
         sorting: true,
@@ -17,6 +16,7 @@ $(document).ready(function () {
         pageLastText: "Último",
         pageNavigatorNextText: "...",
         pageNavigatorPrevText: "...",
+        loadMessage: "Por favor espere ...",
         rowClick: function (args) {
             showDetailsDialog("Editar", args.item);
         },
@@ -37,6 +37,7 @@ $(document).ready(function () {
                 modeSwitchButton: false,
                 editButton: false,
                 deleteButton: false,
+                width: 80,
                 headerTemplate: function () {
                     return $("<button>").attr("type", "button").text("Agregar")
                             .on("click", function () {
@@ -63,6 +64,9 @@ $(document).ready(function () {
             apellido_materno: "required",
             estatus: "required",
             rol_id: "required",
+            telefono:{
+              number: true  
+            },
             usuario: {
                 required: true,
                 minlength: 6
@@ -85,6 +89,7 @@ $(document).ready(function () {
             apellido_materno: "requerido",
             estatus: "requerido",
             rol_id: "requerido",
+            telefono:"Solo es posible ingresar digitos",
             usuario: {
                 required: "requerido",
                 minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
