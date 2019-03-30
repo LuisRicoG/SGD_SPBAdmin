@@ -236,7 +236,7 @@ public class VentanaServiceImpl implements VentanaServices {
                             + File.separator + escrituras + File.separator + reformaestatutos + File.separator + reformaestatutosfile;
                     break;
 
-                case "rfc":
+                case "RFC":
 
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + rfc + File.separator + rfcfile;

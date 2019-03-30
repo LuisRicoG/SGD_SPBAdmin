@@ -110,12 +110,16 @@ ing_farias@live.com
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
 															
-															<span class="admin-name">Usuario</span>
+                                                        <span class="admin-name">Bienvenido, </span>
+															<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
 															
 														</a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
                                                     
-                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                        <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
+                                                            <form th:action="@{/logout}" method="post">
+                                                                <input type="submit" value="Cerrar sesión" class="header-btn"/>
+                                                            </form>
                                                         </li>
                                                     </ul>
                                                 </li>
