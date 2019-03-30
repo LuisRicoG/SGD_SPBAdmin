@@ -361,15 +361,26 @@ public class VentanaServiceImpl implements VentanaServices {
             File ruta = new File(path);
             String route = ruta.getParent();
                     
-            
-            
+            DocumentosActivosEntity doctoExiste = repository.findByRutaAndNombre(route, fileName);
             DocumentosActivosEntity entity = new DocumentosActivosEntity();
-            entity.setFecha(new Timestamp(System.currentTimeMillis()));
-            entity.setRuta(route);
-            entity.setNombre(fileName);
-            //entity.setUsuario_id(GetUsuarioID(authentication.getName()));
-            entity.setUsuario_id(1);
-            repository.save(entity);
+            
+            if (doctoExiste != null){
+                entity.setDocumento_id(doctoExiste.getDocumento_id());
+                entity.setNombre(doctoExiste.getNombre());
+                entity.setRuta(doctoExiste.getRuta());
+                entity.setUsuario_id(1);
+                entity.setFecha(new Timestamp(System.currentTimeMillis()));
+                repository.save(entity);
+            }else{                
+                entity.setFecha(new Timestamp(System.currentTimeMillis()));
+                entity.setRuta(route);
+                entity.setNombre(fileName);
+                //entity.setUsuario_id(GetUsuarioID(authentication.getName()));
+                entity.setUsuario_id(1);
+                repository.save(entity);    
+            }
+            
+            
 
             
             
