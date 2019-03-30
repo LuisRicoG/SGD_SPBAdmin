@@ -17,6 +17,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
 import com.company.sgdadmin.repository.LoginRepository;
+import javax.ws.rs.HttpMethod;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -51,24 +52,26 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/index").permitAll()
+                .antMatchers("/", "/index").permitAll()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/images/**").permitAll()
                 .antMatchers("/vendor/**").permitAll()
                 .antMatchers("/js/**").permitAll()
-                .antMatchers("/menu").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/listausuarios").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/nuevousuario").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/registro").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/administradorusuarios").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/cargaarchivos").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/upload").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/js").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/selectdinamico").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/editarcifras").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/registrocifra").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/menu").hasRole("ADMIN")
+                .antMatchers("/listausuarios").hasRole("ADMIN")
+                .antMatchers("/nuevousuario").hasRole("ADMIN")
+                .antMatchers("/registro").hasRole("ADMIN")
+                .antMatchers("/administradorusuarios").permitAll()
+                .antMatchers("/cargaarchivos").hasRole("ADMIN")
+                .antMatchers("/upload").hasRole("ADMIN")
+                .antMatchers("/js").hasRole("ADMIN")
+                .antMatchers("/selectdinamico").hasRole("ADMIN")
+                .antMatchers("/editarcifras").hasRole("ADMIN")
+                .antMatchers("/registrocifra").hasRole("ADMIN")
+                .antMatchers(HttpMethod.PUT, "/updateUser").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
