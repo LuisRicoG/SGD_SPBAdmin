@@ -34,11 +34,12 @@ public class VentanasController {
       String direccion;
       
       
-    @RequestMapping(value = "/cargaarchivos{direccion}")
+   @RequestMapping(value = "/cargaarchivos{direccion}")
     public ModelAndView sayHello(@RequestParam("direccion") String direccion) {
     	ModelAndView mv = new ModelAndView();
         this.direccion=direccion;
        // mv.setViewName(this.direccion);
+        mv.addObject("message", direccion);
         mv.setViewName("sgdupload");
         return mv;
     }

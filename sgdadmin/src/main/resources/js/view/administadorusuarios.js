@@ -2,109 +2,211 @@ $(document).ready(function () {
     $("#jsGrid").jsGrid({
         width: "100%",
         height: "400px",
-
-        inserting: true,
-        editing: true,
+        inserting: false,
+        editing: false,
         sorting: true,
         paging: true,
-
-        data: clients,
-        //controller: controllers,
+        autoload: true,
+        pageSize: 5,
+        pageButtonCount: 5,
+        pagerFormat: "Pag: {first} {prev} {pages} {next} {last}    {pageIndex} of {pageCount}",
+        pagePrevText: "Prev",
+        pageNextText: "Siguiente",
+        pageFirstText: "Primero",
+        pageLastText: "Último",
+        pageNavigatorNextText: "...",
+        pageNavigatorPrevText: "...",
+        loadMessage: "Por favor espere ...",
+        rowClick: function (args) {
+            showDetailsDialog("Editar", args.item);
+        },
+        clients,
+        controller: controllers,
 
         fields: [
-            {name: "Name", type: "text", width: 150, validate: "required"},
-            {name: "Age", type: "number", width: 50},
-            {name: "Address", type: "text", width: 200},
-            {name: "Country", type: "select", items: countries, valueField: "Id", textField: "Name"},
-            {name: "Married", type: "checkbox", title: "Is Married", sorting: false},
-            controls
+            {name: "nombre1", type: "text", validate: "required", title: "Nombre"},
+            {name: "nombre2", type: "text", title: "Segundo Nombre"},
+            {name: "apellido_paterno", type: "text", title: "Apellido Paterno"},
+            {name: "apellido_materno", type: "text", title: "Apellido Materno"},
+            {name: "correo_electronico", type: "text", width: "130", title: "Correo Electrónico"},
+            {name: "telefono", type: "text", title: "Teléfono"},
+            {name: "estatus", type: "text", title: "Estatus"},
+            {name: "usuario", type: "text", title: "Usuario"},
+            {
+                type: "control",
+                modeSwitchButton: false,
+                editButton: false,
+                deleteButton: false,
+                width: 80,
+                headerTemplate: function () {
+                    return $("<button>").attr("type", "button").text("Agregar")
+                            .on("click", function () {
+                                showDetailsDialog("Agregar", {});
+                            });
+                }
+            }
         ]
     });
 
-});
+    $("#detailsDialog").dialog({
+        autoOpen: false,
+        width: 400,
+        close: function () {
+            $("#detailsForm").validate().resetForm();
+            $("#detailsForm").find(".error").removeClass("error");
+        }
+    });
 
-var controls = {
-    type: "control",
-    editButton: true, // show edit button
-    deleteButton: false, // show delete button
-    clearFilterButton: true, // show clear filter button
-    modeSwitchButton: true, // show switching filtering/inserting button
-
-    align: "center", // center content alignment
-    width: 50, // default column width is 50px
-    filtering: false, // disable filtering for column
-    inserting: false, // disable inserting for column
-    editing: false, // disable editing for column
-    sorting: false, // disable sorting for column
-
-    searchModeButtonTooltip: "Switch to searching", // tooltip of switching filtering/inserting button in inserting mode
-    insertModeButtonTooltip: "Switch to inserting", // tooltip of switching filtering/inserting button in filtering mode
-    editButtonTooltip: "Edit", // tooltip of edit item button
-    deleteButtonTooltip: "Delete", // tooltip of delete item button
-    searchButtonTooltip: "Search", // tooltip of search button
-    clearFilterButtonTooltip: "Clear filter", // tooltip of clear filter button
-    insertButtonTooltip: "Insert", // tooltip of insert button
-    updateButtonTooltip: "Update", // tooltip of update item button
-    cancelEditButtonTooltip: "Cancel edit" // tooltip of cancel editing button
-};
-var url = "/SGDADMIN/";
-var controllers =
-        {             
-            loadData: function (filter) {
-                var data;
-                
-                $.ajax({
-                    type: "GET",
-                    url: url + "jsonlist",
-                    data: data,
-                    success: success,
-                    dataType: dataType
-                });
-                
-                return $.ajax({
-                    type: "GET",
-                    url: "/items",
-                    data: filter
-                });
+    $("#detailsForm").validate({
+        rules: {
+            nombre1: "required",
+            apellido_paterno: "required",
+            apellido_materno: "required",
+            estatus: "required",
+            rol_id: "required",
+            telefono:{
+              number: true  
             },
-
-            insertItem: function (item) {
-                return $.ajax({
-                    type: "POST",
-                    url: "/items",
-                    data: item
-                });
+            usuario: {
+                required: true,
+                minlength: 6
             },
-
-            updateItem: function (item) {
-                return $.ajax({
-                    type: "PUT",
-                    url: "/items",
-                    data: item
-                });
+            pass: {
+                required: true,
+                minlength: 6
             },
-
-            deleteItem: function (item) {
-                return $.ajax({
-                    type: "DELETE",
-                    url: "/items",
-                    data: item
-                });
+            correo_electronico: {
+                required: true,
+                email: true
+            },
+            pass1: {
+                equalTo: "#pass"
             }
+        },
+        messages: {
+            nombre1: "requerido",
+            apellido_paterno: "requerido",
+            apellido_materno: "requerido",
+            estatus: "requerido",
+            rol_id: "requerido",
+            telefono:"Solo es posible ingresar digitos",
+            usuario: {
+                required: "requerido",
+                minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
+            pass: {
+                required: "requerido",
+                minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
+            pass1: {
+                equalTo: "Las contraseñas deben coincidir"
+            },
+            correo_electronico: {
+                required: "Requerido",
+                email: "Formato para email debe ser del tipo name@domain.com"
+            }
+        },
+        submitHandler: function () {
+            formSubmitHandler();
+        }
+    });
+
+    var formSubmitHandler = $.noop;
+
+    var showDetailsDialog = function (dialogType, client) {
+        $("#usuario_id").val(client.usuario_id);
+        $("#nombre1").val(client.nombre1);
+        $("#nombre2").val(client.nombre2);
+        $("#apellido_paterno").val(client.apellido_paterno);
+        $("#apellido_materno").val(client.apellido_materno);
+        $("#correo_electronico").val(client.correo_electronico);
+        $("#telefono").val(client.telefono);
+        $("#estatus").val(client.estatus === 'Activo' ? 1 : client.estatus === 'Inactivo' ? 0 : '');
+        $("#usuario").val(client.usuario);
+        $("#pass").val(client.contrasena);
+        $("#pass1").val(client.contrasena);
+        $("#rol_id").val(client.rol_id);
+
+
+        formSubmitHandler = function () {
+            saveClient(client, dialogType === "Agregar");
         };
 
-var clients = [
-    {"Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false},
-    {"Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true},
-    {"Name": "Lacey Hess", "Age": 29, "Country": 3, "Address": "Ap #365-8835 Integer St.", "Married": false},
-    {"Name": "Timothy Henson", "Age": 56, "Country": 1, "Address": "911-5143 Luctus Ave", "Married": true},
-    {"Name": "Ramona Benton", "Age": 32, "Country": 3, "Address": "Ap #614-689 Vehicula Street", "Married": false}
-];
+        $("#detailsDialog").dialog("option", "title", dialogType + " Usuario")
+                .dialog("open");
+    };
 
-var countries = [
-    {Name: "", Id: 0},
-    {Name: "United States", Id: 1},
-    {Name: "Canada", Id: 2},
-    {Name: "United Kingdom", Id: 3}
-];
- 
+    var saveClient = function (client, isNew) {
+
+        var data = {
+            usuario_id: $("#usuario_id").val(),
+            nombre1: $("#nombre1").val(),
+            nombre2: $("#nombre2").val(),
+            apellido_paterno: $("#apellido_paterno").val(),
+            apellido_materno: $("#apellido_materno").val(),
+            correo_electronico: $("#correo_electronico").val(),
+            telefono: $("#telefono").val(),
+            estatus: $("#estatus").val(),
+            usuario: $("#usuario").val(),
+            contrasena: $("#pass").val(),
+            rol_id: $("#rol_id").val()
+        };
+
+        if (client.pass !== client.pass1) {
+            alert("las contraseñas ingresadas deben ser iguales");
+        }
+
+        $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", data);
+
+        $("#detailsDialog").dialog("close");
+    };
+});
+
+var url = "/SGDADMIN/administradorusuarios/";
+var clients;
+var controllers = {
+    loadData: function () {
+        var deferred = $.Deferred();
+
+        $.ajax({
+            url: url + "userlist",
+            success: function (data) {
+                $.each(data, function (k, v) {
+                    v.estatus = v.estatus === 1 ? 'Activo' : 'Inactivo';
+                });
+                deferred.resolve(data);
+            }
+        });
+
+        return deferred.promise();
+    },
+
+    insertItem: function (item) {
+        return $.ajax({
+            type: "POST",
+            url: url + "registro",
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(item),
+            success: function (data) {
+                $("#jsGrid").jsGrid("loadData");
+                return data;
+            }
+        });
+    },
+
+    updateItem: function (item) {
+
+        return $.ajax({
+            type: "PUT",
+            url: url + "updateUser",
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(item),
+            success: function (data) {
+                $("#jsGrid").jsGrid("loadData");
+                return data;
+            }
+        });
+    }
+};
