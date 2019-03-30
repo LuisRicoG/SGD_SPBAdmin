@@ -44,6 +44,6 @@ public class CifrasController {
         
         cifrasRepository.save(entity);
         
-        return "editarcifras";
+        return "redirect:editarcifras";
     }
 }
