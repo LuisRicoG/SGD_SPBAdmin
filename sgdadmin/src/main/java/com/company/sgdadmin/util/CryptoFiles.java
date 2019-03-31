@@ -1,9 +1,12 @@
 package com.company.sgdadmin.util;
 
+
 /**
  *
  * @author JEPPLAP
  */
+import com.company.sgdadmin.entity.ParametrosEntity;
+import com.company.sgdadmin.repository.ParametrosRepository;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -17,48 +20,56 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.SecretKeySpec;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CryptoFiles {
 
-   static void fileProcessor(int cipherMode,String key,File inputFile,File outputFile){
-	 try {
-	       Key secretKey = new SecretKeySpec(key.getBytes(), "AES");
-	       Cipher cipher = Cipher.getInstance("AES");
-	       cipher.init(cipherMode, secretKey);
+    @Autowired
+    ParametrosRepository repository;
+    ParametrosEntity entity;
 
-	       FileInputStream inputStream = new FileInputStream(inputFile);
-	       byte[] inputBytes = new byte[(int) inputFile.length()];
-	       inputStream.read(inputBytes);
+    private boolean fileProcessor(int cipherMode, String key, File inputFile, File outputFile) {
+        try {
+            Key secretKey = new SecretKeySpec(key.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES");
+            cipher.init(cipherMode, secretKey);
 
-	       byte[] outputBytes = cipher.doFinal(inputBytes);
+            FileInputStream inputStream = new FileInputStream(inputFile);
+            byte[] inputBytes = new byte[(int) inputFile.length()];
+            inputStream.read(inputBytes);
 
-	       FileOutputStream outputStream = new FileOutputStream(outputFile);
-	       outputStream.write(outputBytes);
+            byte[] outputBytes = cipher.doFinal(inputBytes);
 
-	       inputStream.close();
-	       outputStream.close();
+            FileOutputStream outputStream = new FileOutputStream(outputFile);
+            outputStream.write(outputBytes);
 
-	    } catch (NoSuchPaddingException | NoSuchAlgorithmException 
-                     | InvalidKeyException | BadPaddingException
-	             | IllegalBlockSizeException | IOException e) {
-		e.printStackTrace();
+            inputStream.close();
+            outputStream.close();
+
+            return true;
+        } catch (NoSuchPaddingException | NoSuchAlgorithmException
+                | InvalidKeyException | BadPaddingException
+                | IllegalBlockSizeException | IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public File processFileEncrypt(File file, Boolean isEncrypted) {
+        int cyper;
+        Boolean isValidDecript;
+        cyper = isEncrypted ? Cipher.DECRYPT_MODE : Cipher.ENCRYPT_MODE;        
+        entity = repository.findByParametroid(ConstantsSGD.KEY_ID);
+        if (entity != null) {
+            isValidDecript = fileProcessor(cyper, entity.getValor(), file, file.getAbsoluteFile());
+            if (isValidDecript) {
+                return file;
+            } else {
+                return null;
             }
-     }
-	
-     public static void main(String[] args) {
-	String key = "This is a secret";
-	File inputFile = new File("C:\\dev\\test\\datos.txt");
-	File encryptedFile = new File("C:\\dev\\test\\text.encrypted");
-	File decryptedFile = new File("C:\\dev\\test\\decrypted-text.txt");
-		
-	try {
-	     CryptoFiles.fileProcessor(Cipher.ENCRYPT_MODE,key,inputFile,encryptedFile);
-	     CryptoFiles.fileProcessor(Cipher.DECRYPT_MODE,key,encryptedFile,decryptedFile);
-	     System.out.println("Sucess");
-	 } catch (Exception ex) {
-	     System.out.println(ex.getMessage());
-             ex.printStackTrace();
-	 }
-     }
-	
+        }
+        return null;
+    }
 }

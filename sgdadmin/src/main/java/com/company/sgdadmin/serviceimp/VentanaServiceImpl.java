@@ -11,6 +11,7 @@ import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import com.company.sgdadmin.service.VentanaServices;
 import com.company.sgdadmin.util.ConstantsSGD;
+import com.company.sgdadmin.util.CryptoFiles;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
@@ -209,6 +210,9 @@ public class VentanaServiceImpl implements VentanaServices {
 
     @Autowired
     FileManager fileManager;
+    
+      @Autowired
+    CryptoFiles cryptoFiles;
 
     @Override
     public void getVentanas(MultipartFile file, String year, String month, String date, String direccion) {
@@ -352,6 +356,7 @@ public class VentanaServiceImpl implements VentanaServices {
 
             }
 
+                             String message="";
             FileManagerDTO fileManagerDTO = new FileManagerDTO();
             fileManagerDTO.setFile(file);
             fileManagerDTO.setName(path);
@@ -360,7 +365,15 @@ public class VentanaServiceImpl implements VentanaServices {
             String fileName = path.substring(index + 1);
             File ruta = new File(path);
             String route = ruta.getParent();
+          
+            File pathencript = new File(route+File.separator+fileName);
                     
+            fileManager.uploading(fileManagerDTO);    
+           
+            File fileEnc = cryptoFiles.processFileEncrypt(pathencript, false);
+             
+           if (fileEnc != null) {
+            
             DocumentosActivosEntity doctoExiste = repository.findByRutaAndNombre(route, fileName);
             DocumentosActivosEntity entity = new DocumentosActivosEntity();
             
@@ -380,12 +393,9 @@ public class VentanaServiceImpl implements VentanaServices {
                 repository.save(entity);    
             }
             
-            
-
-            
-            
-            
-            fileManager.uploading(fileManagerDTO);
+             } else {
+                message = "Ocurrio un error";
+            }
 
         } catch (IOException ex) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

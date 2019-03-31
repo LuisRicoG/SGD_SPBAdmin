@@ -14,5 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ParametrosRepository extends CrudRepository<ParametrosEntity,Integer>{
+    
+        ParametrosEntity findByParametroid(Integer id);
 
 }
