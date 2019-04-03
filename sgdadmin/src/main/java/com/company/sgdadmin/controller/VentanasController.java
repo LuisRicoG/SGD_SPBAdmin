@@ -37,18 +37,18 @@ public class VentanasController {
    @RequestMapping(value = "/cargaarchivos{direccion}")
     public ModelAndView sayHello(@RequestParam("direccion") String direccion) {
     	ModelAndView mv = new ModelAndView();
-        this.direccion=direccion;
-       // mv.setViewName(this.direccion);
+        this.direccion=direccion; 
         mv.addObject("message", direccion);
+       service.visibleOptions(mv,direccion);
         mv.setViewName("sgdupload");
         return mv;
     }
     
         @PostMapping("/upload")
     public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file,
-            @RequestParam("year") String year,
-            @RequestParam("month") String month,
-            @RequestParam("date") String date) throws IOException {
+            @RequestParam(value = "year", defaultValue = "2017") String year,
+            @RequestParam(value = "month", defaultValue = "ENERO") String month,
+            @RequestParam(value = "date", defaultValue = "111111") String date) throws IOException {
         
    service.getVentanas(file,year, month,date,this.direccion);
          return new ResponseEntity<Object>("Archivo subido correctamente", HttpStatus.OK);

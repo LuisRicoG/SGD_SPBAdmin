@@ -4,7 +4,6 @@
 package com.company.sgdadmin.serviceimp;
 
 import com.company.sgdadmin.beans.Login;
-import com.company.sgdadmin.beans.SecurityLogin;
 import com.company.sgdadmin.dto.filemanager.FileManagerDTO;
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
@@ -15,25 +14,16 @@ import com.company.sgdadmin.util.CryptoFiles;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -205,13 +195,69 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${presentacioninformacionfile}")
     private String presentacioninformacionfile;
 
+    @Value("${identificacionesfolder}")
+    private String identificaciones;
+
+    @Value("${identificacionesfile}")
+    private String identificacionesfile;
+
+    @Value("${prefijoreporteventas}")
+    private String prefijoreporteventas;
+
+    @Value("${reporteventasfolder}")
+    private String reporteventasfolder;
+
+    @Value("${protocoloacciofolder}")
+    private String protocoloacciofolder;
+
+    @Value("${comitesfolder}")
+    private String comitesfolder;
+
+    @Value("${consejofolder}")
+    private String consejofolder;
+
+    @Value("${informaactivifolder}")
+    private String informaactivifolder;
+
+    @Value("${plantrabajofolder}")
+    private String plantrabajofolder;
+
+    @Value("${reglasoperacionfolder}")
+    private String reglasoperacionfolder;
+    
+    
+    @Value("${comitesfile}")
+    private String comitesfile;
+    
+    
+    @Value("${consejofile}")
+    private String consejofile;
+    
+    
+    @Value("${informaactivifile}")
+    private String informaactivifile;
+    
+    
+    @Value("${plantrabajofile}")
+    private String plantrabajofile;
+    
+    
+    @Value("${protocoloacciofile}")
+    private String protocoloacciofile;
+    
+    
+    @Value("${reglasoperacionfile}")
+    private String reglasoperacionfile;
+
+  
+
     @Autowired
     DocumentosActivosRepository repository;
 
     @Autowired
     FileManager fileManager;
-    
-      @Autowired
+
+    @Autowired
     CryptoFiles cryptoFiles;
 
     @Override
@@ -224,18 +270,17 @@ public class VentanaServiceImpl implements VentanaServices {
 
             switch (direccion) {
 
-                //INICIAMOS CON DOCUMENTACION LEGAL
-                case "actaconstitutiva":
+                case "Acta Constitutiva":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + escrituras + File.separator + actaconstitutiva + File.separator + actaconstitutivafile;
                     break;
 
-                case "poderes":
+                case "Poderes":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + escrituras + File.separator + poderes + File.separator + poderesfile;
                     break;
 
-                case "reformaestatutos":
+                case "Reforma Estatutos":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + escrituras + File.separator + reformaestatutos + File.separator + reformaestatutosfile;
                     break;
@@ -246,117 +291,145 @@ public class VentanaServiceImpl implements VentanaServices {
                             + File.separator + rfc + File.separator + rfcfile;
                     break;
 
-                case "fiel":
+                case "Identificaciones":
+
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
+                            + File.separator + identificaciones + File.separator + identificacionesfile;
+                    break;
+
+                case "Fiel":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + fiel + File.separator + fielfile;
                     break;
 
-                case "sellodigital":
+                case "Sello Digital":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + sellodigital + File.separator + sellodigitalfile;
                     break;
 
-                case "avisoprivacidad":
+                case "Aviso Privacidad":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + avisoprivacidadfolder + File.separator + avisoprivacidadfile;
                     break;
 
-                case "cumplimientoobligaciones":
+                case "Cumplimiento de Obligaciones":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + cumplimientooblifolder + File.separator + cumplimientooblifile;
                     break;
 
-                case "comprobantedomicilio":
+                case "Comprobante de Domicilio":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + comprobantedomicilio + File.separator + comprobantedomiciliofile;
                     break;
 
-                case "asambleaordinariafile":
+                case "Asamblea Ordinaria Aumento de Capital":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
                             + File.separator + asambleaordinariafolder + File.separator + asambleaordinariafile;
                     break;
 
-                //AQUI EMPIEZA EDOS FINANCIEROS
-                case "edosfinancieros":
+                case "Estados Financieros":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + estadosfinancieros
                             + File.separator + year + File.separator + prefijoestadosfinancieros + month + "-" + year + ".pdf";
                     break;
 
-                //AQUI EMPIEZA CONTRATOS FIRMADOS
-                case "financieros":
+                case "Contratos Firmados Financieros":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
                             + File.separator + contratosfirmadosfinancierosfolder + File.separator + cffinancierosfile;
                     break;
 
-                case "proveedores":
+                case "Contratos Firmados Proveedores":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
                             + File.separator + contratosfirmadosprovedoresfolder + File.separator + cfprovedoresfile;
                     break;
 
-                case "clientes":
+                case "Contratos Firmados Clientes":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
                             + File.separator + contratosfirmadosclientesfolder + File.separator + cfclientesfile;
                     break;
 
-                case "personal":
+                case "Contratos Firmados Personal":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
                             + File.separator + contratosfirmadospersonalfolder + File.separator + cfpersonalfile;
                     break;
 
-                //AQUI EMPIEZA REPORTE DE VENTAS
-                //QUE NOMBRE LLEVAN LOS ARCHIVOS????
-                case "reporteventas":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + estadosfinancieros
-                            + File.separator + year + File.separator + prefijoestadosfinancieros + month + "-" + year + ".pdf";
+                case "Reporte de Ventas":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + reporteventasfolder
+                            + File.separator + year + File.separator + prefijoreporteventas + month + "-" + year + ".pdf";
                     break;
 
-                //AQUI EMPIEZA SAGARPA
-                case "documentosolicitud":
+                case "Sagarpa Documentos de Solicitud":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + sagarpafolder
-                            + File.separator + documentosolifolder + File.separator + documentosolifile;
+                            + File.separator + documentosolifolder + File.separator + year + File.separator + documentosolifile + year + ".pdf";
                     break;
 
-                case "deposito":
+                case "Sagarpa Deposito":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + sagarpafolder
-                            + File.separator + depositofolder + File.separator + depositofile;
+                            + File.separator + depositofolder + File.separator + year + File.separator + depositofile + year + ".pdf";
                     break;
 
-                case "comprobantepagos":
+                case "Sagarpa Comprobante de Pagos":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + sagarpafolder
-                            + File.separator + comprobantepagosfolder + File.separator + comprobantepagosfile;
+                            + File.separator + comprobantepagosfolder + File.separator + year + File.separator + comprobantepagosfile + year + ".pdf";
                     break;
 
-                //AQUI EMPIEZA PRESENTACIONES COORPORATIVAS
-                case "presentacionescorporativas":
+                case "Presentaciones Corporativas":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + presentacionescorpfolder
-                            + File.separator + presentacionescorpfile + "-" + date + ".pdf";
+                            + File.separator + year + File.separator + presentacionescorpfile + year + ".pdf";
                     break;
 
-                //AQUI EMPIEZA GOBIERNO CORPORATIVO
-                //AQUI EMPIEZA ASAMBLEA DE ACCIONISTAS
-                case "convocatoria":
+                case "Asamblea de Accionistas Convocatoria":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + convocatoriafolder + convocatoriafile + "-" + date + ".pdf";
+                            + File.separator + asambleaacciofolder + File.separator + convocatoriafolder + File.separator + convocatoriafile + year + ".pdf";
                     break;
 
-                case "minuta":
+                case "Asamblea de Accionistas Minuta":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + minutafolder + minutafile + "-" + date + ".pdf";
+                            + File.separator + asambleaacciofolder + File.separator + minutafolder + File.separator + minutafile + year + ".pdf";
                     break;
 
-                case "ordendeldia":
+                case "Asamblea de Accionistas Orden del Dia":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + ordendiafolder + ordendiafile + "-" + date + ".pdf";
+                            + File.separator + asambleaacciofolder + File.separator + ordendiafolder + File.separator + ordendiafile + year + ".pdf";
                     break;
 
-                case "presentaciondeinformacion":
+                case "Asamblea de Accionistas Presentacion de Informacion":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + presentacioninformacionfolder + presentacioninformacionfile + "-" + date + ".pdf";
+                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Gobierno Corporativo Consejo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
+                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Gobierno Corporativo Comites":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
+                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Gobierno Corporativo Protocolo de Accionistas":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
+                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Gobierno Corporativo Reglas de Operacion":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
+                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Gobierno Corporativo Plan de Trabajo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
+                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Gobierno Corporativo Informe de Actividades":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
+                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
                     break;
 
             }
 
-                             String message="";
+            String message = "";
             FileManagerDTO fileManagerDTO = new FileManagerDTO();
             fileManagerDTO.setFile(file);
             fileManagerDTO.setName(path);
@@ -365,35 +438,34 @@ public class VentanaServiceImpl implements VentanaServices {
             String fileName = path.substring(index + 1);
             File ruta = new File(path);
             String route = ruta.getParent();
-          
-            File pathencript = new File(route+File.separator+fileName);
-                    
-            fileManager.uploading(fileManagerDTO);    
-           
+
+            File pathencript = new File(route + File.separator + fileName);
+
+            fileManager.uploading(fileManagerDTO);
+
             File fileEnc = cryptoFiles.processFileEncrypt(pathencript, false);
-             
-           if (fileEnc != null) {
-            
-            DocumentosActivosEntity doctoExiste = repository.findByRutaAndNombre(route, fileName);
-            DocumentosActivosEntity entity = new DocumentosActivosEntity();
-            
-            if (doctoExiste != null){
-                entity.setDocumento_id(doctoExiste.getDocumento_id());
-                entity.setNombre(doctoExiste.getNombre());
-                entity.setRuta(doctoExiste.getRuta());
-                entity.setUsuario_id(1);
-                entity.setFecha(new Timestamp(System.currentTimeMillis()));
-                repository.save(entity);
-            }else{                
-                entity.setFecha(new Timestamp(System.currentTimeMillis()));
-                entity.setRuta(route);
-                entity.setNombre(fileName);
-                //entity.setUsuario_id(GetUsuarioID(authentication.getName()));
-                entity.setUsuario_id(1);
-                repository.save(entity);    
-            }
-            
-             } else {
+
+            if (fileEnc != null) {
+
+                DocumentosActivosEntity doctoExiste = repository.findByRutaAndNombre(route, fileName);
+                DocumentosActivosEntity entity = new DocumentosActivosEntity();
+
+                if (doctoExiste != null) {
+                    entity.setDocumento_id(doctoExiste.getDocumento_id());
+                    entity.setNombre(doctoExiste.getNombre());
+                    entity.setRuta(doctoExiste.getRuta());
+                    entity.setUsuario_id(1);
+                    entity.setFecha(new Timestamp(System.currentTimeMillis()));
+                    repository.save(entity);
+                } else {
+                    entity.setFecha(new Timestamp(System.currentTimeMillis()));
+                    entity.setRuta(route);
+                    entity.setNombre(fileName);
+                    entity.setUsuario_id(1);
+                    repository.save(entity);
+                }
+
+            } else {
                 message = "Ocurrio un error";
             }
 
@@ -407,11 +479,139 @@ public class VentanaServiceImpl implements VentanaServices {
 
     public int GetUsuarioID(String usuario) {
         EntityManager em = factory.createEntityManager();
-        // read the existing entries and write to console
         Query q = em.createQuery("SELECT usuario_id FROM usuario where usuario='" + usuario + "'");
         Login user = (Login) q.getSingleResult();
         return user.getUsuarioid();
-        //System.out.println(user.getUsuarioid());
+    }
+
+    @Override
+    public void visibleOptions(ModelAndView mv, String direccion) {
+        switch (direccion) {
+
+            case "Acta Constitutiva":
+
+                break;
+
+            case "Poderes":
+
+                break;
+
+            case "Reforma Estatutos":
+
+                break;
+
+            case "Identificaciones":
+
+                break;
+
+            case "RFC":
+
+                break;
+
+            case "Fiel":
+
+                break;
+
+            case "Sello Digital":
+
+                break;
+
+            case "Aviso Privacidad":
+
+                break;
+
+            case "Cumplimiento de Obligaciones":
+
+                break;
+
+            case "Comprobante de Domicilio":
+
+                break;
+
+            case "Asamblea Ordinaria Aumento de Capital":
+
+                break;
+
+            case "Estados Financieros":
+                mv.addObject("lista1", true);
+                mv.addObject("lista2", true);
+                break;
+
+            case "Contratos Firmados Financieros":
+
+                break;
+
+            case "Contratos Firmados Provedorores":
+                break;
+
+            case "Contratos Firmados Clientes":
+                break;
+
+            case "Contratos Firmados Personal":
+                break;
+
+            case "Reporte de Ventas":
+                mv.addObject("lista1", true);
+                mv.addObject("lista2", true);
+                break;
+
+            case "Sagarpa Documentos de Solicitud":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Sagarpa Deposito":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Sagarpa Comprobante de Pagos":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Presentaciones Corporativas":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Convocatoria":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Minuta":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Orden del Dia":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Presentacion de Informacion":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Gobierno Corporativo Consejo":
+
+                break;
+
+            case "Gobierno Corporativo Comites":
+
+                break;
+
+            case "Gobierno Corporativo Protocolo de Accionistas":
+
+                break;
+
+            case "Gobierno Corporativo Reglas de Operacion":
+
+                break;
+
+            case "Gobierno Corporativo Plan de Trabajo":
+
+                break;
+
+            case "Gobierno Corporativo Informe de Actividades":
+
+                break;
+
+        }
     }
 
 }

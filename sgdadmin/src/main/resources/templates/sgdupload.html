@@ -185,6 +185,8 @@ ing_farias@live.com
             
             <div class="form-group">
                 <label class="custom-file" id="customFile">
+                  
+                      <div th:if="${lista1}">
                     <h1 style="text-align: center;">Seleccione el Año</h1>
                        <select name="year" style="width: 100%">
                             <option value="2017">2017</option>
@@ -193,6 +195,8 @@ ing_farias@live.com
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
                     </select>   
+                      </div>
+                   <div th:if="${lista2}">
                      <h1 style="text-align: center;">Seleccione el Mes</h1>
                      <select name="month" style="width: 100%">
                             <option value="ENERO">ENERO</option>
@@ -208,9 +212,11 @@ ing_farias@live.com
                              <option value="NOVIEMBRE">NOVIEMBRE</option>
                              <option value="DICIEMBRE">DICIEMBRE</option>                            
                     </select>  
+                          </div>
+                <div th:if="${lista3}">
                       <h1 style="text-align: center;">Escriba la fecha</h1>
                      <input type="text" name="date" value="fecha">
-                         
+                         </div>
                       <h1 style="text-align: center;">Seleccione el file</h1>
                     <input type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
                     <span class="custom-file-control form-control-file"></span>
