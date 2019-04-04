@@ -224,32 +224,104 @@ public class VentanaServiceImpl implements VentanaServices {
 
     @Value("${reglasoperacionfolder}")
     private String reglasoperacionfolder;
-    
-    
+
     @Value("${comitesfile}")
     private String comitesfile;
-    
-    
+
     @Value("${consejofile}")
     private String consejofile;
-    
-    
+
     @Value("${informaactivifile}")
     private String informaactivifile;
-    
-    
+
     @Value("${plantrabajofile}")
     private String plantrabajofile;
-    
-    
+
     @Value("${protocoloacciofile}")
     private String protocoloacciofile;
-    
-    
+
     @Value("${reglasoperacionfile}")
     private String reglasoperacionfile;
 
-  
+    @Value("${facturasactivosfolder}")
+    private String facturasactivos;
+
+    @Value("${prefijofact}")
+    private String prefijofact;
+
+    @Value("${inmueblesfolder}")
+    private String inmuebles;
+
+    @Value("${equipocomputofolder}")
+    private String equipocomputo;
+
+    @Value("${equipotransportefolder}")
+    private String equipotransporte;
+
+    @Value("${maquinariayequipofolder}")
+    private String maquinariayequipo;
+
+    @Value("${mobiliariofolder}")
+    private String mobiliario;
+
+    @Value("${engorda}")
+    private String engorda;
+
+    @Value("${rastro}")
+    private String rastro;
+
+    @Value("${cortes}")
+    private String cortes;
+
+    @Value("${corporativo}")
+    private String corporativo;
+
+    @Value("${segurosfolder}")
+    private String seguros;
+
+    @Value("${prefijoseg}")
+    private String prefijoseg;
+
+    @Value("${avaluosactivosfolder}")
+    private String avaluosactivos;
+
+    @Value("${prefijoaval}")
+    private String prefijoavaluo;
+
+    @Value("${organigramafolder}")
+    private String organigramafolder;
+
+    @Value("${organigramafile}")
+    private String organigramafile;
+
+    @Value("${estudioseconofolder}")
+    private String estudioseconofolder;
+
+    @Value("${precioganadofolder}")
+    private String precioganadofolder;
+
+    @Value("${preciocarnecanfolder}")
+    private String preciocarnecanfolder;
+
+    @Value("${precioalimentofolder}")
+    private String precioalimentofolder;
+
+    @Value("${estudioseconofile}")
+    private String estudioseconofile;
+
+    @Value("${precioganadofile}")
+    private String precioganadofile;
+
+    @Value("${preciocarnecanfile}")
+    private String preciocarnecanfile;
+
+    @Value("${precioalimentofile}")
+    private String precioalimentofile;
+    
+        @Value("${informacionIndusfolder}")
+    private String informacionIndusfolder;
+    
+    
 
     @Autowired
     DocumentosActivosRepository repository;
@@ -425,6 +497,331 @@ public class VentanaServiceImpl implements VentanaServices {
                 case "Gobierno Corporativo Informe de Actividades":
                     path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
                             + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Activos Engorda Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + inmuebles + File.separator + prefijofact + "I" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijofact + "MyE" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipotransporte + File.separator + prefijofact + "EdT" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + mobiliario + File.separator + prefijofact + "Mo" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipocomputo + File.separator + prefijofact + "EdC" + engorda + ".pdf";
+                    break;
+
+                case "Activos Rastro Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + inmuebles + File.separator + prefijofact + "I" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijofact + "MyE" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipotransporte + File.separator + prefijofact + "EdT" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + mobiliario + File.separator + prefijofact + "Mo" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipocomputo + File.separator + prefijofact + "EdC" + rastro + ".pdf";
+                    break;
+
+                case "Activos Cortes Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + inmuebles + File.separator + prefijofact + "I" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijofact + "MyE" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipotransporte + File.separator + prefijofact + "EdT" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + mobiliario + File.separator + prefijofact + "Mo" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipocomputo + File.separator + prefijofact + "EdC" + cortes + ".pdf";
+                    break;
+
+                case "Activos Corporativo Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + inmuebles + File.separator + prefijofact + "I" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijofact + "MyE" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipotransporte + File.separator + prefijofact + "EdT" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + mobiliario + File.separator + prefijofact + "Mo" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
+                            + equipocomputo + File.separator + prefijofact + "EdC" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Engorda Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + inmuebles + File.separator + prefijoseg + "I" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipotransporte + File.separator + prefijoseg + "EdT" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + mobiliario + File.separator + prefijoseg + "Mo" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipocomputo + File.separator + prefijoseg + "EdC" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Rastro Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + inmuebles + File.separator + prefijoseg + "I" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipotransporte + File.separator + prefijoseg + "EdT" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + mobiliario + File.separator + prefijoseg + "Mo" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipocomputo + File.separator + prefijoseg + "EdC" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Cortes Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + inmuebles + File.separator + prefijoseg + "I" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipotransporte + File.separator + prefijoseg + "EdT" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + mobiliario + File.separator + prefijoseg + "Mo" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipocomputo + File.separator + prefijoseg + "EdC" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + inmuebles + File.separator + prefijoseg + "I" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipotransporte + File.separator + prefijoseg + "EdT" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + mobiliario + File.separator + prefijoseg + "Mo" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
+                            + equipocomputo + File.separator + prefijoseg + "EdC" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + inmuebles + File.separator + prefijoavaluo + "I" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + mobiliario + File.separator + prefijoavaluo + "Mo" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + inmuebles + File.separator + prefijoavaluo + "I" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + mobiliario + File.separator + prefijoavaluo + "Mo" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + inmuebles + File.separator + prefijoavaluo + "I" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + mobiliario + File.separator + prefijoavaluo + "Mo" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Inmuebles":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + inmuebles + File.separator + prefijoavaluo + "I" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Maquinaria":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo transporte":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Mobiliario":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + mobiliario + File.separator + prefijoavaluo + "Mo" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Computo":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
+                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + corporativo + ".pdf";
+                    break;
+
+                case "Organigrama":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + organigramafolder + File.separator
+                            + organigramafile + ".pdf";
+                    break;
+
+                case "Estudios Economicos":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
+                            + estudioseconofolder + File.separator + estudioseconofile ;
+                    break;
+
+                case "Precio Ganado en Pie":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
+                            + precioganadofolder + File.separator + precioganadofile;
+                    break;
+
+                case "Precio Carne en Canal":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
+                            + preciocarnecanfolder + File.separator + preciocarnecanfile;
+                    break;
+
+                case "Precio Alimento":
+                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
+                            + precioalimentofolder + File.separator + precioalimentofile;
                     break;
 
             }
@@ -608,6 +1005,26 @@ public class VentanaServiceImpl implements VentanaServices {
                 break;
 
             case "Gobierno Corporativo Informe de Actividades":
+
+                break;
+
+            case "Activos Engorda Inmuebles":
+
+                break;
+
+            case "Activos Engorda Maquinaria":
+
+                break;
+
+            case "Activos Engorda transporte":
+
+                break;
+
+            case "Activos Engorda Mobiliario":
+
+                break;
+
+            case "Activos Engorda Computo":
 
                 break;
 
