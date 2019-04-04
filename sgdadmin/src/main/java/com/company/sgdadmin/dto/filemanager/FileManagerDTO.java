@@ -13,7 +13,17 @@ public class FileManagerDTO {
 
     private String name;
     private MultipartFile file;
+    private String path;
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
+    
     public String getName() {
         return name;
     }
