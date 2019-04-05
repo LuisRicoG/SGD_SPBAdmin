@@ -244,6 +244,84 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${reglasoperacionfile}")
     private String reglasoperacionfile;
 
+    @Value("${facturasactivosfolder}")
+    private String facturasactivos;
+
+    @Value("${prefijofact}")
+    private String prefijofact;
+
+    @Value("${inmueblesfolder}")
+    private String inmuebles;
+
+    @Value("${equipocomputofolder}")
+    private String equipocomputo;
+
+    @Value("${equipotransportefolder}")
+    private String equipotransporte;
+
+    @Value("${maquinariayequipofolder}")
+    private String maquinariayequipo;
+
+    @Value("${mobiliariofolder}")
+    private String mobiliario;
+
+    @Value("${engorda}")
+    private String engorda;
+
+    @Value("${rastro}")
+    private String rastro;
+
+    @Value("${cortes}")
+    private String cortes;
+
+    @Value("${corporativo}")
+    private String corporativo;
+
+    @Value("${segurosfolder}")
+    private String seguros;
+
+    @Value("${prefijoseg}")
+    private String prefijoseg;
+
+    @Value("${avaluosactivosfolder}")
+    private String avaluosactivos;
+
+    @Value("${prefijoaval}")
+    private String prefijoavaluo;
+
+    @Value("${organigramafolder}")
+    private String organigramafolder;
+
+    @Value("${organigramafile}")
+    private String organigramafile;
+
+    @Value("${estudioseconofolder}")
+    private String estudioseconofolder;
+
+    @Value("${precioganadofolder}")
+    private String precioganadofolder;
+
+    @Value("${preciocarnecanfolder}")
+    private String preciocarnecanfolder;
+
+    @Value("${precioalimentofolder}")
+    private String precioalimentofolder;
+
+    @Value("${estudioseconofile}")
+    private String estudioseconofile;
+
+    @Value("${precioganadofile}")
+    private String precioganadofile;
+
+    @Value("${preciocarnecanfile}")
+    private String preciocarnecanfile;
+
+    @Value("${precioalimentofile}")
+    private String precioalimentofile;
+
+    @Value("${informacionIndusfolder}")
+    private String informacionIndusfolder;
+
     @Autowired
     DocumentosActivosRepository repository;
 
@@ -419,6 +497,333 @@ public class VentanaServiceImpl implements VentanaServices {
                     path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
                     fileName = presentacioninformacionfile + year + ".pdf";
                     break;
+
+                case "Activos Engorda Inmuebles":
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda Maquinaria":
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda transporte":
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda Mobiliario":
+                    path += facturasactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + engorda + ".pdf";
+                    break;
+
+                case "Activos Engorda Computo":
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + engorda + ".pdf";
+                    break;
+
+                case "Activos Rastro Inmuebles":
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro Maquinaria":
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro transporte":
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro Mobiliario":
+                    path += facturasactivos + File.separator
+                            + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + rastro + ".pdf";
+                    break;
+
+                case "Activos Rastro Computo":
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + rastro + ".pdf";
+                    break;
+
+                case "Activos Cortes Inmuebles":
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes Maquinaria":
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes transporte":
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes Mobiliario":
+                    path += facturasactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + cortes + ".pdf";
+                    break;
+
+                case "Activos Cortes Computo":
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + cortes + ".pdf";
+                    break;
+
+                case "Activos Corporativo Inmuebles":
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo Maquinaria":
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo transporte":
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo Mobiliario":
+                    path += facturasactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + corporativo + ".pdf";
+                    break;
+
+                case "Activos Corporativo Computo":
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Engorda Inmuebles":
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda Maquinaria":
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda transporte":
+                    path += seguros + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda Mobiliario":
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Engorda Computo":
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + engorda + ".pdf";
+                    break;
+
+                case "Seguros Rastro Inmuebles":
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro Maquinaria":
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro transporte":
+                    path += seguros + File.separator
+                            + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro Mobiliario":
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Rastro Computo":
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + rastro + ".pdf";
+                    break;
+
+                case "Seguros Cortes Inmuebles":
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes Maquinaria":
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes transporte":
+                    path += seguros + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes Mobiliario":
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Cortes Computo":
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + cortes + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Inmuebles":
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Maquinaria":
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo transporte":
+                    path += seguros + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Mobiliario":
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + corporativo + ".pdf";
+                    break;
+
+                case "Seguros Corporativo Computo":
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Inmuebles":
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Maquinaria":
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda transporte":
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Mobiliario":
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Engorda Computo":
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + engorda + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Inmuebles":
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Maquinaria":
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro transporte":
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Mobiliario":
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Rastro Computo":
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + rastro + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Inmuebles":
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Maquinaria":
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes transporte":
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Mobiliario":
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Cortes Computo":
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + cortes + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Inmuebles":
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Maquinaria":
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo transporte":
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Mobiliario":
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + corporativo + ".pdf";
+                    break;
+
+                case "Avaluo Corporativo Computo":
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + corporativo + ".pdf";
+                    break;
+
+                case "Organigrama":
+                    path += organigramafolder + File.separator;
+                    fileName = organigramafile + ".pdf";
+                    break;
+
+                case "Estudios Economicos":
+                    path += informacionIndusfolder + File.separator + estudioseconofolder + File.separator;
+                    fileName = estudioseconofile;
+                    break;
+
+                case "Precio Ganado en Pie":
+                    path += informacionIndusfolder + File.separator + precioganadofolder + File.separator;
+                    fileName = precioganadofile;
+                    break;
+
+                case "Precio Carne en Canal":
+                    path += informacionIndusfolder + File.separator + preciocarnecanfolder + File.separator;
+                    fileName = preciocarnecanfile;
+                    break;
+
+                case "Precio Alimento":
+                    path += informacionIndusfolder + File.separator + precioalimentofolder + File.separator;
+                    fileName = precioalimentofile;
+                    break;
                 default:
                     throw new DownloadException();
 
@@ -455,7 +860,7 @@ public class VentanaServiceImpl implements VentanaServices {
                     repository.save(entity);
                 }
             } else {
-               throw new DownloadException();
+                throw new DownloadException();
             }
         } catch (IOException ex) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -596,6 +1001,26 @@ public class VentanaServiceImpl implements VentanaServices {
                 break;
 
             case "Gobierno Corporativo Informe de Actividades":
+
+                break;
+
+            case "Activos Engorda Inmuebles":
+
+                break;
+
+            case "Activos Engorda Maquinaria":
+
+                break;
+
+            case "Activos Engorda transporte":
+
+                break;
+
+            case "Activos Engorda Mobiliario":
+
+                break;
+
+            case "Activos Engorda Computo":
 
                 break;
 
