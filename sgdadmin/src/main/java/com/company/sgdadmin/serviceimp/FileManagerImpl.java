@@ -7,6 +7,7 @@ import com.company.sgdadmin.dto.filemanager.FileManagerDTO;
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
+import com.company.sgdadmin.util.ConstantsSGD;
 import com.company.sgdadmin.util.CryptoFiles;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -65,7 +66,8 @@ public class FileManagerImpl implements FileManager {
      */
     @Override
     public void downloadFile(DocumentosActivosEntity entidad) throws IOException {
-        File file = new File(entidad.getRuta() +  entidad.nombre);
+        String rootPath = ConstantsSGD.HOME;
+        File file = new File(rootPath + entidad.getRuta() +  entidad.nombre);
         String mimeType = URLConnection.guessContentTypeFromName(file.getName());
         if (mimeType == null) {
             System.out.println("mimetype is not detectable, will take default");

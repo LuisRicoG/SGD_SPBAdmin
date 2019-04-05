@@ -337,7 +337,7 @@ public class VentanaServiceImpl implements VentanaServices {
         try {
             String HOME = ConstantsSGD.HOME;
 
-            String path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator;
+            String path = File.separator + dirPrincipal + File.separator + documentosunicos + File.separator;
             String fileName = "";
 
             switch (direccion) {
@@ -831,10 +831,10 @@ public class VentanaServiceImpl implements VentanaServices {
 
             FileManagerDTO fileManagerDTO = new FileManagerDTO();
             fileManagerDTO.setFile(file);
-            fileManagerDTO.setPath(path);
+            fileManagerDTO.setPath(HOME + path);
             fileManagerDTO.setName(fileName);
 
-            File pathencript = new File(path + fileName);
+            File pathencript = new File(HOME + path + fileName);
 
             fileManager.uploading(fileManagerDTO);
 
@@ -847,10 +847,7 @@ public class VentanaServiceImpl implements VentanaServices {
 
                 if (doctoExiste != null) {
                     entity.setDocumento_id(doctoExiste.getDocumento_id());
-                    entity.setNombre(doctoExiste.getNombre());
-                    entity.setRuta(doctoExiste.getRuta());
-                    entity.setUsuario_id(1);
-                    entity.setFecha(new Timestamp(System.currentTimeMillis()));
+                    doctoExiste.setFecha(new Timestamp(System.currentTimeMillis()));
                     repository.save(entity);
                 } else {
                     entity.setFecha(new Timestamp(System.currentTimeMillis()));
@@ -880,69 +877,10 @@ public class VentanaServiceImpl implements VentanaServices {
     @Override
     public void visibleOptions(ModelAndView mv, String direccion) {
         switch (direccion) {
-
-            case "Acta Constitutiva":
-
-                break;
-
-            case "Poderes":
-
-                break;
-
-            case "Reforma Estatutos":
-
-                break;
-
-            case "Identificaciones":
-
-                break;
-
-            case "RFC":
-
-                break;
-
-            case "Fiel":
-
-                break;
-
-            case "Sello Digital":
-
-                break;
-
-            case "Aviso Privacidad":
-
-                break;
-
-            case "Cumplimiento de Obligaciones":
-
-                break;
-
-            case "Comprobante de Domicilio":
-
-                break;
-
-            case "Asamblea Ordinaria Aumento de Capital":
-
-                break;
-
             case "Estados Financieros":
                 mv.addObject("lista1", true);
                 mv.addObject("lista2", true);
                 break;
-
-            case "Contratos Firmados Financieros":
-
-                break;
-
-            case "Contratos Firmados Provedorores":
-                break;
-
-            case "Contratos Firmados Clientes":
-                break;
-
-            case "Contratos Firmados Personal":
-                break;
-
             case "Reporte de Ventas":
                 mv.addObject("lista1", true);
                 mv.addObject("lista2", true);
@@ -979,51 +917,6 @@ public class VentanaServiceImpl implements VentanaServices {
             case "Asamblea de Accionistas Presentacion de Informacion":
                 mv.addObject("lista1", true);
                 break;
-
-            case "Gobierno Corporativo Consejo":
-
-                break;
-
-            case "Gobierno Corporativo Comites":
-
-                break;
-
-            case "Gobierno Corporativo Protocolo de Accionistas":
-
-                break;
-
-            case "Gobierno Corporativo Reglas de Operacion":
-
-                break;
-
-            case "Gobierno Corporativo Plan de Trabajo":
-
-                break;
-
-            case "Gobierno Corporativo Informe de Actividades":
-
-                break;
-
-            case "Activos Engorda Inmuebles":
-
-                break;
-
-            case "Activos Engorda Maquinaria":
-
-                break;
-
-            case "Activos Engorda transporte":
-
-                break;
-
-            case "Activos Engorda Mobiliario":
-
-                break;
-
-            case "Activos Engorda Computo":
-
-                break;
-
         }
     }
 
