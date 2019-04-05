@@ -1,11 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *say hello
  */
 package com.company.sgdadmin.controller;
 
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
+import com.company.sgdadmin.exceptions.DownloadException;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import java.io.IOException;
@@ -49,11 +48,10 @@ public class AdminArchivosController {
             if (activosEntity != null) {
                 fileManager.downloadFile(activosEntity);
             } else {
-                //return "archivo no encontrado"
+                throw new DownloadException();
             }
         } catch (IOException ex) {
             Logger.getLogger(AdminArchivosController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //return "redirect:listaarchivos";
     }
 }

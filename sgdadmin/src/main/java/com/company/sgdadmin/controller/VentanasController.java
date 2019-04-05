@@ -3,7 +3,6 @@
  */
 package com.company.sgdadmin.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import com.company.sgdadmin.service.UploadFileService;
 import com.company.sgdadmin.service.VentanaServices;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,7 +31,7 @@ public class VentanasController {
     }
     String direccion;
 
-    @RequestMapping(value = "/cargaarchivos{direccion}")
+    @GetMapping("/cargaarchivos{direccion}")
     public ModelAndView sayHello(@RequestParam("direccion") String direccion) {
         ModelAndView mv = new ModelAndView();
         this.direccion = direccion;

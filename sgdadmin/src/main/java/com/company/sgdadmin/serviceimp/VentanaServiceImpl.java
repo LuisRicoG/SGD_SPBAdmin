@@ -846,9 +846,8 @@ public class VentanaServiceImpl implements VentanaServices {
                 DocumentosActivosEntity entity = new DocumentosActivosEntity();
 
                 if (doctoExiste != null) {
-                    entity.setDocumento_id(doctoExiste.getDocumento_id());
                     doctoExiste.setFecha(new Timestamp(System.currentTimeMillis()));
-                    repository.save(entity);
+                    repository.save(doctoExiste);
                 } else {
                     entity.setFecha(new Timestamp(System.currentTimeMillis()));
                     entity.setRuta(path);
