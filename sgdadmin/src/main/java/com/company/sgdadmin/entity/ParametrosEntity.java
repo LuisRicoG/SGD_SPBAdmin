@@ -1,8 +1,10 @@
+package com.company.sgdadmin.entity;
+
 /**
  * 
  */
-package com.company.sgdadmin.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,21 +19,22 @@ import javax.persistence.Table;
 @Table(name="parametros")
 public class ParametrosEntity {
 	@Id
+        @Column(name="parametro_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer parametro_id;
+	public Integer parametroid;
 	public String descripcion;
 	public String valor;
 	/**
 	 * @return the parametro_id
 	 */
-	public Integer getParametro_id() {
-		return parametro_id;
+	public Integer getParametroid() {
+		return parametroid;
 	}
 	/**
 	 * @param parametro_id the parametro_id to set
 	 */
-	public void setParametro_id(Integer parametro_id) {
-		this.parametro_id = parametro_id;
+	public void setParametroid(Integer parametroid) {
+		this.parametroid = parametroid;
 	}
 	/**
 	 * @return the descripcion

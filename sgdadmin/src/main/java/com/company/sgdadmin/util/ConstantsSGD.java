@@ -17,4 +17,5 @@ public class ConstantsSGD {
      * dirección donde se encuentran los archivos
      */
     public static String HOME =System.getProperty("catalina.home");
+    public static Integer KEY_ID = 1;
 }
