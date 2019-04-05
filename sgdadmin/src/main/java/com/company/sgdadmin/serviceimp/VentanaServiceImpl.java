@@ -6,6 +6,7 @@ package com.company.sgdadmin.serviceimp;
 import com.company.sgdadmin.beans.Login;
 import com.company.sgdadmin.dto.filemanager.FileManagerDTO;
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
+import com.company.sgdadmin.exceptions.DownloadException;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import com.company.sgdadmin.service.VentanaServices;
@@ -317,11 +318,9 @@ public class VentanaServiceImpl implements VentanaServices {
 
     @Value("${precioalimentofile}")
     private String precioalimentofile;
-    
-        @Value("${informacionIndusfolder}")
+
+    @Value("${informacionIndusfolder}")
     private String informacionIndusfolder;
-    
-    
 
     @Autowired
     DocumentosActivosRepository repository;
@@ -338,505 +337,504 @@ public class VentanaServiceImpl implements VentanaServices {
         try {
             String HOME = ConstantsSGD.HOME;
 
-            String path = "";
+            String path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator;
+            String fileName = "";
 
             switch (direccion) {
 
                 case "Acta Constitutiva":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + escrituras + File.separator + actaconstitutiva + File.separator + actaconstitutivafile;
+                    path += documentacionlegal + File.separator + escrituras + File.separator + actaconstitutiva + File.separator;
+                    fileName = actaconstitutivafile;
                     break;
 
                 case "Poderes":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + escrituras + File.separator + poderes + File.separator + poderesfile;
+                    path += documentacionlegal + File.separator + escrituras + File.separator + poderes + File.separator;
+                    fileName = poderesfile;
                     break;
 
                 case "Reforma Estatutos":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + escrituras + File.separator + reformaestatutos + File.separator + reformaestatutosfile;
+                    path += documentacionlegal + File.separator + escrituras + File.separator + reformaestatutos + File.separator;
+                    fileName = reformaestatutosfile;
                     break;
 
                 case "RFC":
-
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + rfc + File.separator + rfcfile;
+                    path += documentacionlegal + File.separator + rfc + File.separator;
+                    fileName = rfcfile;
                     break;
 
                 case "Identificaciones":
 
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + identificaciones + File.separator + identificacionesfile;
+                    path += documentacionlegal + File.separator + identificaciones + File.separator;
+                    fileName = identificacionesfile;
                     break;
 
                 case "Fiel":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + fiel + File.separator + fielfile;
+                    path += documentacionlegal + File.separator + fiel + File.separator;
+                    fileName = fielfile;
                     break;
 
                 case "Sello Digital":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + sellodigital + File.separator + sellodigitalfile;
+                    path += documentacionlegal + File.separator + sellodigital + File.separator;
+                    fileName = sellodigitalfile;
                     break;
 
                 case "Aviso Privacidad":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + avisoprivacidadfolder + File.separator + avisoprivacidadfile;
+                    path += documentacionlegal + File.separator + avisoprivacidadfolder + File.separator;
+                    fileName = avisoprivacidadfile;
                     break;
 
                 case "Cumplimiento de Obligaciones":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + cumplimientooblifolder + File.separator + cumplimientooblifile;
+                    path += documentacionlegal + File.separator + cumplimientooblifolder + File.separator;
+                    fileName = cumplimientooblifile;
                     break;
 
                 case "Comprobante de Domicilio":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + comprobantedomicilio + File.separator + comprobantedomiciliofile;
+                    path += documentacionlegal + File.separator + comprobantedomicilio + File.separator;
+                    fileName = comprobantedomiciliofile;
                     break;
 
                 case "Asamblea Ordinaria Aumento de Capital":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + documentacionlegal
-                            + File.separator + asambleaordinariafolder + File.separator + asambleaordinariafile;
+                    path += documentacionlegal + File.separator + asambleaordinariafolder + File.separator;
+                    fileName = asambleaordinariafile;
                     break;
 
                 case "Estados Financieros":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + estadosfinancieros
-                            + File.separator + year + File.separator + prefijoestadosfinancieros + month + "-" + year + ".pdf";
+                    path += estadosfinancieros + File.separator + year + File.separator;
+                    fileName = prefijoestadosfinancieros + month + "-" + year + ".pdf";
                     break;
 
                 case "Contratos Firmados Financieros":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
-                            + File.separator + contratosfirmadosfinancierosfolder + File.separator + cffinancierosfile;
+                    path += contratosfirmadosfolder + File.separator + contratosfirmadosfinancierosfolder + File.separator;
+                    fileName = cffinancierosfile;
                     break;
 
                 case "Contratos Firmados Proveedores":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
-                            + File.separator + contratosfirmadosprovedoresfolder + File.separator + cfprovedoresfile;
+                    path += contratosfirmadosfolder + File.separator + contratosfirmadosprovedoresfolder + File.separator;
+                    fileName = cfprovedoresfile;
                     break;
 
                 case "Contratos Firmados Clientes":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
-                            + File.separator + contratosfirmadosclientesfolder + File.separator + cfclientesfile;
+                    path += contratosfirmadosfolder + File.separator + contratosfirmadosclientesfolder + File.separator;
+                    fileName = cfclientesfile;
                     break;
 
                 case "Contratos Firmados Personal":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + contratosfirmadosfolder
-                            + File.separator + contratosfirmadospersonalfolder + File.separator + cfpersonalfile;
+                    path += contratosfirmadosfolder + File.separator + contratosfirmadospersonalfolder + File.separator;
+                    fileName = cfpersonalfile;
                     break;
 
                 case "Reporte de Ventas":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + reporteventasfolder
-                            + File.separator + year + File.separator + prefijoreporteventas + month + "-" + year + ".pdf";
+                    path += reporteventasfolder + File.separator + year + File.separator;
+                    fileName = prefijoreporteventas + month + "-" + year + ".pdf";
                     break;
 
                 case "Sagarpa Documentos de Solicitud":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + sagarpafolder
-                            + File.separator + documentosolifolder + File.separator + year + File.separator + documentosolifile + year + ".pdf";
+                    path += sagarpafolder + File.separator + documentosolifolder + File.separator;
+                    fileName = year + File.separator + documentosolifile + year + ".pdf";
                     break;
 
                 case "Sagarpa Deposito":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + sagarpafolder
-                            + File.separator + depositofolder + File.separator + year + File.separator + depositofile + year + ".pdf";
+                    path += sagarpafolder + File.separator + depositofolder + File.separator;
+                    fileName = year + File.separator + depositofile + year + ".pdf";
                     break;
 
                 case "Sagarpa Comprobante de Pagos":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + sagarpafolder
-                            + File.separator + comprobantepagosfolder + File.separator + year + File.separator + comprobantepagosfile + year + ".pdf";
+                    path += sagarpafolder + File.separator + comprobantepagosfolder + File.separator;
+                    fileName = year + File.separator + comprobantepagosfile + year + ".pdf";
                     break;
 
                 case "Presentaciones Corporativas":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + presentacionescorpfolder
-                            + File.separator + year + File.separator + presentacionescorpfile + year + ".pdf";
+                    path += presentacionescorpfolder + File.separator + year + File.separator;
+                    fileName = presentacionescorpfile + year + ".pdf";
                     break;
 
                 case "Asamblea de Accionistas Convocatoria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + convocatoriafolder + File.separator + convocatoriafile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + convocatoriafolder + File.separator;
+                    fileName = convocatoriafile + year + ".pdf";
                     break;
 
                 case "Asamblea de Accionistas Minuta":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + minutafolder + File.separator + minutafile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + minutafolder + File.separator;
+                    fileName = minutafile + year + ".pdf";
                     break;
 
                 case "Asamblea de Accionistas Orden del Dia":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + ordendiafolder + File.separator + ordendiafile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + ordendiafolder + File.separator;
+                    fileName = ordendiafile + year + ".pdf";
                     break;
 
                 case "Asamblea de Accionistas Presentacion de Informacion":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Gobierno Corporativo Consejo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Gobierno Corporativo Comites":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Gobierno Corporativo Protocolo de Accionistas":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Gobierno Corporativo Reglas de Operacion":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Gobierno Corporativo Plan de Trabajo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Gobierno Corporativo Informe de Actividades":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + gobiernocorporativofolder
-                            + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator + presentacioninformacionfile + year + ".pdf";
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Activos Engorda Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + inmuebles + File.separator + prefijofact + "I" + engorda + ".pdf";
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + engorda + ".pdf";
                     break;
 
                 case "Activos Engorda Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijofact + "MyE" + engorda + ".pdf";
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + engorda + ".pdf";
                     break;
 
                 case "Activos Engorda transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipotransporte + File.separator + prefijofact + "EdT" + engorda + ".pdf";
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + engorda + ".pdf";
                     break;
 
                 case "Activos Engorda Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + mobiliario + File.separator + prefijofact + "Mo" + engorda + ".pdf";
+                    path += facturasactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + engorda + ".pdf";
                     break;
 
                 case "Activos Engorda Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipocomputo + File.separator + prefijofact + "EdC" + engorda + ".pdf";
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + engorda + ".pdf";
                     break;
 
                 case "Activos Rastro Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + inmuebles + File.separator + prefijofact + "I" + rastro + ".pdf";
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + rastro + ".pdf";
                     break;
 
                 case "Activos Rastro Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijofact + "MyE" + rastro + ".pdf";
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + rastro + ".pdf";
                     break;
 
                 case "Activos Rastro transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipotransporte + File.separator + prefijofact + "EdT" + rastro + ".pdf";
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + rastro + ".pdf";
                     break;
 
                 case "Activos Rastro Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + mobiliario + File.separator + prefijofact + "Mo" + rastro + ".pdf";
+                    path += facturasactivos + File.separator
+                            + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + rastro + ".pdf";
                     break;
 
                 case "Activos Rastro Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipocomputo + File.separator + prefijofact + "EdC" + rastro + ".pdf";
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + rastro + ".pdf";
                     break;
 
                 case "Activos Cortes Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + inmuebles + File.separator + prefijofact + "I" + cortes + ".pdf";
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + cortes + ".pdf";
                     break;
 
                 case "Activos Cortes Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijofact + "MyE" + cortes + ".pdf";
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + cortes + ".pdf";
                     break;
 
                 case "Activos Cortes transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipotransporte + File.separator + prefijofact + "EdT" + cortes + ".pdf";
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + cortes + ".pdf";
                     break;
 
                 case "Activos Cortes Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + mobiliario + File.separator + prefijofact + "Mo" + cortes + ".pdf";
+                    path += facturasactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + cortes + ".pdf";
                     break;
 
                 case "Activos Cortes Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipocomputo + File.separator + prefijofact + "EdC" + cortes + ".pdf";
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + cortes + ".pdf";
                     break;
 
                 case "Activos Corporativo Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + inmuebles + File.separator + prefijofact + "I" + corporativo + ".pdf";
+                    path += facturasactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijofact + "I" + corporativo + ".pdf";
                     break;
 
                 case "Activos Corporativo Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijofact + "MyE" + corporativo + ".pdf";
+                    path += facturasactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijofact + "MyE" + corporativo + ".pdf";
                     break;
 
                 case "Activos Corporativo transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipotransporte + File.separator + prefijofact + "EdT" + corporativo + ".pdf";
+                    path += facturasactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijofact + "EdT" + corporativo + ".pdf";
                     break;
 
                 case "Activos Corporativo Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + mobiliario + File.separator + prefijofact + "Mo" + corporativo + ".pdf";
+                    path += facturasactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijofact + "Mo" + corporativo + ".pdf";
                     break;
 
                 case "Activos Corporativo Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + facturasactivos + File.separator
-                            + equipocomputo + File.separator + prefijofact + "EdC" + corporativo + ".pdf";
+                    path += facturasactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijofact + "EdC" + corporativo + ".pdf";
                     break;
 
                 case "Seguros Engorda Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + inmuebles + File.separator + prefijoseg + "I" + engorda + ".pdf";
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + engorda + ".pdf";
                     break;
 
                 case "Seguros Engorda Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + engorda + ".pdf";
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + engorda + ".pdf";
                     break;
 
                 case "Seguros Engorda transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipotransporte + File.separator + prefijoseg + "EdT" + engorda + ".pdf";
+                    path += seguros + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + engorda + ".pdf";
                     break;
 
                 case "Seguros Engorda Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + mobiliario + File.separator + prefijoseg + "Mo" + engorda + ".pdf";
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + engorda + ".pdf";
                     break;
 
                 case "Seguros Engorda Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipocomputo + File.separator + prefijoseg + "EdC" + engorda + ".pdf";
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + engorda + ".pdf";
                     break;
 
                 case "Seguros Rastro Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + inmuebles + File.separator + prefijoseg + "I" + rastro + ".pdf";
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + rastro + ".pdf";
                     break;
 
                 case "Seguros Rastro Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + rastro + ".pdf";
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + rastro + ".pdf";
                     break;
 
                 case "Seguros Rastro transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipotransporte + File.separator + prefijoseg + "EdT" + rastro + ".pdf";
+                    path += seguros + File.separator
+                            + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + rastro + ".pdf";
                     break;
 
                 case "Seguros Rastro Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + mobiliario + File.separator + prefijoseg + "Mo" + rastro + ".pdf";
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + rastro + ".pdf";
                     break;
 
                 case "Seguros Rastro Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipocomputo + File.separator + prefijoseg + "EdC" + rastro + ".pdf";
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + rastro + ".pdf";
                     break;
 
                 case "Seguros Cortes Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + inmuebles + File.separator + prefijoseg + "I" + cortes + ".pdf";
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + cortes + ".pdf";
                     break;
 
                 case "Seguros Cortes Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + cortes + ".pdf";
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + cortes + ".pdf";
                     break;
 
                 case "Seguros Cortes transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipotransporte + File.separator + prefijoseg + "EdT" + cortes + ".pdf";
+                    path += seguros + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + cortes + ".pdf";
                     break;
 
                 case "Seguros Cortes Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + mobiliario + File.separator + prefijoseg + "Mo" + cortes + ".pdf";
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + cortes + ".pdf";
                     break;
 
                 case "Seguros Cortes Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipocomputo + File.separator + prefijoseg + "EdC" + cortes + ".pdf";
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + cortes + ".pdf";
                     break;
 
                 case "Seguros Corporativo Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + inmuebles + File.separator + prefijoseg + "I" + corporativo + ".pdf";
+                    path += seguros + File.separator + inmuebles + File.separator;
+                    fileName = prefijoseg + "I" + corporativo + ".pdf";
                     break;
 
                 case "Seguros Corporativo Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + maquinariayequipo + File.separator + prefijoseg + "MyE" + corporativo + ".pdf";
+                    path += seguros + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoseg + "MyE" + corporativo + ".pdf";
                     break;
 
                 case "Seguros Corporativo transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipotransporte + File.separator + prefijoseg + "EdT" + corporativo + ".pdf";
+                    path += seguros + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoseg + "EdT" + corporativo + ".pdf";
                     break;
 
                 case "Seguros Corporativo Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + mobiliario + File.separator + prefijoseg + "Mo" + corporativo + ".pdf";
+                    path += seguros + File.separator + mobiliario + File.separator;
+                    fileName = prefijoseg + "Mo" + corporativo + ".pdf";
                     break;
 
                 case "Seguros Corporativo Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + seguros + File.separator
-                            + equipocomputo + File.separator + prefijoseg + "EdC" + corporativo + ".pdf";
+                    path += seguros + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoseg + "EdC" + corporativo + ".pdf";
                     break;
 
                 case "Avaluo Engorda Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + inmuebles + File.separator + prefijoavaluo + "I" + engorda + ".pdf";
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + engorda + ".pdf";
                     break;
 
                 case "Avaluo Engorda Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + engorda + ".pdf";
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + engorda + ".pdf";
                     break;
 
                 case "Avaluo Engorda transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + engorda + ".pdf";
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + engorda + ".pdf";
                     break;
 
                 case "Avaluo Engorda Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + mobiliario + File.separator + prefijoavaluo + "Mo" + engorda + ".pdf";
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + engorda + ".pdf";
                     break;
 
                 case "Avaluo Engorda Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + engorda + ".pdf";
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + engorda + ".pdf";
                     break;
 
                 case "Avaluo Rastro Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + inmuebles + File.separator + prefijoavaluo + "I" + rastro + ".pdf";
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + rastro + ".pdf";
                     break;
 
                 case "Avaluo Rastro Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + rastro + ".pdf";
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + rastro + ".pdf";
                     break;
 
                 case "Avaluo Rastro transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + rastro + ".pdf";
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + rastro + ".pdf";
                     break;
 
                 case "Avaluo Rastro Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + mobiliario + File.separator + prefijoavaluo + "Mo" + rastro + ".pdf";
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + rastro + ".pdf";
                     break;
 
                 case "Avaluo Rastro Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + rastro + ".pdf";
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + rastro + ".pdf";
                     break;
 
                 case "Avaluo Cortes Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + inmuebles + File.separator + prefijoavaluo + "I" + cortes + ".pdf";
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + cortes + ".pdf";
                     break;
 
                 case "Avaluo Cortes Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + cortes + ".pdf";
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + cortes + ".pdf";
                     break;
 
                 case "Avaluo Cortes transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + cortes + ".pdf";
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + cortes + ".pdf";
                     break;
 
                 case "Avaluo Cortes Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + mobiliario + File.separator + prefijoavaluo + "Mo" + cortes + ".pdf";
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + cortes + ".pdf";
                     break;
 
                 case "Avaluo Cortes Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + cortes + ".pdf";
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + cortes + ".pdf";
                     break;
 
                 case "Avaluo Corporativo Inmuebles":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + inmuebles + File.separator + prefijoavaluo + "I" + corporativo + ".pdf";
+                    path += avaluosactivos + File.separator + inmuebles + File.separator;
+                    fileName = prefijoavaluo + "I" + corporativo + ".pdf";
                     break;
 
                 case "Avaluo Corporativo Maquinaria":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + maquinariayequipo + File.separator + prefijoavaluo + "MyE" + corporativo + ".pdf";
+                    path += avaluosactivos + File.separator + maquinariayequipo + File.separator;
+                    fileName = prefijoavaluo + "MyE" + corporativo + ".pdf";
                     break;
 
                 case "Avaluo Corporativo transporte":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipotransporte + File.separator + prefijoavaluo + "EdT" + corporativo + ".pdf";
+                    path += avaluosactivos + File.separator + equipotransporte + File.separator;
+                    fileName = prefijoavaluo + "EdT" + corporativo + ".pdf";
                     break;
 
                 case "Avaluo Corporativo Mobiliario":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + mobiliario + File.separator + prefijoavaluo + "Mo" + corporativo + ".pdf";
+                    path += avaluosactivos + File.separator + mobiliario + File.separator;
+                    fileName = prefijoavaluo + "Mo" + corporativo + ".pdf";
                     break;
 
                 case "Avaluo Corporativo Computo":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + avaluosactivos + File.separator
-                            + equipocomputo + File.separator + prefijoavaluo + "EdC" + corporativo + ".pdf";
+                    path += avaluosactivos + File.separator + equipocomputo + File.separator;
+                    fileName = prefijoavaluo + "EdC" + corporativo + ".pdf";
                     break;
 
                 case "Organigrama":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + organigramafolder + File.separator
-                            + organigramafile + ".pdf";
+                    path += organigramafolder + File.separator;
+                    fileName = organigramafile + ".pdf";
                     break;
 
                 case "Estudios Economicos":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
-                            + estudioseconofolder + File.separator + estudioseconofile ;
+                    path += informacionIndusfolder + File.separator + estudioseconofolder + File.separator;
+                    fileName = estudioseconofile;
                     break;
 
                 case "Precio Ganado en Pie":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
-                            + precioganadofolder + File.separator + precioganadofile;
+                    path += informacionIndusfolder + File.separator + precioganadofolder + File.separator;
+                    fileName = precioganadofile;
                     break;
 
                 case "Precio Carne en Canal":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
-                            + preciocarnecanfolder + File.separator + preciocarnecanfile;
+                    path += informacionIndusfolder + File.separator + preciocarnecanfolder + File.separator;
+                    fileName = preciocarnecanfile;
                     break;
 
                 case "Precio Alimento":
-                    path = HOME + File.separator + dirPrincipal + File.separator + documentosunicos + File.separator + informacionIndusfolder + File.separator 
-                            + precioalimentofolder + File.separator + precioalimentofile;
+                    path += informacionIndusfolder + File.separator + precioalimentofolder + File.separator;
+                    fileName = precioalimentofile;
                     break;
+                default:
+                    throw new DownloadException();
 
             }
 
-            String message = "";
             FileManagerDTO fileManagerDTO = new FileManagerDTO();
             fileManagerDTO.setFile(file);
-            fileManagerDTO.setName(path);
+            fileManagerDTO.setPath(path);
+            fileManagerDTO.setName(fileName);
 
-            int index = path.lastIndexOf("\\");
-            String fileName = path.substring(index + 1);
-            File ruta = new File(path);
-            String route = ruta.getParent();
-
-            File pathencript = new File(route + File.separator + fileName);
+            File pathencript = new File(path + fileName);
 
             fileManager.uploading(fileManagerDTO);
 
@@ -844,7 +842,7 @@ public class VentanaServiceImpl implements VentanaServices {
 
             if (fileEnc != null) {
 
-                DocumentosActivosEntity doctoExiste = repository.findByRutaAndNombre(route, fileName);
+                DocumentosActivosEntity doctoExiste = repository.findByRutaAndNombre(path, fileName);
                 DocumentosActivosEntity entity = new DocumentosActivosEntity();
 
                 if (doctoExiste != null) {
@@ -856,20 +854,18 @@ public class VentanaServiceImpl implements VentanaServices {
                     repository.save(entity);
                 } else {
                     entity.setFecha(new Timestamp(System.currentTimeMillis()));
-                    entity.setRuta(route);
+                    entity.setRuta(path);
                     entity.setNombre(fileName);
                     entity.setUsuario_id(1);
                     repository.save(entity);
                 }
-
             } else {
-                message = "Ocurrio un error";
+                throw new DownloadException();
             }
-
         } catch (IOException ex) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+            throw new DownloadException();
         }
-
     }
 
     private static EntityManagerFactory factory;
