@@ -8,7 +8,6 @@ package com.company.sgdadmin.serviceimp;
 import com.company.sgdadmin.entity.LoginEntity;
 import com.company.sgdadmin.repository.LoginRepository;
 import com.company.sgdadmin.service.ListaUsuariosService;
-import com.company.sgdadmin.util.UsuariosUtil;
 import java.util.Collections;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +26,8 @@ public class ListaUsuariosServiceImpl implements ListaUsuariosService {
 
     @Autowired
     private LoginRepository loginRepository;
-//    final private List<LoginEntity> entitys = UsuariosUtil.buildUsuarios();
 
     List<LoginEntity> entitys;
-
 
     @Override
     public Page<LoginEntity> findPaginated(Pageable pageable) {

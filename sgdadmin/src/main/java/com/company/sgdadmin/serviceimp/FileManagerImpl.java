@@ -67,7 +67,7 @@ public class FileManagerImpl implements FileManager {
     @Override
     public void downloadFile(DocumentosActivosEntity entidad) throws IOException {
         String rootPath = ConstantsSGD.HOME;
-        File file = new File(rootPath + entidad.getRuta() +  entidad.nombre);
+        File file = new File(rootPath + entidad.getRuta() + entidad.nombre);
         String mimeType = URLConnection.guessContentTypeFromName(file.getName());
         if (mimeType == null) {
             System.out.println("mimetype is not detectable, will take default");
