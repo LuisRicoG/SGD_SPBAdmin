@@ -42,13 +42,13 @@ public class VentanasController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<?> uploadFile(@RequestParam("file") MultipartFile file,
+    public String  uploadFile(@RequestParam("file") MultipartFile file,
             @RequestParam(value = "year", defaultValue = "2017") String year,
             @RequestParam(value = "month", defaultValue = "ENERO") String month,
             @RequestParam(value = "date", defaultValue = "111111") String date) throws IOException {
 
         service.getVentanas(file, year, month, date, this.direccion);
-        return new ResponseEntity<Object>("Archivo subido correctamente", HttpStatus.OK);
+       return "redirect:menu";
 
     }
 }

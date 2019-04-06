@@ -59,17 +59,30 @@ $(document).ready(function () {
 
     $("#detailsForm").validate({
         rules: {
-            nombre1: "required",
-            apellido_paterno: "required",
-            apellido_materno: "required",
+            nombre1:{
+                required:true,
+                maxleght:50,
+            },
+            apellido_paterno: {
+                required:true,
+                maxleght:50,
+                minlenght:5,
+            },
+            apellido_materno: {
+                required:true,
+                maxleght:50,
+            },
             estatus: "required",
             rol_id: "required",
             telefono:{
-              number: true  
+              number: true,  
+              maxleght:15,
+              minleght:10,
             },
             usuario: {
                 required: true,
-                minlength: 6
+                maxleght:50,
+                minlength: 6,
             },
             pass: {
                 required: true,
@@ -80,7 +93,9 @@ $(document).ready(function () {
                 email: true
             },
             pass1: {
-                equalTo: "#pass"
+                equalTo: "#pass",
+                maxleght:20,
+                minlength: 5,
             }
         },
         messages: {
