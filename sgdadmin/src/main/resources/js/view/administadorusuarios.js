@@ -61,28 +61,29 @@ $(document).ready(function () {
         rules: {
             nombre1:{
                 required:true,
-                maxleght:50,
+                maxlength:50
             },
             apellido_paterno: {
                 required:true,
-                maxleght:50,
-                minlenght:5,
+                maxlength:50,
+                minlength:4
             },
-            apellido_materno: {
+            apellido_materno:  {
                 required:true,
-                maxleght:50,
+                maxlength:50,
+                minlength:4
             },
             estatus: "required",
             rol_id: "required",
             telefono:{
-              number: true,  
-              maxleght:15,
-              minleght:10,
+                number: true,
+                maxlength: 15,
+                minlength: 10              
             },
             usuario: {
                 required: true,
-                maxleght:50,
-                minlength: 6,
+                maxlength: 50,
+                minlength: 6    
             },
             pass: {
                 required: true,
@@ -93,21 +94,35 @@ $(document).ready(function () {
                 email: true
             },
             pass1: {
-                equalTo: "#pass",
-                maxleght:20,
-                minlength: 5,
+                equalTo: "#pass"
             }
         },
         messages: {
-            nombre1: "requerido",
-            apellido_paterno: "requerido",
-            apellido_materno: "requerido",
+            nombre1: {
+                required:"requerido",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres")
+            },
+            apellido_paterno: {
+                required:"requerido",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
+            apellido_materno: {
+                required:"requerido",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
             estatus: "requerido",
             rol_id: "requerido",
-            telefono:"Solo es posible ingresar digitos",
+            telefono:{
+                number: "Solo es posible ingresar digitos",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")           
+            },
             usuario: {
                 required: "requerido",
-                minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")    
             },
             pass: {
                 required: "requerido",
