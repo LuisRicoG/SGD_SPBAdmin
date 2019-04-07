@@ -84,7 +84,7 @@ ing_farias@live.com
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                            <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                        <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -98,24 +98,18 @@ ing_farias@live.com
                                 <div class="row">
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-					
-					</button>
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn"></button>
                                         </div>
                                     </div>
                                     <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
                                         <div class="header-right-info">
                                             <ul class="nav navbar-nav mai-top-nav header-right-menu">
-
                                                 <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">															
                                                         <span class="admin-name">Bienvenido, </span>
-															<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
-															
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    
+							<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
+                                                    </a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">                                                    
                                                         <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
                                                             <form th:action="@{/logout}" method="post">
                                                                 <input type="submit" value="Cerrar sesión" class="header-btn"/>
@@ -133,7 +127,7 @@ ing_farias@live.com
                 </div>
             </div>
             <!-- Mobile Menu start -->
- <div class="mobile-menu-area">
+            <div class="mobile-menu-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -145,83 +139,49 @@ ing_farias@live.com
                 </div>
             </div>
             <!-- Mobile Menu end -->
-            <div class="breadcome-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="breadcome-heading">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <ul class="breadcome-menu">
-                                         
-                                           
-                                        </ul>
-                                    </div>
+            <div class="container" style="margin-top: 30px">
+                <div class="card">
+                    <div class="card-header">Lista de Archivos</div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <!--<th>ID</th>-->
+                                            <th>Nombre</th>
+                                            <!--<th>Ruta</th>-->
+                                            <!--<th>Usuario</th>-->
+                                            <th>Fecha de Carga</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="docto : ${listaarchivos}">
+                                            <!--<td th:text="${docto.documento_id}"></td>-->
+                                            <td th:text="${docto.nombre}"></td>
+                                            <!--<td th:text="${docto.ruta}"></td>-->
+                                            <!--<td th:text="${docto.usuario_id}"></td>-->
+                                            <td th:text="${docto.fecha}"></td>
+                                            <td><a th:href="@{/getDocto(name=${docto.nombre},path=${docto.ruta})}">Descargar</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>        
+                <div class="footer-copyright-area">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="footer-copy-right">
+                                    <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        
-    
-      <div class="container" style="margin-top: 30px">
-    <div class="card">
-        <div class="card-header">Lista de Archivos</div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Ruta</th>
-                            <th>Usuario</th>
-                            <th>Fecha</th>
-                            <th>Enlace</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="docto : ${listaarchivos}">
-                            <td th:text="${docto.documento_id}"></td>
-                            <td th:text="${docto.nombre}"></td>
-                            <td th:text="${docto.ruta}"></td>
-                            <td th:text="${docto.usuario_id}"></td>
-                            <td th:text="${docto.fecha}"></td>
-                            <td><a th:href="@{/getDocto(name=${docto.nombre},path=${docto.ruta})}">Descargar</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div class="footer-copyright-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- jquery
 		============================================ -->
