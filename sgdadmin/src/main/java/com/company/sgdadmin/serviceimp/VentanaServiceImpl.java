@@ -109,7 +109,7 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${asambleaordinariafile}")
     private String asambleaordinariafile;
 
-    @Value("${prefijoestadosfinancieros}")
+    @Value("${estadosfinancieroscuatrimestre}")
     private String prefijoestadosfinancieros;
 
     @Value("${contratosfirmadosfolder}")
@@ -429,18 +429,18 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Sagarpa Documentos de Solicitud":
-                    path += sagarpafolder + File.separator + documentosolifolder + File.separator;
-                    fileName = year + File.separator + documentosolifile + year + ".pdf";
+                    path += sagarpafolder + File.separator + documentosolifolder + File.separator + year + File.separator;
+                    fileName =  documentosolifile + year + ".pdf";
                     break;
 
                 case "Sagarpa Deposito":
-                    path += sagarpafolder + File.separator + depositofolder + File.separator;
-                    fileName = year + File.separator + depositofile + year + ".pdf";
+                    path += sagarpafolder + File.separator + depositofolder + File.separator + year + File.separator ;
+                    fileName = depositofile + year + ".pdf";
                     break;
 
                 case "Sagarpa Comprobante de Pagos":
-                    path += sagarpafolder + File.separator + comprobantepagosfolder + File.separator;
-                    fileName = year + File.separator + comprobantepagosfile + year + ".pdf";
+                    path += sagarpafolder + File.separator + comprobantepagosfolder + File.separator + year + File.separator;
+                    fileName = comprobantepagosfile + year + ".pdf";
                     break;
 
                 case "Presentaciones Corporativas":
@@ -879,10 +879,58 @@ public class VentanaServiceImpl implements VentanaServices {
             case "Estados Financieros":
                 mv.addObject("lista1", true);
                 mv.addObject("lista2", true);
+                mv.addObject("tipo","accept=.pdf");
                 break;
             case "Reporte de Ventas":
                 mv.addObject("lista1", true);
                 mv.addObject("lista2", true);
+                break;
+
+            case "Sagarpa Documentos de Solicitud":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Sagarpa Deposito":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Sagarpa Comprobante de Pagos":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Presentaciones Corporativas":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Convocatoria":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Minuta":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Orden del Dia":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Asamblea de Accionistas Presentacion de Informacion":
+                mv.addObject("lista1", true);
+                break;
+        }
+    }
+    
+    public void archivetipe(ModelAndView mv, String direccion) {
+        switch (direccion) {
+            case "Estados Financieros":
+                 mv.addObject("lista1", true);
+                mv.addObject("lista2", true);
+                mv.addObject("tipo","accept=.pdf");
+                break;
+            case "Reporte de Ventas":
+                mv.addObject("lista1", true);
+                mv.addObject("lista2", true);
+                
                 break;
 
             case "Sagarpa Documentos de Solicitud":
