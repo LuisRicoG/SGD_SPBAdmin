@@ -43,7 +43,7 @@ public class AdministradorUsuariosController {
 
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @GetMapping
     public ModelAndView sayHello() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("administradorusuarios");

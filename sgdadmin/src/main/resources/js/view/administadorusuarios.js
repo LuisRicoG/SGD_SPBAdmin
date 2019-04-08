@@ -59,17 +59,31 @@ $(document).ready(function () {
 
     $("#detailsForm").validate({
         rules: {
-            nombre1: "required",
-            apellido_paterno: "required",
-            apellido_materno: "required",
+            nombre1:{
+                required:true,
+                maxlength:50
+            },
+            apellido_paterno: {
+                required:true,
+                maxlength:50,
+                minlength:4
+            },
+            apellido_materno:  {
+                required:true,
+                maxlength:50,
+                minlength:4
+            },
             estatus: "required",
             rol_id: "required",
             telefono:{
-              number: true  
+                number: true,
+                maxlength: 15,
+                minlength: 10              
             },
             usuario: {
                 required: true,
-                minlength: 6
+                maxlength: 50,
+                minlength: 6    
             },
             pass: {
                 required: true,
@@ -84,15 +98,31 @@ $(document).ready(function () {
             }
         },
         messages: {
-            nombre1: "requerido",
-            apellido_paterno: "requerido",
-            apellido_materno: "requerido",
+            nombre1: {
+                required:"requerido",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres")
+            },
+            apellido_paterno: {
+                required:"requerido",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
+            apellido_materno: {
+                required:"requerido",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")
+            },
             estatus: "requerido",
             rol_id: "requerido",
-            telefono:"Solo es posible ingresar digitos",
+            telefono:{
+                number: "Solo es posible ingresar digitos",
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")           
+            },
             usuario: {
                 required: "requerido",
-                minlength: jQuery.validator.format("Al menos debe tener {0} caracteres")
+                maxlength:jQuery.validator.format("Longitud maxima es de: {0} caracteres"),
+                minlength:jQuery.validator.format("Al menos debe tener {0} caracteres")    
             },
             pass: {
                 required: "requerido",
