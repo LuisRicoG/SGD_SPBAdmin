@@ -444,8 +444,8 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Presentaciones Corporativas":
-                    path += presentacionescorpfolder + File.separator;
-                    fileName = presentacionescorpfile + year + ".pdf";
+                    path += presentacionescorpfolder + File.separator + year + File.separator;
+                    fileName = presentacionescorpfile + "-" + year + ".pdf";
                     break;
 
                 case "Asamblea de Accionistas Convocatoria":
