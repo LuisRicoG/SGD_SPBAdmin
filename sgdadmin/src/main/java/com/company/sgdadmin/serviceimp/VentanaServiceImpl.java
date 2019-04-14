@@ -322,6 +322,127 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${informacionIndusfolder}")
     private String informacionIndusfolder;
 
+    @Value("${enlacescorporativosfolder}")
+    private String dirEnlacesCorporativos;
+    @Value("${enlacescorporativosfile}")
+    private String fileEnlacesCorporativos;
+
+    @Value("${convocatoriainversionesfolder}")
+    private String dirConvocatoriaInversiones;
+    @Value("${convocatoriainversionesfile}")
+    private String fileConvocatoriaInversiones;
+
+    @Value("${comitesfolder}")
+    private String dirComites;
+
+    @Value("${minutainversionesfolder}")
+    private String dirMinutaInversiones;
+    @Value("${minutainversionesfile}")
+    private String fileMinutaInversiones;
+    @Value("${ordendiainversionesfolder}")
+    private String dirOrdenDiaInversiones;
+    @Value("${ordendiainversionesfile}")
+    private String fileOrdenDiaInversiones;
+    @Value("${presentacioninformacioninversionesfolder}")
+    private String dirPresentacionInformacionInversiones;
+    @Value("${presentacioninformacioninversionesfile}")
+    private String filePresentacionInformacionInversiones;
+    @Value("${reglasoperacioninversionesfolder}")
+    private String dirReglasOperacionesInversiones;
+    @Value("${reglasoperacioninversionesfile}")
+    private String fileReglasOperacionesInversiones;
+    @Value("${curriculummiembrosinversionesfolder}")
+    private String dirCurriculumMiembrosInversiones;
+    @Value("${curriculummiembrosinversionesfile}")
+    private String fileCurriculumMiembrosInversiones;
+    @Value("${cartasconfidinversionesfolder}")
+    private String dirCartasConfidencialidadInversiones;
+    @Value("${cartasconfidinversionesfile}")
+    private String fileCartasConfidencialidadInversiones;
+    @Value("${plananualsesinversionesfolder}")
+    private String dirPlanAnualSesionesInversiones;
+    @Value("${plananualsesinversionesfile}")
+    private String filePlanAnualSesionesInversiones;
+    @Value("${reportetriconsejoinversionesfolder}")
+    private String dirReporteTrimestralInversiones;
+    @Value("${reportetriconsejoinversionesfile}")
+    private String fileReporteTrimestralInversiones;
+    @Value("${convocatoriacomercialfolder}")
+    private String dirConvocatoriaComercial;
+    @Value("${convocatoriacomercialfile}")
+    private String fileConvocatoriaComercial;
+    @Value("${minutacomercialfolder}")
+    private String dirMinutaComercial;
+    @Value("${minutacomercialfile}")
+    private String fileMinutaComercial;
+    @Value("${ordendiacomercialfolder}")
+    private String dirOrdenDiaComercial;
+    @Value("${ordendiacomercialfile}")
+    private String fileOrdenDiaComercial;
+    @Value("${presentacioninformacioncomercialfolder}")
+    private String dirPresentacionInformacionComercial;
+    @Value("${presentacioninformacioncomercialfile}")
+    private String filePresentacionInformacionComercial;
+    @Value("${reglasoperacioncomercialfolder}")
+    private String dirReglasOperacionesComercial;
+    @Value("${reglasoperacioncomercialfile}")
+    private String fileReglasOperacionesComercial;
+    @Value("${curriculummiembroscomercialfolder}")
+    private String dirCurriculumMiembrosComercial;
+    @Value("${curriculummiembroscomercialfile}")
+    private String fileCurriculumMiembrosComercial;
+    @Value("${cartasconfidcomercialfolder}")
+    private String dirCartasConfidencialidadComercial;
+    @Value("${cartasconfidcomercialfile}")
+    private String fileCartasConfidencialidadComercial;
+    @Value("${plananualsescomercialfolder}")
+    private String dirPlanAnualSesionesComercial;
+    @Value("${plananualsescomercialfile}")
+    private String filePlanAnualSesionesComercial;
+    @Value("${reportetriconsejocomercialfolder}")
+    private String dirReporteTrimestralComercial;
+    @Value("${reportetriconsejocomercialfile}")
+    private String fileReporteTrimestralComercial;
+
+    @Value("${comiteengordafolder}")
+    private String dirComiteEngorda;
+    @Value("${convocatoriaengordafolder}")
+    private String dirConvocatoriaEngorda;
+    @Value("${convocatoriaengordafile}")
+    private String fileConvocatoriaEngorda;
+    @Value("${minutaengordafolder}")
+    private String dirMinutaEngorda;
+    @Value("${minutaengordafile}")
+    private String fileMinutaEngorda;
+    @Value("${ordendiaengordafolder}")
+    private String dirOrdenDiaEngorda;
+    @Value("${ordendiaengordafile}")
+    private String fileOrdenDiaEngorda;
+    @Value("${presentacioninformacionengordafolder}")
+    private String dirPresentacionInformacionEngorda;
+    @Value("${presentacioninformacionengordafile}")
+    private String filePresentacionInformacionEngorda;
+    @Value("${reglasoperacionengordafolder}")
+    private String dirReglasOperacionesEngorda;
+    @Value("${reglasoperacionengordafile}")
+    private String fileReglasOperacionesEngorda;
+    @Value("${curriculummiembrosengordafolder}")
+    private String dirCurriculumMiembrosEngorda;
+    @Value("${curriculummiembrosengordafile}")
+    private String fileCurriculumMiembrosEngorda;
+    @Value("${cartasconfidengordafolder}")
+    private String dirCartasConfidencialidadEngorda;
+    @Value("${cartasconfidengordafile}")
+    private String fileCartasConfidencialidadEngorda;
+    @Value("${plananualsesengordafolder}")
+    private String dirPlanAnualSesionesEngorda;
+    @Value("${plananualsesengordafile}")
+    private String filePlanAnualSesionesEngorda;
+    @Value("${reportetriconsejofolder}")
+    private String dirReporteTrimestralEngorda;
+    @Value("${reportetriconsejofile}")
+    private String fileReporteTrimestralEngorda;
+
     @Autowired
     DocumentosActivosRepository repository;
 
@@ -430,7 +551,7 @@ public class VentanaServiceImpl implements VentanaServices {
 
                 case "Sagarpa Documentos de Solicitud":
                     path += sagarpafolder + File.separator + documentosolifolder + File.separator;
-                    fileName =  documentosolifile + year + ".pdf";
+                    fileName = documentosolifile + year + ".pdf";
                     break;
 
                 case "Sagarpa Deposito":
@@ -439,63 +560,13 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Sagarpa Comprobante de Pagos":
-                    path += sagarpafolder + File.separator + comprobantepagosfolder +File.separator;
+                    path += sagarpafolder + File.separator + comprobantepagosfolder + File.separator;
                     fileName = comprobantepagosfile + year + ".pdf";
                     break;
 
                 case "Presentaciones Corporativas":
                     path += presentacionescorpfolder + File.separator + year + File.separator;
                     fileName = presentacionescorpfile + "-" + year + ".pdf";
-                    break;
-
-                case "Asamblea de Accionistas Convocatoria":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + convocatoriafolder + File.separator;
-                    fileName = convocatoriafile + year + ".pdf";
-                    break;
-
-                case "Asamblea de Accionistas Minuta":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + minutafolder + File.separator;
-                    fileName = minutafile + year + ".pdf";
-                    break;
-
-                case "Asamblea de Accionistas Orden del Dia":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + ordendiafolder + File.separator;
-                    fileName = ordendiafile + year + ".pdf";
-                    break;
-
-                case "Asamblea de Accionistas Presentacion de Informacion":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
-                    break;
-
-                case "Gobierno Corporativo Consejo":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
-                    break;
-
-                case "Gobierno Corporativo Comites":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
-                    break;
-
-                case "Gobierno Corporativo Protocolo de Accionistas":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
-                    break;
-
-                case "Gobierno Corporativo Reglas de Operacion":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
-                    break;
-
-                case "Gobierno Corporativo Plan de Trabajo":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
-                    break;
-
-                case "Gobierno Corporativo Informe de Actividades":
-                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
                     break;
 
                 case "Activos Engorda Inmuebles":
@@ -824,6 +895,127 @@ public class VentanaServiceImpl implements VentanaServices {
                     path += informacionIndusfolder + File.separator + precioalimentofolder + File.separator;
                     fileName = precioalimentofile;
                     break;
+
+                case "Asamblea de Accionistas Convocatoria":
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + convocatoriafolder + File.separator;
+                    fileName = convocatoriafile + year + ".pdf";
+                    break;
+
+                case "Asamblea de Accionistas Orden del Dia":
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + ordendiafolder + File.separator;
+                    fileName = ordendiafile + year + ".pdf";
+                    break;
+
+                case "Asamblea de Accionistas Presentacion de Informacion":
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
+                    fileName = presentacioninformacionfile + year + ".pdf";
+                    break;
+
+                case "Asamblea de Accionistas Minuta":
+                    path += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + minutafolder + File.separator;
+                    fileName = minutafile + year + ".pdf";
+                    break;
+
+                case "Gobierno Corporativo Consejo":
+                    path += gobiernocorporativofolder + File.separator + consejofolder + File.separator;
+                    fileName = consejofile;
+                    break;
+
+                case "Gobierno Corporativo Enlaces Corporativo":
+                    path += gobiernocorporativofolder + File.separator + dirEnlacesCorporativos + File.separator;
+                    fileName = fileEnlacesCorporativos;
+                    break;
+
+                case "Comite de Inversiones Convocatoria":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirConvocatoriaInversiones + File.separator;
+                    fileName = fileConvocatoriaInversiones + "-" + year + ".pdf";
+                    break;
+
+                case "Comite de Inversiones Orden del Dia":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirOrdenDiaInversiones + File.separator;
+                    fileName = fileOrdenDiaInversiones + "-" + year + ".pdf";
+                    break;
+
+                case "Comite de Inversiones Presentacion de Informacion":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirPresentacionInformacionInversiones + File.separator;
+                    fileName = filePresentacionInformacionInversiones + "-" + year + ".pdf";
+                    break;
+
+                case "Comite de Inversiones Minuta":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirMinutaInversiones + File.separator;
+                    fileName = fileMinutaInversiones + "-" + year + ".pdf";
+                    break;
+
+                case "Comite de Inversiones Reglas de Operacion":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirReglasOperacionesInversiones + File.separator;
+                    fileName = fileReglasOperacionesInversiones;
+                    break;
+
+                case "Comite de Inversiones Curriculum Miembros":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirCurriculumMiembrosInversiones + File.separator;
+                    fileName = fileCurriculumMiembrosInversiones;
+                    break;
+
+                case "Comite de Inversiones Cartas de Confidencialidad":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirCartasConfidencialidadInversiones + File.separator;
+                    fileName = fileCartasConfidencialidadInversiones;
+                    break;
+
+                case "Comite de Inversiones Plan Anual Sesiones":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirPlanAnualSesionesInversiones + File.separator;
+                    fileName = filePlanAnualSesionesInversiones;
+                    break;
+
+                case "Comite de Inversiones Reportes Trimestrales":
+                    path += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirReporteTrimestralInversiones + File.separator;
+                    fileName = fileReporteTrimestralInversiones;
+                    break;
+
+                    case "Comite Engorda Convocatoria":
+                        path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirConvocatoriaEngorda + File.separator;
+                        fileName = fileConvocatoriaEngorda + "-" + year + ".pdf";
+                        break;
+
+                    case "Comite Engorda Orden del Dia":
+                        path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirOrdenDiaEngorda + File.separator;
+                        fileName = fileOrdenDiaEngorda + "-" + year + ".pdf";
+                        break;
+
+                    case "Comite Engorda Presentacion de Informacion":
+                        path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirPresentacionInformacionEngorda + File.separator;
+                        fileName = filePresentacionInformacionEngorda + "-" + year + ".pdf";
+                        break;
+
+                    case "Comite Engorda Minuta":
+                        path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirMinutaEngorda + File.separator;
+                        fileName = fileMinutaEngorda + "-" + year + ".pdf";
+                        break;
+
+                case "Comite Engorda Reglas de Operacion":
+                    path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirReglasOperacionesEngorda + File.separator;
+                    fileName = fileReglasOperacionesEngorda;
+                    break;
+
+                case "Comite Engorda Curriculum Miembros":
+                    path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirCurriculumMiembrosEngorda + File.separator;
+                    fileName = fileCurriculumMiembrosEngorda;
+                    break;
+
+                case "Comite Engorda Cartas de Confidencialidad":
+                    path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirCartasConfidencialidadEngorda + File.separator;
+                    fileName = fileCartasConfidencialidadEngorda;
+                    break;
+
+                case "Comite Engorda Plan Anual Sesiones":
+                    path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirPlanAnualSesionesEngorda + File.separator;
+                    fileName = filePlanAnualSesionesEngorda;
+                    break;
+
+                case "Comite Engorda Reportes Trimestrales":
+                    path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirReporteTrimestralEngorda + File.separator;
+                    fileName = fileReporteTrimestralEngorda;
+                    break;
+
                 default:
                     throw new DownloadException();
 
@@ -916,6 +1108,39 @@ public class VentanaServiceImpl implements VentanaServices {
             case "Asamblea de Accionistas Presentacion de Informacion":
                 mv.addObject("lista1", true);
                 break;
+
+            case "Comite de Inversiones Convocatoria":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Comite de Inversiones Orden del Dia":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Comite de Inversiones Presentacion de Informacion":
+                mv.addObject("lista1", true);
+                break;
+
+            case "Comite de Inversiones Minuta":
+                mv.addObject("lista1", true);
+                break;
+                
+                case "Comite Engorda Convocatoria":
+                      mv.addObject("lista1", true);
+                    break;
+
+                case "Comite Engorda Orden del Dia":
+                      mv.addObject("lista1", true);
+                    break;
+
+                case "Comite Engorda Presentacion de Informacion":
+                      mv.addObject("lista1", true);
+                    break;
+
+                case "Comite Engorda Minuta":
+                      mv.addObject("lista1", true);
+                    break;
+
         }
     }
 
