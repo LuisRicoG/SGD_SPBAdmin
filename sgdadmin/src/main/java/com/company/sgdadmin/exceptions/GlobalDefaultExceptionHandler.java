@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 /**
  *
@@ -14,9 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 @ControllerAdvice
 class GlobalDefaultExceptionHandler {
 
-    public static final String DEFAULT_ERROR_VIEW = "error";
-
-    @ExceptionHandler(value = DownloadException.class)
+    @ExceptionHandler({RedirectException.class, Throwable.class, NoHandlerFoundException.class, Exception.class})
     public ModelAndView
             defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {
         // If the exception is annotated with @ResponseStatus rethrow it and let

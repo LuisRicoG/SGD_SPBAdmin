@@ -8,12 +8,11 @@ import com.company.sgdadmin.service.UploadFileService;
 import com.company.sgdadmin.service.VentanaServices;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
@@ -42,13 +41,12 @@ public class VentanasController {
     }
 
     @PostMapping("/upload")
-    public String  uploadFile(@RequestParam("file") MultipartFile file,
+    @ResponseBody
+    public void uploadFile(@RequestParam("file") MultipartFile file,
             @RequestParam(value = "year", defaultValue = "2017") String year,
             @RequestParam(value = "month", defaultValue = "ENERO") String month,
             @RequestParam(value = "date", defaultValue = "111111") String date) throws IOException {
 
         service.getVentanas(file, year, month, date, this.direccion);
-       return "redirect:menu";
-
     }
 }

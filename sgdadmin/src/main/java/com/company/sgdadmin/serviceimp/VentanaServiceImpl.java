@@ -6,7 +6,6 @@ package com.company.sgdadmin.serviceimp;
 import com.company.sgdadmin.beans.Login;
 import com.company.sgdadmin.dto.filemanager.FileManagerDTO;
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
-import com.company.sgdadmin.exceptions.DownloadException;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import com.company.sgdadmin.service.VentanaServices;
@@ -825,7 +824,7 @@ public class VentanaServiceImpl implements VentanaServices {
                     fileName = precioalimentofile;
                     break;
                 default:
-                    throw new DownloadException();
+                   // throw new DownloadException();
 
             }
 
@@ -856,11 +855,11 @@ public class VentanaServiceImpl implements VentanaServices {
                     repository.save(entity);
                 }
             } else {
-                throw new DownloadException();
+                //throw new DownloadException();
             }
         } catch (IOException ex) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-            throw new DownloadException();
+           // throw new DownloadException();
         }
     }
 

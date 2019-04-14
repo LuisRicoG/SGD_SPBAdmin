@@ -4,7 +4,6 @@
 package com.company.sgdadmin.controller;
 
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
-import com.company.sgdadmin.exceptions.DownloadException;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import java.io.IOException;
@@ -48,7 +47,7 @@ public class AdminArchivosController {
             if (activosEntity != null) {
                 fileManager.downloadFile(activosEntity);
             } else {
-                throw new DownloadException();
+                //throw new DownloadException();
             }
         } catch (IOException ex) {
             Logger.getLogger(AdminArchivosController.class.getName()).log(Level.SEVERE, null, ex);
