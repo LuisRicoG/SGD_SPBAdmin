@@ -5,6 +5,7 @@ package com.company.sgdadmin.serviceimp;
 
 import com.company.sgdadmin.dto.filemanager.FileManagerDTO;
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
+import com.company.sgdadmin.exceptions.FileNotFoundException;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import com.company.sgdadmin.util.ConstantsSGD;
@@ -42,7 +43,7 @@ public class FileManagerImpl implements FileManager {
 
     //private static final Logger LOGGER = Logger.getLogger(FileManagerImpl.class);
     @Override
-    public void uploading(FileManagerDTO dto) throws IOException {
+    public void uploading(FileManagerDTO dto) throws FileNotFoundException {
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////SOLO PARA MODO DESARROLLO/////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
@@ -52,10 +53,14 @@ public class FileManagerImpl implements FileManager {
                 dir.mkdirs();
             }
 //////////////////////////////////////////////////////////////////////////////
+            try {
+                byte[] bytes = dto.getFile().getBytes();
+                Path path = Paths.get(dto.getPath() + dto.getName());
+                Files.write(path, bytes);
+            } catch (IOException e) {
+                throw new FileNotFoundException();
+            }
 
-            byte[] bytes = dto.getFile().getBytes();
-            Path path = Paths.get(dto.getPath() + dto.getName());
-            Files.write(path, bytes);
         }
     }
 

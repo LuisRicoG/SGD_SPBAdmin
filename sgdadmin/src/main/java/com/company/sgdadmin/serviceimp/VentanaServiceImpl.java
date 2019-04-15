@@ -6,6 +6,7 @@ package com.company.sgdadmin.serviceimp;
 import com.company.sgdadmin.beans.Login;
 import com.company.sgdadmin.dto.filemanager.FileManagerDTO;
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
+import com.company.sgdadmin.exceptions.AJAXException;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import com.company.sgdadmin.service.VentanaServices;
@@ -429,7 +430,7 @@ public class VentanaServiceImpl implements VentanaServices {
 
                 case "Sagarpa Documentos de Solicitud":
                     path += sagarpafolder + File.separator + documentosolifolder + File.separator;
-                    fileName =  documentosolifile + year + ".pdf";
+                    fileName = documentosolifile + year + ".pdf";
                     break;
 
                 case "Sagarpa Deposito":
@@ -438,7 +439,7 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Sagarpa Comprobante de Pagos":
-                    path += sagarpafolder + File.separator + comprobantepagosfolder +File.separator;
+                    path += sagarpafolder + File.separator + comprobantepagosfolder + File.separator;
                     fileName = comprobantepagosfile + year + ".pdf";
                     break;
 
@@ -824,7 +825,7 @@ public class VentanaServiceImpl implements VentanaServices {
                     fileName = precioalimentofile;
                     break;
                 default:
-                   // throw new DownloadException();
+                    throw new AJAXException("opciòn no valida, no se puede subir el archivo");
 
             }
 
@@ -855,11 +856,11 @@ public class VentanaServiceImpl implements VentanaServices {
                     repository.save(entity);
                 }
             } else {
-                //throw new DownloadException();
+                throw new AJAXException("no ha sido posible subir el archivo, el archivo no se a encriptado");
             }
-        } catch (IOException ex) {
+        } catch (IOException | AJAXException ex) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
-           // throw new DownloadException();
+            throw new AJAXException(ex.getMessage());
         }
     }
 

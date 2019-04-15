@@ -10,7 +10,9 @@ $(document).ready(function () {
     $('input[type=file]').change(function () {
 
         $(this).simpleUpload("/SGDADMIN/upload", {
-
+            allowedExts: ["pdf"],
+            allowedTypes: ["application/pdf"],
+            maxFileSize: 5000000, //5MB in bytes
             start: function (file) {
                 //upload started
                 $('#filename').html(file.name);
