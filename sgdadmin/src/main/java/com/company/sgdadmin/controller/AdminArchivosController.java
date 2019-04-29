@@ -54,4 +54,10 @@ public class AdminArchivosController {
             Logger.getLogger(AdminArchivosController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @GetMapping("/alldocuments")
+    @ResponseBody
+    public List<DocumentosActivosEntity> listaJSON() {
+        return (List<DocumentosActivosEntity>) doctosRepository.findAll();
+    }
 }
