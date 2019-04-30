@@ -161,66 +161,32 @@ ing_farias@live.com
             </div>
             <!-- Mobile Menu end -->
             <div class="tab">
-              <button class="tablinks" onclick="openTab(event, 'Unicos')">Documentos Únicos</button>
+              <button id="defaulttab" class="tablinks" onclick="openTab(event, 'Unicos')">Documentos Únicos</button>
               <button class="tablinks" onclick="openTab(event, 'Acumulados')">Documentos Acumulados</button>
-              <button id="defaulttab" class="tablinks" onclick="openTab(event, 'Viejalista')">Descartar</button>
             </div>
             
             <div id="Unicos" class="tabcontent">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-                <p>Poner grid de descarga de documentos</p>
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>                
                 <div id="jsGrid" class="jsgrid" style="position: relative; height: 70%; width: 100%;"></div>
             </div>    
             
             <div id="Acumulados" class="tabcontent">
                 <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
                 <p>Aqui van los Documentos Acumulados</p>
-            </div>
-            
-            <div class="container tabcontent" style="margin-top: 30px" id="Viejalista">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-                <div class="card">
-                    <div class="card-header">Lista de Archivos</div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <!--<th>ID</th>-->
-                                            <th>Nombre</th>
-                                            <!--<th>Ruta</th>-->
-                                            <!--<th>Usuario</th>-->
-                                            <th>Fecha de Carga</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="docto : ${listaarchivos}">
-                                            <!--<td th:text="${docto.documento_id}"></td>-->
-                                            <td th:text="${docto.nombre}"></td>
-                                            <!--<td th:text="${docto.ruta}"></td>-->
-                                            <!--<td th:text="${docto.usuario_id}"></td>-->
-                                            <td th:text="${docto.fecha}"></td>
-                                            <td><a th:href="@{/getDocto(name=${docto.nombre},path=${docto.ruta})}">Descargar</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>        
-                <div class="footer-copyright-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="footer-copy-right">
-                                    <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
-                                </div>
+            </div>            
+                    
+            <div class="footer-copyright-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="footer-copy-right">
+                                <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
     <!-- bootstrap JS
 		============================================ -->

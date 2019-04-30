@@ -9,36 +9,34 @@ var MyDateField = function(config) {
 };
  
 MyDateField.prototype = new jsGrid.Field({
- 
-    css: "date-field",            // redefine general property 'css'
-    align: "center",              // redefine general property 'align'
- 
-    myCustomProperty: "foo",      // custom property
- 
-    sorter: function(date1, date2) {
+
+    css: "date-field", // redefine general property 'css'
+    align: "center", // redefine general property 'align'
+
+    sorter: function (date1, date2) {
         return new Date(date1) - new Date(date2);
     },
- 
-    itemTemplate: function(value) {
-        return new Date(value).toDateString();
+    itemTemplate: function (value) {
+        return dateToString(value);
     },
- 
-    insertTemplate: function(value) {
-        return this._insertPicker = $("<input>").datepicker({ defaultDate: new Date() });
-    },
- 
-    editTemplate: function(value) {
-        return this._editPicker = $("<input>").datepicker().datepicker("setDate", new Date(value));
-    },
- 
-    insertValue: function() {
-        return this._insertPicker.datepicker("getDate").toISOString();
-    },
- 
-    editValue: function() {
-        return this._editPicker.datepicker("getDate").toISOString();
+    filterTemplate: function () {
+        return this._insertPicker = $("<input>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", onSelect: onDatePickerClick});
     }
 });
+
+function onDatePickerClick(dateText, inst) {
+    console.log("dateText : " + dateText);
+    console.log("inst : " + inst);
+    $("#jsGrid").jsGrid("loadData", {fecha: dateText}).done(function () {
+        console.log("data loaded");
+    });
+}
+
+function dateToString(timestampDate) {
+    var month = (new Date(timestampDate).getMonth() + 1) < 10 ? "0" + (new Date(timestampDate).getMonth() + 1) : (new Date(timestampDate).getMonth() + 1)
+    var fecha = new Date(timestampDate).getDate() + "/" + month + "/" + new Date(timestampDate).getFullYear();
+    return fecha;
+}
  
 jsGrid.fields.date = MyDateField;
 
@@ -52,9 +50,9 @@ $(document).ready(function () {
         sorting: true,
         paging: true,
         autoload: true,
-        pageSize: 5,
+        pageSize: 10,
         pageButtonCount: 5,
-        pagerFormat: "Pag: {first} {prev} {pages} {next} {last}    {pageIndex} of {pageCount}",
+        pagerFormat: "Pag: {first} {prev} {pages} {next} {last}    {pageIndex} de {pageCount}",
         pagePrevText: "Anterior",
         pageNextText: "Siguiente",
         pageFirstText: "Primero",
@@ -67,7 +65,6 @@ $(document).ready(function () {
             {
                 descargar(args.item);
             }
-
         },
         clients,
         controller: controllers,
@@ -94,12 +91,12 @@ $(document).ready(function () {
 function descargar(item) {
 
     console.log(item);
-    var url = '/SGD/getDocto?name=' + item.nombre + "&path=" + item.ruta;
+    var url = '/SGDADMIN/getDocto?name=' + item.nombre + "&path=" + item.ruta;
     console.log(url);
     getDocument(url, item.nombre);
 
 }
-var url = "/SGD/alldocuments";
+var url = "/SGDADMIN/alldocuments";
 var clients;
 var dataGrid;
 var controllers = {
@@ -107,6 +104,7 @@ var controllers = {
         if (dataGrid) {
             return $.grep(dataGrid, function (client) {
                 return (!filter.nombre || client.nombre.indexOf(filter.nombre) > -1)
+                    && (!filter.fecha || dateToString(client.fecha).indexOf(filter.fecha) > -1)
             });
         }
         console.log("filter:" + filter);
@@ -115,11 +113,6 @@ var controllers = {
         $.ajax({
             url: url,
             success: function (data) {
-                $.each(data, function (k, v) {
-                    var month = (new Date(v.fecha).getMonth() + 1) < 10 ? "0" + (new Date(v.fecha).getMonth() + 1) : (new Date(v.fecha).getMonth() + 1)
-                    var fecha = new Date(v.fecha).getDate() + "/" + month + "/" + new Date(v.fecha).getFullYear();
-                    v.fecha = fecha;
-                });
                 dataGrid = data;
                 deferred.resolve(data);
             }

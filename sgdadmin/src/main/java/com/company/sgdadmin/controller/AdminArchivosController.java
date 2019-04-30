@@ -32,11 +32,7 @@ public class AdminArchivosController {
     FileManager fileManager;
 
     @GetMapping("/listaarchivos")
-    public String getUsuarios2(Model model) {
-
-        List<DocumentosActivosEntity> doctos = (List<DocumentosActivosEntity>) doctosRepository.findAll();
-        model.addAttribute("listaarchivos", doctos);
-
+    public String getArchivos(Model model) {
         return "listaarchivos";
     }
 
