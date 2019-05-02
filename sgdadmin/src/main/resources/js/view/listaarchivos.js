@@ -20,7 +20,7 @@ MyDateField.prototype = new jsGrid.Field({
         return dateToString(value);
     },
     filterTemplate: function () {
-        return this._insertPicker = $("<input>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", onSelect: onDatePickerClick});
+        return this._insertPicker = $("<input>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", onSelect: onDatePickerClick, regional:"es"});
     }
 });
 

@@ -8,7 +8,7 @@ ing_farias@live.com
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Menu Administrador</title>
+    <title>Editar Nombres y Cargos</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -53,49 +53,47 @@ ing_farias@live.com
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/style.css">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
-    <!-- TABS CSS
-		============================================ -->
-    <link rel="stylesheet" href="css/tabs.css">
     <!-- modernizr JS
 		============================================ -->
     <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
     <!-- jquery
 		============================================  -->
-    <script src="js/jquery/jquery-3.3.1.js"></script>
-    <!-- jQuery UI
-                ============================================ -->    
-    <link type="text/css" rel="stylesheet" href="js/jqueryui/jquery-ui.min.css" />    
-    <script type="text/javascript" src="js/jqueryui/jquery-ui.min.js"></script>   
-    
+    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>    
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="static/js/bootstrap.min.js"></script>    
     <!-- jsGrid
                 ============================================ -->    
     <link type="text/css" rel="stylesheet" href="js/jsgrid/jsgrid.min.css" />
     <link type="text/css" rel="stylesheet" href="js/jsgrid/jsgrid-theme.min.css" />
-    <script type="text/javascript" src="js/jsgrid/jsgrid.min.js"></script>   
-    <script type="text/javascript" src="js/jqueryui/datepicker-es.js"></script>   
+
+    <script type="text/javascript" src="js/jsgrid/jsgrid.min.js"></script> 
     <!-- view JS
-                ============================================ -->
-    <script src="js/view/listaarchivos.js"></script>
-    <script th:src="@{js/view/descargageneral.js}"></script>    
+		============================================ -->
+    <script src="static/js/view/editarnombres.js"></script>    
+    
+    <!-- jsGrid
+                ============================================ -->    
+    <link type="text/css" rel="stylesheet" href="js/jqueryui/jquery-ui.min.css" />
+    <!-- estilo para administrador de nombres y cargos
+                ============================================ -->    
+    <link type="text/css" rel="stylesheet" href="js/view/administradorusuarios.css" />
+    
+    <script type="text/javascript" src="static/js/jqueryui/jquery-ui.min.js"></script>     
+    <script type="text/javascript" src="js/jqueryvalidation/jquery.validate.min.js"></script>         
 </head>
-
-
 <body>
     <!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
     <!-- Start Header menu area -->
-    <div class="left-sidebar-pro">
+           <div class="left-sidebar-pro">
         <div th:replace="menulateral :: nav">...</div>
     </div>
     <!-- End Header menu area -->
@@ -105,7 +103,7 @@ ing_farias@live.com
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="logo-pro">
-                        <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                            <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
                     </div>
                 </div>
             </div>
@@ -128,7 +126,7 @@ ing_farias@live.com
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">															
                                                         <span class="admin-name">Bienvenido, </span>
-							<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
+                                                        <span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>															
                                                     </a>
                                                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">                                                    
                                                         <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
@@ -148,7 +146,7 @@ ing_farias@live.com
                 </div>
             </div>
             <!-- Mobile Menu start -->
-            <div class="mobile-menu-area">
+ <div class="mobile-menu-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -160,43 +158,67 @@ ing_farias@live.com
                 </div>
             </div>
             <!-- Mobile Menu end -->
-            <div class="tab">
-              <button id="defaulttab" class="tablinks" onclick="openTab(event, 'Unicos')">Documentos Únicos</button>
-              <button class="tablinks" onclick="openTab(event, 'Acumulados')">Documentos Acumulados</button>
-            </div>
-            
-            <div id="Unicos" class="tabcontent">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>                
-                <div id="jsGrid" class="jsgrid" style="position: relative; height: 70%; width: 100%;"></div>
-            </div>    
-            
-            <div id="Acumulados" class="tabcontent">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-                <p>Aqui van los Documentos Acumulados</p>
-            </div>            
-                    
-            <div class="footer-copyright-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="footer-copy-right">
-                                <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
+        <div class="breadcome-area">
+            <div id="jsGrid" class="jsgrid" style="position: relative; height: 70%; width: 100%;"></div>
+            <div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-describedby="detailsDialog" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 450px; top: 210.5px; left: 312px; display: none;">
+                <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix ui-draggable-handle">
+                    <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" title="Close">
+                        <span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span>
+                        <span class="ui-button-text">Close</span>
+                    </button>
+                </div>
+                <div id="detailsDialog" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 93px; max-height: none; height: auto;">
+                    <form id="detailsForm" novalidate="novalidate">
+                        <input id="nombre_id" name="nombre_id" type="text" hidden="true">
+                            <div class="details-form-field">
+                                <label for="nombre">Nombre:</label>
+                                <input id="nombre" name="nombre" type="text" class="valid">
                             </div>
+                            <div class="details-form-field">
+                                <label for="cargo">Cargo:</label>
+                                <input id="cargo" name="cargo" type="text">
+                            </div>
+                            <div class="details-form-field">
+                                <label for="vista">Vista:</label>
+                                <select id="vista" name="vista">
+                                    <option value="">(Seleccione)</option>
+                                    <option value="CA">Consejo de Administración</option>
+                                    <option value="CE">Comité de Engorda</option>
+                                    <option value="CI">Comité de Inversiones</option>
+                                    <option value="CC">Comité Comercial</option>
+                                </select>
+                            </div>
+                            <div class="details-form-field">
+                                <button type="submit" id="save">Guardar</button>
+                            </div>
+                    </form>
+                </div>
+                <div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div>
+                <div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div>    
+            </div>            
+        </div>                        
+        </div>
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="static/js/bootstrap.min.js"></script>
+    </div>
     <!-- wow JS
 		============================================ -->
     <script src="static/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="static/js/jquery-price-slider.js"></script>
     <!-- meanmenu JS
 		============================================ -->
     <script src="static/js/jquery.meanmenu.js"></script>
@@ -209,11 +231,6 @@ ing_farias@live.com
     <!-- scrollUp JS
 		============================================ -->
     <script src="static/js/jquery.scrollUp.min.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="static/js/counterup/jquery.counterup.min.js"></script>
-    <script src="static/js/counterup/waypoints.min.js"></script>
-    <script src="static/js/counterup/counterup-active.js"></script>
     <!-- mCustomScrollbar JS
 		============================================ -->
     <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -224,28 +241,15 @@ ing_farias@live.com
     <script src="static/js/metisMenu/metisMenu-active.js"></script>
     <!-- morrisjs JS
 		============================================ -->
-    <script src="static/js/morrisjs/raphael-min.js"></script>
-    <script src="static/js/morrisjs/morris.js"></script>
-    <script src="static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
     <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
     <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
     <script src="static/js/sparkline/sparkline-active.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="static/js/calendar/moment.min.js"></script>
-    <script src="static/js/calendar/fullcalendar.min.js"></script>
-    <script src="static/js/calendar/fullcalendar-active.js"></script>
     <!-- plugins JS
 		============================================ -->
     <script src="static/js/plugins.js"></script>
     <!-- main JS
 		============================================ -->
     <script src="static/js/main.js"></script>
-    <!-- view JS
-                ============================================ -->
-    <script src="js/view/tabs.js"></script>  
 </body>
 
 </html>
