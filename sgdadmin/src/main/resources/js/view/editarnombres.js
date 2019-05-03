@@ -26,6 +26,7 @@ $(document).ready(function () {
         loadMessage: "Por favor espere ...",
         rowClick: function (args) {
             showDetailsDialog("Editar", args.item);
+            $("#deletebtn").show("slow");
         },
         clients,
         controller: controllers,
@@ -44,6 +45,7 @@ $(document).ready(function () {
                     return $("<button>").attr("type", "button").text("Agregar")
                             .on("click", function () {
                                 showDetailsDialog("Agregar", {});
+                                $("#deletebtn").hide(1500);
                             });
                 }
             }
@@ -90,7 +92,7 @@ $(document).ready(function () {
     var formSubmitHandler = $.noop;
 
     var showDetailsDialog = function (dialogType, client) {
-        $("#nombre_id").val(client.nombre_id);
+        $("#nombreid").val(client.nombreid);
         $("#nombre").val(client.nombre);
         $("#cargo").val(client.cargo);
         $("#vista").val(client.vista === 'Consejo de Administración' ? 'CA' : client.vista === 'Comité de Engorda' ? 'CE' : client.vista === 'Comité de Inversiones' ? 'CI' : client.vista === 'Comité Comercial' ? 'CC' : '');
@@ -106,7 +108,7 @@ $(document).ready(function () {
     var saveClient = function (client, isNew) {
 
         var data = {
-            nombre_id: $("#nombre_id").val(),
+            nombreid: $("#nombreid").val(),
             nombre: $("#nombre").val(),
             cargo: $("#cargo").val(),
             vista: $("#vista").val()
