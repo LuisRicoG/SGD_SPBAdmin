@@ -98,7 +98,13 @@ $(document).ready(function () {
         $("#vista").val(client.vista === 'Consejo de Administración' ? 'CA' : client.vista === 'Comité de Engorda' ? 'CE' : client.vista === 'Comité de Inversiones' ? 'CI' : client.vista === 'Comité Comercial' ? 'CC' : '');
 
         formSubmitHandler = function () {
-            saveClient(client, dialogType === "Agregar");
+            $( "#save" ).on( "click", function() {
+                saveClient(client, dialogType === "Agregar");
+            });
+            $( "#deletebtn" ).on( "click", function() {
+                $("#jsGrid").jsGrid("deleteItem", client);
+                //$("#detailsDialog").dialog("close");
+            });
         };
 
         $("#detailsDialog").dialog("option", "title", dialogType + " Nombre y Cargo")

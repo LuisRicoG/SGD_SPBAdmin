@@ -20,21 +20,26 @@ MyDateField.prototype = new jsGrid.Field({
         return dateToString(value);
     },
     filterTemplate: function () {
-        return this._insertPicker = $("<input>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", onSelect: onDatePickerClick, regional:"es"});
+        return this._insertPicker = $("<input onfocusout= onDatePickerClick()>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", showButtonPanel: true, onSelect: onDatePickerClick, regional: "es"});
     }
 });
 
 function onDatePickerClick(dateText, inst) {
     console.log("dateText : " + dateText);
     console.log("inst : " + inst);
+    if (inst && inst.input[0].value === "")
+    {
+        dateText = "";
+    }
     $("#jsGrid").jsGrid("loadData", {fecha: dateText}).done(function () {
         console.log("data loaded");
     });
 }
 
 function dateToString(timestampDate) {
+    var day = (new Date(timestampDate).getDay()) < 10 ? "0" + (new Date(timestampDate).getDay()) : (new Date(timestampDate).getDay())
     var month = (new Date(timestampDate).getMonth() + 1) < 10 ? "0" + (new Date(timestampDate).getMonth() + 1) : (new Date(timestampDate).getMonth() + 1)
-    var fecha = new Date(timestampDate).getDate() + "/" + month + "/" + new Date(timestampDate).getFullYear();
+    var fecha = day + "/" + month + "/" + new Date(timestampDate).getFullYear();
     return fecha;
 }
  
@@ -91,7 +96,7 @@ $(document).ready(function () {
 function descargar(item) {
 
     console.log(item);
-    var url = '/SGDADMIN/getDocto?name=' + item.nombre + "&path=" + item.ruta;
+    var url = '/SGDADMIN/getDocto?id=' + item.documentoid;
     console.log(url);
     getDocument(url, item.nombre);
 

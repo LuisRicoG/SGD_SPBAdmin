@@ -9,12 +9,14 @@ import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -36,10 +38,10 @@ public class AdminArchivosController {
         return "listaarchivos";
     }
 
-    @GetMapping("/getDocto")
+    @PostMapping("/getDocto")
     @ResponseBody
-    public void getDocument(@RequestParam("name") String name, @RequestParam("path") String path) {
-        DocumentosActivosEntity activosEntity = doctosRepository.findByRutaAndNombre(path, name);
+    public void getDocument(@RequestParam("id") Integer id) {
+        DocumentosActivosEntity activosEntity = doctosRepository.findByDocumentoid(id);
         try {
             if (activosEntity != null) {
                 fileManager.downloadFile(activosEntity);
