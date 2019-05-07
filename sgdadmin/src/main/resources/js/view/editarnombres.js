@@ -9,7 +9,7 @@ $(document).ready(function () {
         width: "100%",
         height: "400px",
         inserting: false,
-        filtering: true,
+        //filtering: true,
         editing: false,
         sorting: true,
         paging: true,
@@ -97,14 +97,13 @@ $(document).ready(function () {
         $("#cargo").val(client.cargo);
         $("#vista").val(client.vista === 'Consejo de Administración' ? 'CA' : client.vista === 'Comité de Engorda' ? 'CE' : client.vista === 'Comité de Inversiones' ? 'CI' : client.vista === 'Comité Comercial' ? 'CC' : '');
 
-        formSubmitHandler = function () {
-            $( "#save" ).on( "click", function() {
-                saveClient(client, dialogType === "Agregar");
-            });
-            $( "#deletebtn" ).on( "click", function() {
-                $("#jsGrid").jsGrid("deleteItem", client);
-                //$("#detailsDialog").dialog("close");
-            });
+        $("#deletebtn").on("click", function() {
+            $("#jsGrid").jsGrid("deleteItem", client);
+            $("#detailsDialog").dialog("close");
+        });
+
+        formSubmitHandler = function () {            
+            saveClient(client, dialogType === "Agregar");
         };
 
         $("#detailsDialog").dialog("option", "title", dialogType + " Nombre y Cargo")
@@ -166,6 +165,7 @@ var controllers = {
                 return data;
             }
         });
+        location.reload(true);
     },
 
     deleteItem: function (item) {
