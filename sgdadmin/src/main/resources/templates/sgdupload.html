@@ -221,6 +221,14 @@ ing_farias@live.com
                     <input type="file" class="custom-file-input" name="file"  aria-describedby="fileHelp">
                     <span class="custom-file-control form-control-file"></span>
                 </label>
+                <div th:if="${descripcion}">
+                    <h1 style="text-align: left;">Ingrese una Descripcion</h1>
+                    <input type="text" name="descripcion">
+                </div>
+                      <h1 style="text-align: left;">Carga de Archivo</h1>
+                    <input type="file" class="custom-file-input" name="file"  aria-describedby="fileHelp">
+                    <span class="custom-file-control form-control-file"></span>
+                </label>
             </div>
             <div style="margin-bottom: 10px">
                 <button type="submit" class="btn btn-success">Cargar</button>

@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.company.sdg.mvc.entity;
+package com.company.sgdadmin.entity;
 
 import java.sql.Timestamp;
 import javax.persistence.Column;

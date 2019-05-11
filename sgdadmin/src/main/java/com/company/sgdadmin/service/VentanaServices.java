@@ -11,8 +11,18 @@ import org.springframework.web.servlet.ModelAndView;
  * @author jova_
  */
 public interface VentanaServices {
-     public void getVentanas(MultipartFile file,String year, String month, String date,String direccion);
-        public void visibleOptions(ModelAndView mv, String direccion );
-    
-    
+
+    /**
+     *
+     * @param file
+     * @param year
+     * @param month
+     * @param date
+     * @param direccion
+     * @param descripcion
+     */
+    public void getVentanas(MultipartFile file, String year, String month, String date, String direccion, String descripcion);
+
+    public void visibleOptions(ModelAndView mv, String direccion);
+
 }

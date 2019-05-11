@@ -1,9 +1,9 @@
 /**
  *
  */
-package com.company.sdg.mvc.repository;
+package com.company.sgdadmin.repository;
 
-import com.company.sdg.mvc.entity.DocumentosAcumuladosEntity;
+import com.company.sgdadmin.entity.DocumentosAcumuladosEntity;
 import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
