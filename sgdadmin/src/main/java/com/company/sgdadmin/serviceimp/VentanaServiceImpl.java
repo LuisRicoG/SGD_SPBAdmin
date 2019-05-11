@@ -1014,19 +1014,19 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
                 case "Acta Asamblea":
                     pantalla = 1;
-                    fileName = file.getName();
+                    fileName = file.getOriginalFilename();
                     break;
                 case "Identificaciones":
                     pantalla = 2;
-                    fileName = file.getName();
+                    fileName = file.getOriginalFilename();
                     break;
                 case "Aumentos Capital":
                     pantalla = 3;
-                    fileName = file.getName();
+                    fileName = file.getOriginalFilename();
                     break;
                 case "Presentaciones Corporativas":
                     pantalla = 4;
-                    fileName = file.getName();
+                    fileName = file.getOriginalFilename();
                     break;
 
                 default:
@@ -1063,7 +1063,7 @@ public class VentanaServiceImpl implements VentanaServices {
                 
                 DocumentosAcumuladosEntity entity = new DocumentosAcumuladosEntity();
                 entity.setFecha(new Timestamp(System.currentTimeMillis()));
-                entity.setRuta(pathDocUnicos);
+                entity.setRuta(pathDocAcumulados);
                 entity.setNombre(fileName);
                 entity.setUsuario_id(1);
                 entity.setPantalla(pantalla);
