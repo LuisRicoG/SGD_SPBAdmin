@@ -4,7 +4,7 @@
 package com.company.sgdadmin.entity;
 
 import java.sql.Timestamp;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,7 +21,8 @@ import javax.persistence.Table;
 public class DocumentosActivosEntity {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer documento_id;
+        @Column(name="documento_id")
+	public Integer documentoid;
 	public String nombre;
 	public String ruta;
 	public Integer usuario_id;
@@ -29,14 +30,14 @@ public class DocumentosActivosEntity {
 	/**
 	 * @return the documento_id
 	 */
-	public Integer getDocumento_id() {
-		return documento_id;
+	public Integer getDocumentoid() {
+		return documentoid;
 	}
 	/**
 	 * @param documento_id the documento_id to set
 	 */
-	public void setDocumento_id(Integer documento_id) {
-		this.documento_id = documento_id;
+	public void setDocumentoid(Integer documentoid) {
+		this.documentoid = documentoid;
 	}
 	/**
 	 * @return the nombre
