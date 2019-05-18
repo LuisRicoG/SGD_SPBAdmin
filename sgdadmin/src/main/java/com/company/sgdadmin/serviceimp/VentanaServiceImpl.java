@@ -443,6 +443,54 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${reportetriconsejofile}")
     private String fileReporteTrimestralEngorda;
 
+        @Value("${proyectoejecutivofolder}")
+    private String proyectoejecutivofolder;
+    @Value("${terrenofolder}")
+    private String terrenofolder;
+    @Value("${proyectofolder}")
+    private String proyectofolder;
+    @Value("${estudiosfolder}")
+    private String estudiosfolder;
+    @Value("${planosfolder}")
+    private String planosfolder;
+    @Value("${estructuraterrenofile}")
+    private String estructuraterrenofile;
+    @Value("${avaluoterrenofile}")
+    private String avaluoterrenofile;
+    @Value("${proyectoentregadofile}")
+    private String proyectoentregadofile;
+    @Value("${programanecesidadesfile}")
+    private String programanecesidadesfile;
+    @Value("${programaparticularfile}")
+    private String programaparticularfile;
+    @Value("${justificacionproyectofile}")
+    private String justificacionproyectofile;
+    @Value("${impactomecanicadesuelosfile}")
+    private String impactomecanicadesuelosfile;
+    @Value("${impactoambientalfile}")
+    private String impactoambientalfile;
+    @Value("${impactovialfile}")
+    private String impactovialfile;
+    @Value("${energiaelectricafile}")
+    private String energiaelectricafile;
+    @Value("${estudiohidrologicofile}")
+    private String estudiohidrologicofile;
+    @Value("${usodesuelofile}")
+    private String usodesuelofile;
+    @Value("${concesionaguasfile}")
+    private String concesionaguasfile;
+    @Value("${planoregionalfile}")
+    private String planoregionalfile;
+    @Value("${planoruralfile}")
+    private String planoruralfile;
+    @Value("${planotopograficofile}")
+    private String planotopograficofile;
+    @Value("${ubicacionterrenofile}")
+    private String ubicacionterrenofile;
+    @Value("${planosinfraestructurafile}")
+    private String planosinfraestructurafile;
+    
+    
     @Autowired
     DocumentosActivosRepository repository;
 
@@ -1015,6 +1063,105 @@ public class VentanaServiceImpl implements VentanaServices {
                     path += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirReporteTrimestralEngorda + File.separator;
                     fileName = fileReporteTrimestralEngorda;
                     break;
+                    
+                    
+                    
+            case "Estructura del Terreno":
+                path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
+                fileName = estructuraterrenofile;
+                break;
+                
+                case "Avaluo del Terreno":
+                path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
+                fileName = avaluoterrenofile;
+                break;
+                
+                 case "Proyecto Entregado TIF 2000":
+                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                fileName = proyectoentregadofile;
+                break;
+                
+                case "Programa General de Necesidades":
+                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                fileName = programanecesidadesfile;
+                break;
+                
+                 case "Programa Particular de Necesidades":
+                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                fileName = programaparticularfile;
+                break;
+                
+                case "Justificacion del Proyecto":
+                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                fileName = justificacionproyectofile;
+                break;
+                   
+                case "Estudios Mecanica de Suelos":
+                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                fileName = impactomecanicadesuelosfile;
+                break;
+                
+                 case "Estudio Impacto Ambiental":
+                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                fileName = impactoambientalfile;
+                break;
+                
+                case "Estudio Impacto Vial":
+                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                fileName = impactovialfile;
+                break;
+                   
+                case "Factibilidad Servicio Energia Electrica":
+                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                fileName = energiaelectricafile;
+                break;
+                
+                 case "Estudio Hidrologico":
+                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                fileName = estudiohidrologicofile;
+                break;
+                
+                case "Factibilidad de Uso de Suelo":
+                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                fileName = usodesuelofile;
+                break;
+                
+                  case "Concesion de Aguas Nacionales":
+                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                fileName = concesionaguasfile;
+                break;
+                
+                
+                        case "Plano de Terreno Regional":
+                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                fileName = planoregionalfile;
+                break;
+                   
+                case "Plano de Terreno Rural":
+                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                fileName = planoruralfile;
+                break;
+                
+                 case "Plano Topografico":
+                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                fileName = planotopograficofile;
+                break;
+                
+                case "Justificacion del Terreno":
+                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                fileName = ubicacionterrenofile;
+                break;
+                
+                  case "Planos Infraestructura":
+                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                fileName = planosinfraestructurafile;
+                break;
+                    
+                    
+                    
+                    
+                    
+                    
 
                 default:
                     throw new DownloadException();
