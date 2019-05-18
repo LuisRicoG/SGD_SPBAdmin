@@ -104,6 +104,7 @@ $(document).ready(function () {
 
         formSubmitHandler = function () {            
             saveClient(client, dialogType === "Agregar");
+            //location.reload(true);
         };
 
         $("#detailsDialog").dialog("option", "title", dialogType + " Nombre y Cargo")
@@ -164,8 +165,7 @@ var controllers = {
                 $("#jsGrid").jsGrid("loadData");
                 return data;
             }
-        });
-        location.reload(true);
+        });        
     },
 
     deleteItem: function (item) {

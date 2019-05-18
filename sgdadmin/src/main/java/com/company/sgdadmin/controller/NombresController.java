@@ -48,17 +48,14 @@ public class NombresController {
     }
     
     @PostMapping(value = "/registronombre", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String registro(@RequestBody NombresEntity nombre, Model model) {
+    public ResponseEntity registro(@RequestBody NombresEntity nombre, Model model) {
 
         boolean respuesta = service.registro(nombre);
 
-        if (respuesta) {
-            model.addAttribute("correcto", "Valor agregado Satisfactoriamente");
-            return "editarnombres";
-        } else {
-            model.addAttribute("error", "Inténtelo más tarde");
-            return "nuevonombre";
+        if (!respuesta) {
+            return new ResponseEntity("No se encontró registro con el ID: " + nombre.getNombreid(), HttpStatus.NOT_FOUND);
         }
+        return new ResponseEntity(nombre, HttpStatus.OK);
     }
     
     @GetMapping("/listanombres")
