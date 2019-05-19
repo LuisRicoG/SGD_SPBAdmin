@@ -6,6 +6,7 @@
 package com.company.sgdadmin.serviceimp;
 
 import com.company.sgdadmin.entity.CalendarioEntity;
+import com.company.sgdadmin.beans.Calendario;
 import com.company.sgdadmin.repository.CalendarioRepository;
 import com.company.sgdadmin.service.EventosService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,19 @@ public class EventosServiceImpl implements EventosService{
     public CalendarioRepository calendarioRepository;
     
     @Override
-    public boolean registro(CalendarioEntity cal){
-        cal = calendarioRepository.save(cal);
-        int calId = cal.getCalendarioid();
+    public boolean registro(Calendario cal){
+        CalendarioEntity calen = new CalendarioEntity();
+        if (cal.getId()!=null)
+            calen.setCalendarioid(cal.getId());
+        calen.setGroupid(cal.getGroupId());
+        calen.setAllday(cal.getAllDay());
+        calen.setTitle(cal.getTitle());
+        calen.setStart(cal.getStart());
+        calen.setEnd(cal.getEnd());
+        calen.setClassname(cal.getClassName());
+        calen = calendarioRepository.save(calen);
+        System.out.println("Evento: "+calen.getCalendarioid()+" "+calen.getTitle()+" "+calen.getStart()+" "+calen.getEnd()+" "+calen.getAllday()+" "+calen.getGroupid()+" "+calen.getClassname());
+        int calId = calen.getCalendarioid();
         if (calId > 0) {
             return true;
         }
@@ -33,7 +44,7 @@ public class EventosServiceImpl implements EventosService{
     }
     
     @Override
-    public void borrar(CalendarioEntity cal){
-        calendarioRepository.deleteById(cal.getCalendarioid());
+    public void borrar(Integer id){
+        calendarioRepository.deleteById(id);
     }
 }

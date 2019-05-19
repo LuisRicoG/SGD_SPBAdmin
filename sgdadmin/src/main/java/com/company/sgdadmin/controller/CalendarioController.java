@@ -51,12 +51,12 @@ public class CalendarioController {
     }
     
     @PostMapping(value = "/registroevento", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity registro(@RequestBody CalendarioEntity cal, Model model) {
+    public ResponseEntity registro(@RequestBody Calendario cal, Model model) {
 
         boolean respuesta = service.registro(cal);
 
         if (!respuesta) {
-            return new ResponseEntity("No se encontró registro con el ID: " + cal.getCalendarioid(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity("No se encontró registro con el ID: " + cal.getId(), HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity(cal, HttpStatus.OK);
     }
@@ -83,20 +83,20 @@ public class CalendarioController {
     }
     
     @PutMapping(value = "/updateevento", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity updateEvento(@RequestBody CalendarioEntity cal) {
+    public ResponseEntity updateEvento(@RequestBody Calendario cal) {
 
         boolean respuesta = service.registro(cal);
         if (!respuesta) {
-            return new ResponseEntity("No se encuentra registro con ID: " + cal.getCalendarioid(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity("No se encuentra registro con ID: " + cal.getId(), HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity(cal, HttpStatus.OK);
     }
     
     @PutMapping(value = "/deleteevento", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity deleteEvento(@RequestBody CalendarioEntity cal) {
+    public ResponseEntity deleteEvento(@RequestBody Calendario cal) {
 
-        service.borrar(cal);
+        service.borrar(cal.getId());
 
         return new ResponseEntity(cal, HttpStatus.OK);
     }

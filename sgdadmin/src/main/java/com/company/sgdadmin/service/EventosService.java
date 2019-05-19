@@ -5,7 +5,7 @@
  */
 package com.company.sgdadmin.service;
 
-import com.company.sgdadmin.entity.CalendarioEntity;
+import com.company.sgdadmin.beans.Calendario;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public interface EventosService {
-    public boolean registro(CalendarioEntity cal);
-    public void borrar(CalendarioEntity cal);
+    public boolean registro(Calendario cal);
+    public void borrar(Integer id);
 }
