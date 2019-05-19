@@ -43,7 +43,7 @@ public class VentanasController {
     public String uploadFile(@RequestParam("file") MultipartFile file,
             @RequestParam(value = "year", defaultValue = "2017") String year,
             @RequestParam(value = "month", defaultValue = "ENERO") String month,
-            @RequestParam(value = "date", defaultValue = "111111") String date,
+            @RequestParam(value = "date", defaultValue = "01/01/9999") String date,
             @RequestParam(value = "descripcion", defaultValue = "ninguna") String descripcion) throws IOException {
 
         service.getVentanas(file, year, month, date, this.direccion, descripcion);

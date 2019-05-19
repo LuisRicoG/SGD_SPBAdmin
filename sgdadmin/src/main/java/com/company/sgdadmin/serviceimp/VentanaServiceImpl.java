@@ -17,6 +17,9 @@ import com.company.sgdadmin.util.CryptoFiles;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
@@ -1230,7 +1233,9 @@ public class VentanaServiceImpl implements VentanaServices {
             } else if (fileEnc != null && pantalla != 0) {
 
                 DocumentosAcumuladosEntity entity = new DocumentosAcumuladosEntity();
-                entity.setFecha(new Timestamp(System.currentTimeMillis()));
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date fecha = dateFormat.parse(date);
+                entity.setFecha(new Timestamp(fecha.getTime()));
                 entity.setRuta(pathDocAcumulados);
                 entity.setNombre(fileName);
                 entity.setUsuario_id(1);
@@ -1242,9 +1247,11 @@ public class VentanaServiceImpl implements VentanaServices {
             } else {
                 throw new DownloadException();
             }
-        } catch (IOException ex) {
+        } catch (IOException ex ) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             throw new DownloadException();
+        } catch (ParseException ex) {
+            Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -1347,15 +1354,19 @@ public class VentanaServiceImpl implements VentanaServices {
                 break;
             case "Acta Asamblea":
                 mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
                 break;
             case "Identificaciones":
                 mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
                 break;
             case "Aumentos Capital":
                 mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
                 break;
             case "Presentaciones Corporativas":
                 mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
                 break;
         }
     }
