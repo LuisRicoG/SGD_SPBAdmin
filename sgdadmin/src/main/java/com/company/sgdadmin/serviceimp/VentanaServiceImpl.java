@@ -447,7 +447,7 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${documentosacumulados}")
     private String documentosacumulados;
 
-        @Value("${proyectoejecutivofolder}")
+    @Value("${proyectoejecutivofolder}")
     private String proyectoejecutivofolder;
     @Value("${terrenofolder}")
     private String terrenofolder;
@@ -493,8 +493,7 @@ public class VentanaServiceImpl implements VentanaServices {
     private String ubicacionterrenofile;
     @Value("${planosinfraestructurafile}")
     private String planosinfraestructurafile;
-    
-    
+
     @Autowired
     DocumentosActivosRepository activosRepository;
     @Autowired
@@ -942,23 +941,23 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Asamblea de Accionistas Convocatoria":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + convocatoriafolder + File.separator;
-                    fileName = convocatoriafile + year + ".pdf";
+                    pantalla = 21;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Asamblea de Accionistas Orden del Dia":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + ordendiafolder + File.separator;
-                    fileName = ordendiafile + year + ".pdf";
+                    pantalla = 22;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Asamblea de Accionistas Presentacion de Informacion":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + presentacioninformacionfolder + File.separator;
-                    fileName = presentacioninformacionfile + year + ".pdf";
+                    pantalla = 23;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Asamblea de Accionistas Minuta":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + asambleaacciofolder + File.separator + minutafolder + File.separator;
-                    fileName = minutafile + year + ".pdf";
+                    pantalla = 24;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Gobierno Corporativo Consejo":
@@ -972,23 +971,23 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Comite de Inversiones Convocatoria":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirConvocatoriaInversiones + File.separator;
-                    fileName = fileConvocatoriaInversiones + "-" + year + ".pdf";
+                    pantalla = 9;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Comite de Inversiones Orden del Dia":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirOrdenDiaInversiones + File.separator;
-                    fileName = fileOrdenDiaInversiones + "-" + year + ".pdf";
+                    pantalla = 10;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Comite de Inversiones Presentacion de Informacion":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirPresentacionInformacionInversiones + File.separator;
-                    fileName = filePresentacionInformacionInversiones + "-" + year + ".pdf";
+                    pantalla = 11;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Comite de Inversiones Minuta":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComites + File.separator + dirMinutaInversiones + File.separator;
-                    fileName = fileMinutaInversiones + "-" + year + ".pdf";
+                    pantalla = 12;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Comite de Inversiones Reglas de Operacion":
@@ -1017,23 +1016,23 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Comite Engorda Convocatoria":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirConvocatoriaEngorda + File.separator;
-                    fileName = fileConvocatoriaEngorda + "-" + year + ".pdf";
+                    pantalla = 13;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Comite Engorda Orden del Dia":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirOrdenDiaEngorda + File.separator;
-                    fileName = fileOrdenDiaEngorda + "-" + year + ".pdf";
+                    pantalla = 14;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Comite Engorda Presentacion de Informacion":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirPresentacionInformacionEngorda + File.separator;
-                    fileName = filePresentacionInformacionEngorda + "-" + year + ".pdf";
+                    pantalla = 15;
+                    fileName = file.getOriginalFilename();
                     break;
-
+                    
                 case "Comite Engorda Minuta":
-                    pathDocUnicos += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirMinutaEngorda + File.separator;
-                    fileName = fileMinutaEngorda + "-" + year + ".pdf";
+                    pantalla = 16;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Comite Engorda Reglas de Operacion":
@@ -1076,106 +1075,128 @@ public class VentanaServiceImpl implements VentanaServices {
                     pantalla = 4;
                     fileName = file.getOriginalFilename();
                     break;
-                    
-                    
-                    
-            case "Estructura del Terreno":
-                path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
-                fileName = estructuraterrenofile;
-                break;
-                
-                case "Avaluo del Terreno":
-                path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
-                fileName = avaluoterrenofile;
-                break;
-                
-                 case "Proyecto Entregado TIF 2000":
-                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
-                fileName = proyectoentregadofile;
-                break;
-                
-                case "Programa General de Necesidades":
-                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
-                fileName = programanecesidadesfile;
-                break;
-                
-                 case "Programa Particular de Necesidades":
-                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
-                fileName = programaparticularfile;
-                break;
-                
-                case "Justificacion del Proyecto":
-                path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
-                fileName = justificacionproyectofile;
-                break;
-                   
-                case "Estudios Mecanica de Suelos":
-                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
-                fileName = impactomecanicadesuelosfile;
-                break;
-                
-                 case "Estudio Impacto Ambiental":
-                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
-                fileName = impactoambientalfile;
-                break;
-                
-                case "Estudio Impacto Vial":
-                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
-                fileName = impactovialfile;
-                break;
-                   
-                case "Factibilidad Servicio Energia Electrica":
-                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
-                fileName = energiaelectricafile;
-                break;
-                
-                 case "Estudio Hidrologico":
-                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
-                fileName = estudiohidrologicofile;
-                break;
-                
-                case "Factibilidad de Uso de Suelo":
-                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
-                fileName = usodesuelofile;
-                break;
-                
-                  case "Concesion de Aguas Nacionales":
-                path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
-                fileName = concesionaguasfile;
-                break;
-                
-                
-                        case "Plano de Terreno Regional":
-                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
-                fileName = planoregionalfile;
-                break;
-                   
-                case "Plano de Terreno Rural":
-                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
-                fileName = planoruralfile;
-                break;
-                
-                 case "Plano Topografico":
-                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
-                fileName = planotopograficofile;
-                break;
-                
-                case "Justificacion del Terreno":
-                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
-                fileName = ubicacionterrenofile;
-                break;
-                
-                  case "Planos Infraestructura":
-                path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
-                fileName = planosinfraestructurafile;
-                break;
-                    
-                    
-                    
-                    
-                    
-                    
+                case "Comite Comercial Convocatoria":
+                    pantalla = 17;
+                    fileName = file.getOriginalFilename();
+                    break;
+                case "Comite Comercial Orden del Dia":
+                    pantalla = 18;
+                    fileName = file.getOriginalFilename();
+                    break;
+                case "Comite Comercial Presentacion de Informacion":
+                    pantalla = 19;
+                    fileName = file.getOriginalFilename();
+                    break;
+                case "Comite Comercial Minuta":
+                    pantalla = 20;
+                    fileName = file.getOriginalFilename();
+                    break;
+                case "Consejo de Administracion Convocatoria":
+                    pantalla = 5;
+                    fileName = file.getOriginalFilename();
+                    break;
+                case "Consejo de Administracion Orden del Dia":
+                    pantalla = 6;
+                    fileName = file.getOriginalFilename();
+                    break;
+                case "Consejo de Administracion Presentacion de Informacion":
+                    pantalla = 7;
+                    fileName = file.getOriginalFilename();
+                    break;
+                case "Consejo de Administracion Minuta":
+                    pantalla = 8;
+                    fileName = file.getOriginalFilename();
+                    break;
 
+                case "Estructura del Terreno":
+                    path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
+                    fileName = estructuraterrenofile;
+                    break;
+
+                case "Avaluo del Terreno":
+                    path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
+                    fileName = avaluoterrenofile;
+                    break;
+
+                case "Proyecto Entregado TIF 2000":
+                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    fileName = proyectoentregadofile;
+                    break;
+
+                case "Programa General de Necesidades":
+                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    fileName = programanecesidadesfile;
+                    break;
+
+                case "Programa Particular de Necesidades":
+                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    fileName = programaparticularfile;
+                    break;
+
+                case "Justificacion del Proyecto":
+                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    fileName = justificacionproyectofile;
+                    break;
+
+                case "Estudios Mecanica de Suelos":
+                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    fileName = impactomecanicadesuelosfile;
+                    break;
+
+                case "Estudio Impacto Ambiental":
+                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    fileName = impactoambientalfile;
+                    break;
+
+                case "Estudio Impacto Vial":
+                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    fileName = impactovialfile;
+                    break;
+
+                case "Factibilidad Servicio Energia Electrica":
+                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    fileName = energiaelectricafile;
+                    break;
+
+                case "Estudio Hidrologico":
+                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    fileName = estudiohidrologicofile;
+                    break;
+
+                case "Factibilidad de Uso de Suelo":
+                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    fileName = usodesuelofile;
+                    break;
+
+                case "Concesion de Aguas Nacionales":
+                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    fileName = concesionaguasfile;
+                    break;
+
+                case "Plano de Terreno Regional":
+                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    fileName = planoregionalfile;
+                    break;
+
+                case "Plano de Terreno Rural":
+                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    fileName = planoruralfile;
+                    break;
+
+                case "Plano Topografico":
+                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    fileName = planotopograficofile;
+                    break;
+
+                case "Justificacion del Terreno":
+                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    fileName = ubicacionterrenofile;
+                    break;
+
+                case "Planos Infraestructura":
+                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    fileName = planosinfraestructurafile;
+                    break;
                 default:
                     throw new DownloadException();
 
@@ -1207,7 +1228,7 @@ public class VentanaServiceImpl implements VentanaServices {
                     activosRepository.save(entity);
                 }
             } else if (fileEnc != null && pantalla != 0) {
-                
+
                 DocumentosAcumuladosEntity entity = new DocumentosAcumuladosEntity();
                 entity.setFecha(new Timestamp(System.currentTimeMillis()));
                 entity.setRuta(pathDocAcumulados);
