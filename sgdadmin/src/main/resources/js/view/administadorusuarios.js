@@ -182,10 +182,6 @@ $(document).ready(function () {
             rol_id: $("#rol_id").val()
         };
 
-        if (client.pass !== client.pass1) {
-            alert("las contraseñas ingresadas deben ser iguales");
-        }
-
         $("#jsGrid").jsGrid(isNew ? "insertItem" : "updateItem", data);
 
         $("#detailsDialog").dialog("close");
