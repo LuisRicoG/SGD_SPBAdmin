@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listYear'
       },
       locale: initialLocaleCode,
+      timeZone: 'America/Mexico_City',
       editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
       buttonIcons: false, // show the prev/next text
@@ -44,38 +45,94 @@ document.addEventListener('DOMContentLoaded', function() {
       selectable: true,
       selectMirror: true,
       select: function(arg) {
-        var title = prompt('Event Title:');
+        var title = prompt('Título del Evento:');
         if (title) {
             var data = {
-            groupId: 1,   
+            //groupId: null,   
             title: title,
             start: arg.start,
             end: arg.end,
-            allDay: 1,
+            allDay: arg.allDay === true ? 1 : 0,      
             className: 'gobcorp'
             };
             insertItem(data);
             $('#calendar').fullCalendar('refetchEvents');
-        }
-        calendar.unselect();
+            calendar.unselect();
+            calendar.rerenderEvents();
+        }        
       },
       drop: function(arg) {
         var data = {
-            groupId: 1,   
-            title: arg.title,
-            start: arg.start,
-            end: arg.end,
-            allDay: 1,
+            //groupId: null,   
+            title: arg.draggedEl.innerText,
+            start: arg.date,
+            end: null,
+            allDay: arg.allDay === true ? 1 : 0,
             className: 'gobcorp'
         };
         insertItem(data);
         $('#calendar').fullCalendar('refetchEvents');
         calendar.unselect();
+        calendar.rerenderEvents();
+
         // is the "remove after drop" checkbox checked?
         if (document.getElementById('drop-remove').checked) {
           // if so, remove the element from the "Draggable Events" list
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
+      },
+      eventDrop: function(eventDropInfo) { 
+        var data = {
+            id: eventDropInfo.oldEvent.id,
+            //groupId: null,   
+            title: eventDropInfo.event.title,
+            start: eventDropInfo.event.start,
+            end: eventDropInfo.event.end,
+            allDay: eventDropInfo.event.allDay === true ? 1 : 0,
+            className: 'gobcorp'
+        };
+        updateItem(data);
+        $('#calendar').fullCalendar('refetchEvents');
+        calendar.unselect();
+        calendar.rerenderEvents();
+      },
+      eventResize: function(eventResizeInfo) { 
+        var data = {
+            id: eventResizeInfo.prevEvent.id,
+            //groupId: null,   
+            title: eventResizeInfo.event.title,
+            start: eventResizeInfo.event.start,
+            end: eventResizeInfo.event.end,
+            allDay: eventResizeInfo.event.allDay === true ? 1 : 0,
+            className: 'gobcorp'
+        };
+        updateItem(data);
+        $('#calendar').fullCalendar('refetchEvents');
+        calendar.unselect();
+        calendar.rerenderEvents();
+      },
+      eventClick: function(info) {
+        var data = {
+            id: info.event.id,
+            //groupId: info.event.groupId,   
+            title: info.event.title,
+            start: info.event.start,
+            end: info.event.end,
+            allDay: info.event.allDay,
+            className: info.event.className
+        };
+        if (confirm("¿Esta seguro que desea borrar este evento?")) {
+          deleteItem(data);        
+          $('#calendar').fullCalendar('refetchEvents');
+          calendar.unselect();
+          calendar.rerenderEvents();
+        }         
+      },
+      eventMouseEnter: function(mouseEnterInfo) {  
+          mouseEnterInfo.el.style.borderColor = 'red';
+      },
+      eventMouseLeave: function(mouseLeaveInfo) { 
+          mouseLeaveInfo.el.style.borderColor = 'white';
       },
       events: {
         url: '/SGDADMIN/calendario/listaeventos',
@@ -88,8 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     calendar.render();
 
-  });
-  
+  });  
   
   function insertItem (item) {
         return $.ajax({
@@ -105,3 +161,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
   
+  function updateItem (item) {
+        return $.ajax({
+            type: "PUT",
+            url: '/SGDADMIN/calendario/updateevento',
+            dataType: 'json',            
+            contentType: 'application/json',
+            data: JSON.stringify(item),
+            success: function(json) {
+                $('#calendar').fullCalendar('refetchEventSources', '/SGDADMIN/calendario/listaeventos');
+                return json;
+            }
+        });
+    }
+    
+  function deleteItem (item) {
+        return $.ajax({
+            type: "PUT",
+            url: '/SGDADMIN/calendario/deleteevento',
+            dataType: 'json',            
+            contentType: 'application/json',
+            data: JSON.stringify(item),
+            success: function(json) {
+                $('#calendar').fullCalendar('refetchEventSources', '/SGDADMIN/calendario/listaeventos');
+                return json;
+            }
+        });
+    }

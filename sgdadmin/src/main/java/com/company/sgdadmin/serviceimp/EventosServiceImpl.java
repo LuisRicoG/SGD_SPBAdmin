@@ -26,7 +26,7 @@ public class EventosServiceImpl implements EventosService{
         CalendarioEntity calen = new CalendarioEntity();
         if (cal.getId()!=null)
             calen.setCalendarioid(cal.getId());
-        calen.setGroupid(cal.getGroupId());
+        calen.setGroupid(null);
         calen.setAllday(cal.getAllDay());
         calen.setTitle(cal.getTitle());
         calen.setStart(cal.getStart());

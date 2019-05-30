@@ -71,7 +71,7 @@ public class CalendarioController {
             CalendarioEntity ce= eventit.next();
             Calendario c=new Calendario();
             c.setId(ce.getCalendarioid());
-            c.setGroupId(ce.getGroupid());
+            //c.setGroupId(ce.getGroupid());
             c.setAllDay(ce.getAllday());
             c.setStart(ce.getStart());
             c.setEnd(ce.getEnd());
