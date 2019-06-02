@@ -5,6 +5,7 @@ package com.company.sgdadmin.serviceimp;
 
 import com.company.sgdadmin.dto.filemanager.FileManagerDTO;
 import com.company.sgdadmin.entity.DocumentosActivosEntity;
+import com.company.sgdadmin.entity.DocumentosAcumuladosEntity;
 import com.company.sgdadmin.repository.DocumentosActivosRepository;
 import com.company.sgdadmin.service.FileManager;
 import com.company.sgdadmin.util.ConstantsSGD;
@@ -64,10 +65,18 @@ public class FileManagerImpl implements FileManager {
      * @param entidad
      * @throws IOException
      */
+    public void downloadFile(DocumentosAcumuladosEntity entidad) throws IOException {
+        getFile(entidad.getRuta(), entidad.getNombre());
+    }
+
     @Override
     public void downloadFile(DocumentosActivosEntity entidad) throws IOException {
+        getFile(entidad.getRuta(), entidad.getNombre());
+    }
+
+    private void getFile(String ruta, String nombre) throws IOException {
         String rootPath = ConstantsSGD.HOME;
-        File file = new File(rootPath + entidad.getRuta() + entidad.nombre);
+        File file = new File(rootPath + ruta + nombre);
         String mimeType = URLConnection.guessContentTypeFromName(file.getName());
         if (mimeType == null) {
             System.out.println("mimetype is not detectable, will take default");
