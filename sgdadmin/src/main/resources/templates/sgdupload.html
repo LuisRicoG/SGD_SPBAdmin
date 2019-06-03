@@ -53,10 +53,6 @@ ing_farias@live.com
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/style.css">
@@ -66,6 +62,20 @@ ing_farias@live.com
     <!-- modernizr JS
 		============================================ -->
     <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- jquery
+		============================================ -->
+    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- jQuery UI
+                ============================================ -->    
+    <link type="text/css" rel="stylesheet" href="js/jqueryui/jquery-ui.min.css" />    
+    <script type="text/javascript" src="js/jqueryui/jquery-ui.min.js"></script>   
+    <script type="text/javascript" src="js/jqueryui/datepicker-es.js"></script>
+    <script>
+    $( function() {
+      $( "#datepicker" ).datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", showButtonPanel: true, regional: "es"});
+    } );
+     
+    </script>    
 </head>
 
 
@@ -98,8 +108,7 @@ ing_farias@live.com
                                 <div class="row">
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
                                         <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-					
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">					
 					</button>
                                         </div>
                                     </div>
@@ -109,13 +118,10 @@ ing_farias@live.com
 
                                                 <li class="nav-item">
                                                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															
                                                         <span class="admin-name">Bienvenido, </span>
-															<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
-															
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    
+                                                        <span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
+                                                    </a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">                                                    
                                                         <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
                                                             <form th:action="@{/logout}" method="post">
                                                                 <input type="submit" value="Cerrar sesión" class="header-btn"/>
@@ -133,12 +139,12 @@ ing_farias@live.com
                 </div>
             </div>
             <!-- Mobile Menu start -->
- <div class="mobile-menu-area">
+            <div class="mobile-menu-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="mobile-menu">
-                                 <div th:replace="menulateralmovil :: nav">...</div>
+                                <div th:replace="menulateralmovil :: nav">...</div>
                             </div>
                         </div>
                     </div>
@@ -156,9 +162,7 @@ ing_farias@live.com
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <ul class="breadcome-menu">
-                                         
-                                           
+                                        <ul class="breadcome-menu">                                                                                    
                                         </ul>
                                     </div>
                                 </div>
@@ -178,7 +182,7 @@ ing_farias@live.com
              <h1 align="center" th:text="${message}"></h1>
              <span ></span>
         </div>
-        <form method="post" th:action="@{/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
+        <form method="post" th:action="@{/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container" autocomplete="off">
             
             <br>
                 <br>
@@ -213,14 +217,18 @@ ing_farias@live.com
                              <option value="DICIEMBRE">DICIEMBRE</option>                            
                     </select>  
                           </div>
-                <div th:if="${lista3}">
-                      <h1 style="text-align: center;">Escriba la fecha</h1>
-                     <input type="text" name="date" value="fecha">
-                         </div>
-                      <h1 style="text-align: center;">Carga de Archivo</h1>
+                    <div th:if="${calendario}">
+                        <h1 style="text-align: center;">Seleccione fecha</h1>
+                        <input type="text" id="datepicker" name="date"></p>
+                    </div>
+                    <h1 style="text-align: center;">Carga de Archivo</h1>
                     <input type="file" class="custom-file-input" name="file"  aria-describedby="fileHelp">
-                    <span class="custom-file-control form-control-file"></span>
+                        <span class="custom-file-control form-control-file"></span>
                 </label>
+                <div th:if="${descripcion}">
+                    <h1 style="text-align: left;">Ingrese una Descripcion</h1>
+                    <input type="text" name="descripcion">
+                </div>
             </div>
             <div style="margin-bottom: 10px">
                 <button type="submit" class="btn btn-success">Cargar</button>
@@ -228,13 +236,6 @@ ing_farias@live.com
         </form>
     </div>
 </div>
-        
-        
-        
-        
-        
-        
-        
         
         <div class="footer-copyright-area">
             <div class="container-fluid">
@@ -248,10 +249,7 @@ ing_farias@live.com
             </div>
         </div>
     </div>
-
-    <!-- jquery
-		============================================ -->
-    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
+    
     <!-- bootstrap JS
 		============================================ -->
     <script src="static/js/bootstrap.min.js"></script>
@@ -273,11 +271,6 @@ ing_farias@live.com
     <!-- scrollUp JS
 		============================================ -->
     <script src="static/js/jquery.scrollUp.min.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="static/js/counterup/jquery.counterup.min.js"></script>
-    <script src="static/js/counterup/waypoints.min.js"></script>
-    <script src="static/js/counterup/counterup-active.js"></script>
     <!-- mCustomScrollbar JS
 		============================================ -->
     <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -286,21 +279,6 @@ ing_farias@live.com
 		============================================ -->
     <script src="static/js/metisMenu/metisMenu.min.js"></script>
     <script src="static/js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/morrisjs/raphael-min.js"></script>
-    <script src="static/js/morrisjs/morris.js"></script>
-    <script src="static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
-    <script src="static/js/sparkline/sparkline-active.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="static/js/calendar/moment.min.js"></script>
-    <script src="static/js/calendar/fullcalendar.min.js"></script>
-    <script src="static/js/calendar/fullcalendar-active.js"></script>
     <!-- plugins JS
 		============================================ -->
     <script src="static/js/plugins.js"></script>

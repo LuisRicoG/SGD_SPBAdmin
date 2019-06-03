@@ -60,6 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/images/**").permitAll()
                 .antMatchers("/vendor/**").permitAll()
                 .antMatchers("/js/**").permitAll()
+                .antMatchers("/fullcalendar/**").permitAll()
                 .antMatchers("/menu").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/listausuarios").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/nuevousuario").hasAnyRole("USER", "ADMIN")

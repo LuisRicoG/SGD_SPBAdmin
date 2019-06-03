@@ -51,18 +51,16 @@ public class AdministradorUsuariosController {
     }
 
     @PostMapping(value = "/registro", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String registro(@RequestBody LoginEntity login, Model model) {
+    public ResponseEntity registro(@RequestBody LoginEntity login, Model model) {
 
         login.setContrasena(Encoder.getEncodePassword(login.getContrasena()));
         boolean respuesta = usuarioService.registro(login);
-
-        if (respuesta) {
-            model.addAttribute("correcto", "Usuario creado Satisfactoriamente");
-            return "administradorusuarios";
-        } else {
-            model.addAttribute("error", "Inténtelo más tarde");
-            return "nuevousuario";
+        if (!respuesta) {
+            return new ResponseEntity("No Customer found for ID " + login.getUsuario_id(), HttpStatus.NOT_FOUND);
         }
+
+        return new ResponseEntity(login, HttpStatus.OK);
+
     }
 
     @GetMapping("/userlist")

@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface DocumentosActivosRepository extends CrudRepository<DocumentosActivosEntity, Integer> {
-
+    DocumentosActivosEntity findByDocumentoid(Integer documentoid);
     DocumentosActivosEntity findByRutaAndNombre(String ruta, String nombre);
 }

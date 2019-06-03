@@ -53,19 +53,36 @@ ing_farias@live.com
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
     <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/style.css">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
+    <!-- TABS CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/tabs.css">
     <!-- modernizr JS
 		============================================ -->
     <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- jquery
+		============================================  -->
+    <script src="js/jquery/jquery-3.3.1.js"></script>
+    <!-- jQuery UI
+                ============================================ -->    
+    <link type="text/css" rel="stylesheet" href="js/jqueryui/jquery-ui.min.css" />    
+    <script type="text/javascript" src="js/jqueryui/jquery-ui.min.js"></script>   
+    
+    <!-- jsGrid
+                ============================================ -->    
+    <link type="text/css" rel="stylesheet" href="js/jsgrid/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="js/jsgrid/jsgrid-theme.min.css" />
+    <script type="text/javascript" src="js/jsgrid/jsgrid.min.js"></script>   
+    <script type="text/javascript" src="js/jqueryui/datepicker-es.js"></script>   
+    <!-- view JS
+                ============================================ -->
+    <script th:src="@{js/view/descargageneral.js}"></script>
+    <script src="js/view/listaarchivos.js"></script>        
 </head>
 
 
@@ -139,53 +156,34 @@ ing_farias@live.com
                 </div>
             </div>
             <!-- Mobile Menu end -->
-            <div class="container" style="margin-top: 30px">
-                <div class="card">
-                    <div class="card-header">Lista de Archivos</div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <!--<th>ID</th>-->
-                                            <th>Nombre</th>
-                                            <!--<th>Ruta</th>-->
-                                            <!--<th>Usuario</th>-->
-                                            <th>Fecha de Carga</th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr th:each="docto : ${listaarchivos}">
-                                            <!--<td th:text="${docto.documento_id}"></td>-->
-                                            <td th:text="${docto.nombre}"></td>
-                                            <!--<td th:text="${docto.ruta}"></td>-->
-                                            <!--<td th:text="${docto.usuario_id}"></td>-->
-                                            <td th:text="${docto.fecha}"></td>
-                                            <td><a th:href="@{/getDocto(name=${docto.nombre},path=${docto.ruta})}">Descargar</a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>        
-                <div class="footer-copyright-area">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="footer-copy-right">
-                                    <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
-                                </div>
+            <div class="tab">
+              <button id="defaulttab" class="tablinks" onclick="openTab(event, 'Unicos')">Documentos Únicos</button>
+              <button class="tablinks" onclick="openTab(event, 'Acumulados')">Documentos Acumulados</button>
+            </div>
+            
+            <div id="Unicos" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>                
+                <div id="jsGrid" class="jsgrid" style="position: relative; height: 70%; width: 100%;"></div>
+            </div>    
+            
+            <div id="Acumulados" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                <div id="jsGrid2" class="jsgrid" style="position: relative; height: 70%; width: 100%;"></div>
+            </div>            
+                    
+            <div class="footer-copyright-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="footer-copy-right">
+                                <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-    <!-- jquery
-		============================================ -->
-    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
     <!-- bootstrap JS
 		============================================ -->
     <script src="static/js/bootstrap.min.js"></script>
@@ -207,11 +205,6 @@ ing_farias@live.com
     <!-- scrollUp JS
 		============================================ -->
     <script src="static/js/jquery.scrollUp.min.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="static/js/counterup/jquery.counterup.min.js"></script>
-    <script src="static/js/counterup/waypoints.min.js"></script>
-    <script src="static/js/counterup/counterup-active.js"></script>
     <!-- mCustomScrollbar JS
 		============================================ -->
     <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
@@ -220,27 +213,15 @@ ing_farias@live.com
 		============================================ -->
     <script src="static/js/metisMenu/metisMenu.min.js"></script>
     <script src="static/js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/morrisjs/raphael-min.js"></script>
-    <script src="static/js/morrisjs/morris.js"></script>
-    <script src="static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
-    <script src="static/js/sparkline/sparkline-active.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="static/js/calendar/moment.min.js"></script>
-    <script src="static/js/calendar/fullcalendar.min.js"></script>
-    <script src="static/js/calendar/fullcalendar-active.js"></script>
     <!-- plugins JS
 		============================================ -->
     <script src="static/js/plugins.js"></script>
     <!-- main JS
 		============================================ -->
     <script src="static/js/main.js"></script>
+    <!-- view JS
+                ============================================ -->
+    <script src="js/view/tabs.js"></script>  
 </body>
 
 </html>
