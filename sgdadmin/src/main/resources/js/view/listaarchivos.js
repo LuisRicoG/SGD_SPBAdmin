@@ -23,18 +23,20 @@ MyDateField.prototype = new jsGrid.Field({
         return dateToString(value);
     },
     filterTemplate: function () {
-        return this._insertPicker = $("<input onfocusout= onDatePickerClick(this.value,this)>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", showButtonPanel: true, onSelect: onDatePickerClick, regional: "es"});
+        return this._insertPicker = $("<input id ='date1' onfocusout= onDatePickerClick(this.value,this)>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", showButtonPanel: true, onSelect: onDatePickerClick, regional: "es"});
     }
 });
 
 function onDatePickerClick(dateText, inst) {
     console.log("dateText : " + dateText);
     console.log("inst : " + inst);
-    if (inst && inst.input &&  inst.input[0].value === "")
+    if (inst && inst.input && inst.input[0].value === "")
     {
         dateText = "";
     }
-    $("#jsGrid").jsGrid("loadData", {fecha: dateText}).done(function () {
+    var filtro = $("#jsGrid").jsGrid("getFilter");
+    filtro.fecha = dateText;
+    $("#jsGrid").jsGrid("loadData", filtro).done(function () {
         console.log("data loaded");
     });
 }
@@ -51,7 +53,7 @@ MyDateField2.prototype = new jsGrid.Field({
         return dateToString(value);
     },
     filterTemplate: function () {
-        return this._insertPicker = $("<input onfocusout= onDatePickerClick2(this.value,this)>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", showButtonPanel: true, onSelect: onDatePickerClick2, regional: "es"});
+        return this._insertPicker = $("<input id ='date2' onfocusout= onDatePickerClick2(this.value,this)>").datepicker({defaultDate: new Date(), dateFormat: "dd/mm/yy", showButtonPanel: true, onSelect: onDatePickerClick2, regional: "es"});
     }
 });
 
@@ -62,7 +64,10 @@ function onDatePickerClick2(dateText, inst) {
     {
         dateText = "";
     }
-    $("#jsGrid2").jsGrid("loadData", {fecha: dateText}).done(function () {
+
+    var filtro = $("#jsGrid2").jsGrid("getFilter");
+    filtro.fecha = dateText;
+    $("#jsGrid2").jsGrid("loadData", filtro).done(function () {
         console.log("data loaded");
     });
 }
@@ -166,6 +171,14 @@ function controllers(url, dataGrid) {
     return {
         loadData: function (filter) {
             if (dataGrid) {
+                if (filter.descripcion == undefined && filter.fecha == "") {
+                    console.log($("#date1")[0].value);
+                    filter.fecha = $("#date1")[0].value;
+                } else if (filter.fecha == "") {
+                    console.log($("#date2")[0].value);
+                    filter.fecha = $("#date2")[0].value;
+                }
+
                 return $.grep(dataGrid, function (client) {
                     return (!filter.descripcion || client.descripcion.indexOf(filter.descripcion) > -1)
                             && (!filter.nombre || client.nombre.indexOf(filter.nombre) > -1)
