@@ -509,7 +509,7 @@ public class VentanaServiceImpl implements VentanaServices {
     CryptoFiles cryptoFiles;
 
     @Override
-    public void getVentanas(MultipartFile file, String year, String month, String date, String direccion, String descripcion) {
+    public String getVentanas(MultipartFile file, String year, String month, String date, String direccion, String descripcion) {
 
         try {
             String HOME = ConstantsSGD.HOME;
@@ -1032,7 +1032,7 @@ public class VentanaServiceImpl implements VentanaServices {
                     pantalla = 15;
                     fileName = file.getOriginalFilename();
                     break;
-                    
+
                 case "Comite Engorda Minuta":
                     pantalla = 16;
                     fileName = file.getOriginalFilename();
@@ -1232,27 +1232,35 @@ public class VentanaServiceImpl implements VentanaServices {
                 }
             } else if (fileEnc != null && pantalla != 0) {
 
+                DocumentosAcumuladosEntity doctoExiste = acumuladosRepository.findByRutaAndDescripcionAndPantalla(pathDocAcumulados, descripcion, pantalla);
                 DocumentosAcumuladosEntity entity = new DocumentosAcumuladosEntity();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-                Date fecha = dateFormat.parse(date);
-                entity.setFecha(new Timestamp(fecha.getTime()));
-                entity.setRuta(pathDocAcumulados);
-                entity.setNombre(fileName);
-                entity.setUsuario_id(1);
-                entity.setPantalla(pantalla);
-                entity.setEstatus(1);
-                entity.setDescripcion(descripcion);
-                acumuladosRepository.save(entity);
 
+                
+                if (doctoExiste != null) {
+                    return "El documento existe";
+                } else {
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                    Date fecha = dateFormat.parse(date);
+                    entity.setFecha(new Timestamp(fecha.getTime()));
+                    entity.setRuta(pathDocAcumulados);
+                    entity.setNombre(fileName);
+                    entity.setUsuario_id(1);
+                    entity.setPantalla(pantalla);
+                    entity.setEstatus(1);
+                    entity.setDescripcion(descripcion);
+                    acumuladosRepository.save(entity);
+                }
             } else {
                 throw new DownloadException();
             }
-        } catch (IOException ex ) {
+        } catch (IOException ex) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
             throw new DownloadException();
         } catch (ParseException ex) {
             Logger.getLogger(VentanaServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return "Documento salvado";
     }
 
     private static EntityManagerFactory factory;
