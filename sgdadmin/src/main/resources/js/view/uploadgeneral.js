@@ -46,6 +46,7 @@ function uploadDocument(form) {
             return;
         } else {
             alert(req.responseText);
+            window.location.reload();
         }
 
     };
