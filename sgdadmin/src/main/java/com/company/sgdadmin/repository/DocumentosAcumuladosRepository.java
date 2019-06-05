@@ -17,4 +17,5 @@ public interface DocumentosAcumuladosRepository extends CrudRepository<Documento
 
     DocumentosAcumuladosEntity findBydocumentoIdAndPantalla(int documentoId, int pantalla);
     List<DocumentosAcumuladosEntity> findByPantalla(int pantalla);
+    DocumentosAcumuladosEntity findByRutaAndDescripcionAndPantalla(String ruta, String descripcion, int pantalla);
 }

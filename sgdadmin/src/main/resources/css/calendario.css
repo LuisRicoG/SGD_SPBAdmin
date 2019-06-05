@@ -55,3 +55,35 @@ and open the template in the editor.
     float: right;
     width: 900px;
   }
+
+  #external-events .kickoff{
+    background-color: green;  
+  }
+  
+  #calendar .kickoff{
+    background-color: green;  
+  }
+  
+  #external-events .debrief{
+    background-color: #990033;  
+  }
+  
+  #calendar .debrief{
+    background-color: #990033; 
+  }
+  
+  #external-events .gobcorp{
+    background-color: darkorange;  
+  }
+  
+  #calendar .gobcorp{
+    background-color: darkorange; 
+  }
+  
+  #external-events .taller{
+    background-color: darkcyan;  
+  }
+  
+  #calendar .taller{
+    background-color: darkcyan; 
+  }

@@ -53,15 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
                     title: title,
                     start: arg.start,
                     end: arg.end,
-                    allDay: arg.allDay === true ? 1 : 0,
-                    className: 'gobcorp'
+                    allDay: arg.allDay === true ? 1 : 0
                 };
                 insertItem(data);
-//            $('#calendar').fullCalendar('refetchEvents');
-//                calendar.unselect();
+//            $('#calendar').fullCalendar('refetchEvents');                
 //                calendar.rerenderEvents();
                 calendar.refetchEvents();
             }
+            calendar.unselect();
         },
         drop: function (arg) {
             var data = {
@@ -70,19 +69,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 start: arg.date,
                 end: null,
                 allDay: arg.allDay === true ? 1 : 0,
-                className: 'gobcorp'
+                className: arg.draggedEl.className
             };
             insertItem(data);
 //        $('#calendar').fullCalendar('refetchEvents');
 //            calendar.unselect();
 //            calendar.rerenderEvents();
 //            calendar.refetchEvents();
-
-            // is the "remove after drop" checkbox checked?
-            if (document.getElementById('drop-remove').checked) {
-                // if so, remove the element from the "Draggable Events" list
-                arg.draggedEl.parentNode.removeChild(arg.draggedEl);
-            }
         },
         eventDrop: function (eventDropInfo) {
             var data = {
@@ -92,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 start: eventDropInfo.event.start,
                 end: eventDropInfo.event.end,
                 allDay: eventDropInfo.event.allDay === true ? 1 : 0,
-                className: 'gobcorp'
+                className: eventDropInfo.event.className
             };
             updateItem(data);
 //        $('#calendar').fullCalendar('refetchEvents');
@@ -107,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 start: eventResizeInfo.event.start,
                 end: eventResizeInfo.event.end,
                 allDay: eventResizeInfo.event.allDay === true ? 1 : 0,
-                className: 'gobcorp'
+                className: eventResizeInfo.event.className
             };
             updateItem(data);
 //        $('#calendar').fullCalendar('refetchEvents');

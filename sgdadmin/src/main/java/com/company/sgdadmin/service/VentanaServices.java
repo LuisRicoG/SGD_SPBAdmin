@@ -20,8 +20,9 @@ public interface VentanaServices {
      * @param date
      * @param direccion
      * @param descripcion
+     * @return 
      */
-    public void getVentanas(MultipartFile file, String year, String month, String date, String direccion, String descripcion);
+    public String getVentanas(MultipartFile file, String year, String month, String date, String direccion, String descripcion);
 
     public void visibleOptions(ModelAndView mv, String direccion);
 
