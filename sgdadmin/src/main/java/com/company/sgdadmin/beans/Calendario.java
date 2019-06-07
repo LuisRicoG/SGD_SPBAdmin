@@ -13,7 +13,7 @@ import java.sql.Timestamp;
  */
 public class Calendario {
     private Integer id;
-//    private Integer groupId;
+    private Integer groupId;
     private Integer allDay;
     private Timestamp start;
     private Timestamp end;
@@ -28,13 +28,13 @@ public class Calendario {
         this.id = id;
     }
 
-//    public Integer getGroupId() {
-//        return groupId;
-//    }
-//
-//    public void setGroupId(Integer groupId) {
-//        this.groupId = groupId;
-//    }
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
+    }
 
     public Integer getAllDay() {
         return allDay;

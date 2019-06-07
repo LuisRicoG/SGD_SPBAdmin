@@ -1,0 +1,86 @@
+<!--
+ing_farias@live.com
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>SGD-DOCUMENTACION LEGAL</title>
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/> 
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/descargageneral.js}"></script>        
+        <script th:src="@{js/view/documentacionlegal.js}"></script>
+         <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+
+    </head>
+
+    <body>
+            <div class="row header bg-transparent">
+                <div>
+                    <div class="col-1-2 padding align-left">
+                        <p>
+                            <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                        </p> 
+                    </div>
+                    <div class="col-1-8 padding align-right header-txt"></div>
+                    <div class="col-1-4 padding align-right header-txt">
+                        <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                        </p>
+                    </div>    
+                    <div class="col-1-8 padding align-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <div class="row header center bg-transparent">
+            <h1>DOCUMENTACION LEGAL</h1>
+        </div>
+        <div class="contents bg-transparent">
+            <div class="col-1-3 "></div>
+            <div class="col-1-3 ">
+
+                <table border="0">
+                    <tr>
+                        <td>                       
+                            <p><a href="/SGDADMIN/escrituras" class="ui-buttonenlacesnuevo ui-button-escrituras">ESCRITURAS</a></p>
+                        </td>
+                        <td>
+                            <p><a href="/SGDADMIN/gestor?pantalla=2" id="Identificaciones" class="ui-buttonenlacesnuevo ui-button-identificacion">IDENTIFICACION</a></p>
+                        </td>
+                        <td>
+                            <p><a  id="RFC" class="ui-buttonenlacesnuevo ui-button-rfc">RFC</a></p>
+                        </td>
+                        <td>
+                            <p><a id="Fiel" class="ui-buttonenlacesnuevo ui-button-fiel">FIEL</a></p>
+                        </td>
+                         <td>                       
+                            <p><a class="agsa"></a></p>
+                        </td>
+                    </tr>    
+                    <tr>
+                        <td>
+                            <p><a id="SelloDigital" class="ui-buttonenlacesnuevo ui-button-sellodigital">SELLO DIG.</a></p>
+                        </td>
+                        <td>
+                            <p><a id="AvisoPrivacidad" class="ui-buttonenlacesnuevo ui-button-avisoprivacidad">PRIVACIDAD</a></p>                        
+                        </td>
+                        <td>
+                            <p><a id="CumplimientoObli" class="ui-buttonenlacesnuevo ui-button-cumplimientofiscal">OBLIGACIONES</a></p>                             
+                        </td>
+                        <td>
+                            <p><a id="ComprobanteDomicilio" class="ui-buttonenlacesnuevo ui-button-comprobantedomicilio">COMP.DOMICILIO</a></p>                                       
+                        </td>
+                        <td>                            
+                            <p><a href="/SGDADMIN/gestor?pantalla=3" id="AsambleaOrdinaria" class="ui-buttonenlacesnuevo ui-button-asambleaordinaria">AUMENTOS CAP</a></p>                                                        
+                        </td>
+                    </tr> 
+                </table>
+            </div>
+            <div class="col-1-3 "></div>
+        </div>      
+    </body>
+</html>

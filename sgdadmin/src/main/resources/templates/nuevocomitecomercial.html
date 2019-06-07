@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
+	<title>Sistema Base de Descargas por Contenido</title>
+  	<!--Estilos-->
+    <link rel="stylesheet" href="css/style3.css">
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" href="fonts/style.css">		
+	<script  src="js/index3.js"></script>
+	
+	<!-- Scripts -->	
+	<script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+    <script th:src="@{js/view/descargageneral.js}"></script>        
+    <script>
+    	function goBack() {
+        	window.history.back();
+		}
+	</script>
+</head>
+<body>	
+<nav id="daSidebar" class="sidebar">
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="icon-cross"></i></a>
+	<h2>Contenido aquí</h2>
+	<table>
+		<tr th:each="nombres : ${listadearchivos}">                            
+			<td th:text="${nombres.archivo}"></td>
+			<td th:text="${nombres.ruta}"></td>
+			<td th:text="${nombres.file}"></td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td class="dacoment">Descarga Reportes de ventas acumulado <span class="aditionalcoment">Esto es un comentario</span></td>
+			<td class="dacoment second">Ventas acomuladas a nivel venta neta<span class="aditionalcoment">Este es otro comentario</span></td>
+			<td>a0000 <a href="#"><i class="icon-download"></i></a></td>
+		</tr>
+		<tr>
+			<td class="dacoment">Descarga Reportes de ventas acumulado <span class="aditionalcoment">Esto es un comentario</span></td>
+			<td class="dacoment">Ventas acomuladas a nivel venta neta<span class="aditionalcoment">Este es otro comentario</span></td>
+			<td>a0000 <a href="#"><i class="icon-download"></i></a></td>
+		</tr>
+	</table>
+</nav>
+
+
+			        <div class="row header bg-transparent">
+            <div>
+                <div class="col-1-2 padding align-left">
+                    <p>
+                        <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                    </p> 
+                </div>
+                <div class="col-1-8 padding align-right header-txt"></div>
+                <div class="col-1-4 padding align-right header-txt">
+                    <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                        <a onclick="goBack()" class="ui-buttonhome ui-botton-regreso"></a>
+                    </p>
+                </div>    
+                <div class="col-1-8 padding align-right">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                    </form>
+                </div>
+            </div>
+        </div>
+<main>
+	<h1>Descarga de archivos</h1>
+	<button class="btnsesion opentab" onclick="openNav()"><i class="icon-menu1"></i></button>
+	<section>
+		<div class="allbtn">
+			<div class="dabtn">
+				<a href="/gestor?pantalla=9" class="btn large solid gray menubutton"><i class="icon-coin-dollar"></i> REPORTE DE VENTAS</a>
+			</div>
+			<div class="dabtn">
+				<a href="#" id="costo"><i class="icon-price-tag"></i> REPORTE DE COSTO</a>
+			</div>
+			<div class="dabtn">
+				<a href="#" id="inventarios"><i class="icon-folder-open"></i> REPORTE DE INVENTARIO</a>
+			</div>
+			<div class="dabtn">
+				<a href="#" id="compras"><i class="icon-cart"></i> REPORTE DE COMPRAS</a>
+			</div>
+			<div class="dabtn">
+				<a href="#" id="descuentos"><i class="icon-ticket"></i> REPORTE DE DESCUENTOS</a>
+			</div>
+			<div class="dabtn">
+				<a href="#" id="base"><i class="icon-database"></i> REPORTE DE BASE</a>
+			</div>			
+		</div>
+	</section>
+</main>                              
+</body>
+
+</html>

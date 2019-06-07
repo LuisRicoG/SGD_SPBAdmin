@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">    
+
+    <head>
+        <title>SGD-COMITE INVERSIONES</title>     
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/descargageneral.js}"></script>        
+        <script th:src="@{js/view/comiteinversiones.js}"></script>
+        <script  src="js/index.js"></script>
+        <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
+            
+    
+            
+       
+    </head>
+
+    <body>
+        <div class="row header bg-transparent">
+            <div>
+                <div class="col-1-2 padding align-left">
+                    <p>
+                        <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                    </p> 
+                </div>
+                <div class="col-1-8 padding align-right header-txt"></div>
+                <div class="col-1-4 padding align-right header-txt">
+                    <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                        <a onclick="goBack()" class="ui-buttonhome ui-botton-regreso"></a>
+                    </p>
+                </div>    
+                <div class="col-1-8 padding align-right">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br></br>
+        <center> <h1>COMITE INVERSIONES</h1></center>
+        <table style="width:100%; border: none">     
+            <tr style="border: none">
+                <td class="tablaconf" align="left" style="border: none; width: 35%">
+             
+                    <div class="titulo_boton"> MIEMBROS DEL COMITE
+  <a style='cursor: pointer;padding-top: 2.5;padding-top: 3px;' onClick="muestra_oculta('contenido')" title="" class="boton_mostrar">MOSTRAR / OCULTAR</a>
+</div>
+                    
+                    <div id="contenido" style="display: block; width: 714px; height: 684px; padding-bottom: 0px; padding-top: 10px;">
+                    <table style=" border: none">  
+                        <tr style="border:0.1px">
+                            <td>JORGE HERNANDEZ P.<BR>PRESIDENTE</td>
+                               <td>SOCIO CONSEJERO</td>
+                        </tr>
+                          <tr style="border:0.1px">
+                            <td>JOSE VAZQUEZ C.<BR>VICEPRESIDENTE</td>
+                               <td>SOCIO CONSEJERO</td>
+                        </tr>
+                          <tr style="border:0.1px">
+                            <td>GERARDO PRIEGO A.<BR>MIEMBRO</td>
+                               <td>SOCIO CONSEJERO</td>
+                        </tr>
+                          <tr style="border:0.1px">
+                            <td>ANTONIO GUTIERREZ R.<BR>MIEMBRO</td>
+                               <td>SOCIO CONSEJERO</td>
+                        </tr>
+                          <tr style="border:0.1px">
+                            <td>KARLA CHABLE H.<BR>MIEMBRO</td>
+                               <td>SOCIO CONSEJERO</td>
+                        </tr>
+                         <tr style="border:0.1px">
+                            <td>RUBEN VAZQUEZ M.<BR>MIEMBRO</td>
+                               <td>SOCIO</td>
+                        </tr>
+                        
+                         <tr style="border:0.1px">
+                            <td>GISELA PEREZ P.<BR>SECRETARIO</td>
+                              <td>EN REPRESENTACION DE SOCIO</td>
+                        </tr>
+<!--                        
+                        
+                        
+                        
+                        <tr style="border: none" th:each="nombres : ${listanombres}">                            
+                            <td style="border: none" th:text="${nombres.nombre}"></td>
+                            <td style="border: none" th:text="${nombres.cargo}"></td>
+                        </tr>-->
+                    </table>
+                    </div>
+
+                    
+                    
+                    
+                    
+                </td>
+                <td align="center" style="border: none; padding-top: 0px; padding-left: 15%">
+                    <div class="row">
+                        <div class="col-1-2-res padding" style="align-content: center;padding-top: 40px;margin-left: 350px;">
+                            <div class="border rounded">
+                                <p><a href="/SGDADMIN/gestor?pantalla=9" class="btn large solid gray menubutton">SESIONES</a></p>                                           
+                            </div>
+                            <br>
+                                <div class="border rounded">
+                                    <p><a id="ReglasOpInversiones" class="btn large solid gray menubutton">REGLAS DE OPERACION</a></p>
+                                    <p><a id="CurriMiemborsInversiones" class="btn large solid gray menubutton">CURRICULUM MIEMBROS</a></p>
+                                    <p><a id="CartasConfiInversiones" class="btn large solid gray menubutton">CARTAS CONFIDENCIALIDAD</a></p>
+                                    <p><a id="PlanAnualSesInversiones" class="btn large solid gray menubutton">PLAN ANUAL DE SESIONES</a></p>      
+                                    <p><a id="ReportesTriInversiones" class="btn large solid gray menubutton">REPORTES TRIMESTRALES</a></p>           
+                                </div>
+                        </div>
+                    </div>
+                </td>
+
+            </tr>
+        </table>                                  
+    </body>
+</html>

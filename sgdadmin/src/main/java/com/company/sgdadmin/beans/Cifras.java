@@ -13,6 +13,7 @@ public class Cifras {
     private Double eqtrans;
     private Double mobiliario;
     private Double eqcomputo;
+    private Double total;
 
     public Integer getCifraid() {
         return cifraid;
@@ -60,6 +61,14 @@ public class Cifras {
 
     public void setEqcomputo(Double eqcomputo) {
         this.eqcomputo = eqcomputo;
+    }
+
+    public Double getTotal() {
+        return total;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
     
 }

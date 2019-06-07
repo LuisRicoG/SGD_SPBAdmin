@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>SGD-PRESENTACIONES CORPORATIVAS</title>     
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/> 
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/descargageneral.js}"></script>        
+        <script th:src="@{js/view/presentacionescorpo.js}"></script>
+         <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+    </head>
+    <body>
+      <div class="row header bg-transparent">
+                <div>
+                    <div class="col-1-2 padding align-left">
+                        <p>
+                            <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                        </p> 
+                    </div>
+                    <div class="col-1-8 padding align-right header-txt"></div>
+                    <div class="col-1-4 padding align-right header-txt">
+                        <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                   
+                        </p>
+                    </div>    
+                    <div class="col-1-8 padding align-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <div class="notice" data-sel-notice="" id="notice" hidden="true">
+            <div class="inner">
+                <p id="flash_message" data-sel-notice-message="">
+                </p><p>El archivo no se encuentra disponible. Por favor contacte al Administrador.</p>
+                <span class="close-flash-message" onclick="document.getElementById('notice').style.display = 'none'; return false;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" title="Dismiss">
+                        <path d="M44.4 7.7l-2.1-2.1L25 22.9 7.7 5.6 5.6 7.7 22.9 25 5.6 42.3l2.1 2.1L25 27.1l17.3 17.3 2.1-2.1L27.1 25z"></path>
+                    </svg>
+                </span>
+                <p></p>
+            </div>
+        </div>
+                <div class="row header center bg-transparent">
+            <h1>PRESENTACIONES CORPORATIVAS</h1>
+        </div>
+        <br> <br> <br> <br>
+     <div class="contents bg-transparent">
+        <table style="width:100%; border: none">     
+            <tr style="border: none" class="center">
+                                <td style="border: none" class="center">
+                    <p><a id="tarjetaejecutiva" class="ui-buttonenlacessagarpa ui-button-agsa">TARJETA EJECUTIVA</a></p>
+                </td>
+                <td style="border: none" class="center">
+                    <p><a id="proyectoespanol" class=" ui-buttonenlacessagarpa ui-button-agsa">JUSTIFICACION (ESPAÑOL)</a></p>
+                </td>
+                <td style="border: none" class="center">
+                    <p><a id="proyectoingles" class=" ui-buttonenlacessagarpa ui-button-agsa">JUSTIFICACION (INGLES)</a></p>
+                </td>
+            </tr> 
+        </table> 
+                  </div>
+        
+
+    </body>
+</html>

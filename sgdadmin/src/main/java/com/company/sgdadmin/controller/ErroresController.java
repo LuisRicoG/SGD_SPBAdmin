@@ -12,24 +12,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class ErroresController {
 
-    @GetMapping("/500")
-    public ModelAndView sayhello() {
+    @GetMapping(value = "/500")
+    public ModelAndView sayHello() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("500");
         return mv;
     }
 
-    @GetMapping("/404")
-    public ModelAndView error404() {
+    @GetMapping(value = "/404")
+    public ModelAndView e400() {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("404");
-        return mv;
-    }
-
-    @GetMapping("/403")
-    public ModelAndView error403() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("403");
         return mv;
     }
 

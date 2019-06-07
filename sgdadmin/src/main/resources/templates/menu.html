@@ -1,16 +1,16 @@
 <!--
-ing_farias@live.com
+ing.jorge.eduardo.p@gmail.com
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
+      xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Menu Administrador</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <head>
+        <title>SGD</title> 
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="images/x-icon" href="static/images/favicon.ico">
@@ -65,187 +65,65 @@ ing_farias@live.com
     <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
     <!-- modernizr JS
 		============================================ -->
-    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
-</head>
-
-
-<body>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-    <!-- Start Header menu area -->
-           <div class="left-sidebar-pro">
-        <div th:replace="menulateral :: nav">...</div>
-    </div>
-    <!-- End Header menu area -->
-    <!-- Start Welcome area -->
-    <div class="all-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="logo-pro">
-                            <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-advance-area">
-            <div class="header-top-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="header-top-wraper">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-					
-					</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                        <div class="header-right-info">
-                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
-
-                                                <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															
-                                                        <span class="admin-name">Bienvenido, </span>
-															<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
-															
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    
-                                                        <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
-                                                            <form th:action="@{/logout}" method="post">
-                                                                <input type="submit" value="Cerrar sesión" class="header-btn"/>
-                                                            </form>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu start -->
-           <div class="mobile-menu-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="mobile-menu">
-                                 <div th:replace="menulateralmovil :: nav">...</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu end -->
-            <div class="breadcome-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="breadcome-heading">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <ul class="breadcome-menu">
-                                         
-                                           
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>            
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/descargageneral.js}"></script>        
+        <script th:src="@{js/view/menu.js}"></script>        
         
-        <div class="breadcome-area">
-            
-            <h1 align="center"> Bienvenido al Administrador del Sistema de Gestion Documental</h1>
-            
-        </div>        
-        <div class="footer-copyright-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
-                        </div>
+    </head>
+
+    <body>
+        <div class="contenedor">
+            <div class="row header bg-transparent">
+                <div>
+                    <div class="col-1-2 padding align-left">
+                        <p>
+                            <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                        </p> 
+                    </div>
+                    <div class="col-1-8 padding align-right header-txt"></div>
+                    <div class="col-1-4 padding align-right header-txt">
+                        <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                        </p>
+                    </div>    
+                    <div class="col-1-8 padding align-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- jquery
-		============================================ -->
-    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="static/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="static/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="static/js/jquery-price-slider.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="static/js/jquery.meanmenu.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="static/js/owl.carousel.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="static/js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="static/js/jquery.scrollUp.min.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="static/js/counterup/jquery.counterup.min.js"></script>
-    <script src="static/js/counterup/waypoints.min.js"></script>
-    <script src="static/js/counterup/counterup-active.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="static/js/scrollbar/mCustomScrollbar-active.js"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="static/js/metisMenu/metisMenu.min.js"></script>
-    <script src="static/js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/morrisjs/raphael-min.js"></script>
-    <script src="static/js/morrisjs/morris.js"></script>
-    <script src="static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
-    <script src="static/js/sparkline/sparkline-active.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="static/js/calendar/moment.min.js"></script>
-    <script src="static/js/calendar/fullcalendar.min.js"></script>
-    <script src="static/js/calendar/fullcalendar-active.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="static/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="static/js/main.js"></script>
-</body>
-
+        <div></div>
+        <div class="row header center bg-transparent">
+            <h1>AGROPARQUE GANADERO DEL SURESTE</h1>
+            <h1>ARCHIVO DIGITAL</h1>
+        </div>        
+        <div><br><br></div>
+        <div class="contents bg-transparent">
+            <div class="col-1-4 padding"></div>
+            <div class="col-1-3">
+                <div class="col padding">
+                    <p><a href="/SGDADMIN/documentacionlegal" class="btn large solid gray-light menubutton">DOCUMENTACION LEGAL</a></p>
+                    <p><a href="/SGDADMIN/contratosfirmados" class="btn large solid gray-light menubutton">CONTRATOS FIRMADOS</a></p>
+                    <p><a href="/SGDADMIN/sagarpa" class="btn large solid gray-light menubutton">SAGARPA</a></p>
+                    <p><a href="/SGDADMIN/gobiernocorporativo" class="btn large solid gray-light menubutton">GOBIERNO CORPORATIVO</a></p>
+                    <p><a href="/SGDADMIN/facturasactivos" class="btn large solid gray-light menubutton">FACTURAS DE ACTIVOS</a></p>
+                    <p><a href="/SGDADMIN/avaluoactivos" class="btn large solid gray-light menubutton">AVALUO DE ACTIVOS</a></p>
+                    <p><button onclick="getOrganigrama()" class="btn large solid gray-light menubutton">ESTRUCTURA | ORGANIGRAMAS</button></p>
+                </div>             
+                <div class="col padding">
+                    <p><a href="/SGDADMIN/edosfinancieros" class="btn large solid gray-light menubutton">ESTADOS FINANCIEROS</a></p>
+                    <p><a href="/SGDADMIN/reporteventas" class="btn large solid gray-light menubutton">REPORTE DE VENTAS MENSUAL</a></p>
+                    <p><a href="/SGDADMIN/presentacionesCorporativas" class="btn large solid gray-light menubutton">PRESENTACIONES CORPORATIVAS</a></p>
+                    <p><a href="/SGDADMIN/proyectoejecutivo" class="btn large solid gray-light menubutton">PROYECTO EJECUTIVO</a></p>
+                    <p><a href="/SGDADMIN/seguros" class="btn large solid gray-light menubutton">SEGUROS</a></p>
+                    <p><a href="/SGDADMIN/menu" class="btn large solid gray-light menubutton" disabled>TRAZABILIDAD</a></p>
+                    <p><a href="/SGDADMIN/informacionindus" class="btn large solid gray-light menubutton">INFORMACION DE LA INDUSTRIA</a></p>
+                </div>             
+            </div>
+            <br>
+        </div>
+        </div>
+    </body>
 </html>

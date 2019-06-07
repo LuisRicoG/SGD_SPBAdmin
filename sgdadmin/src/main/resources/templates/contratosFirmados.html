@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>SGD-CONTRATOS FIRMADOS</title>
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/> 
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/descargageneral.js}"></script>        
+        <script th:src="@{js/view/contratosfirmados.js}"></script>
+         <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+    </head>
+    <body>
+        <div class="row header bg-transparent">
+            <div class="row header bg-transparent">
+                <div>
+                    <div class="col-1-2 padding align-left">
+                        <p>
+                            <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                        </p> 
+                    </div>
+                    <div class="col-1-8 padding align-right header-txt"></div>
+                    <div class="col-1-4 padding align-right header-txt">
+                        <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                        </p>
+                    </div>    
+                    <div class="col-1-8 padding align-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+               <div class="row header center bg-transparent">
+            <h1>CONTRATOS FIRMADOS</h1>
+        </div>
+        <div class="contents bg-transparent padding">
+            <form method="POST" th:object="${vinculo}">
+                <table style="width:100%; border: none">
+                    <tr style="border: none">
+                        <td style="border: none" class="center"><p><a id="Financieros" class="ui-button-contratos">Financieros</a></p></td>
+                        <td style="border: none" class="center"><p><a id="Provedores" class="ui-button-contratos">Provedores</a></p></td>
+                    </tr>         
+                    <tr style="border: none">
+                        <td style="border: none" class="center"><p><a id="Clientes" class="ui-button-contratos">Clientes</a></p></td>
+                        <td style="border: none" class="center"><p><a id="Personal" class="ui-button-contratos">Personal</a></p></td> 
+                    </tr>   
+                </table>    
+            </form>
+        </div>
+    </body>
+</html>

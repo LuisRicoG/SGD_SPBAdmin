@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">    
+
+    <head>
+        <title>SGD-ASAMBLEA ACCIONISTAS REGLAS OPERACION</title>     
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/asambleaaccionistas.js}"></script>
+         <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+    </head>
+
+    <body>
+         <div class="row header bg-transparent">
+            <div>
+                <div class="col-1-2 padding align-left">
+                    <p>
+                        <a href="/SGDADMIN/menu" class="header-btn bg-transparent">Inicio</a>
+                    </p>
+                </div>
+                <div class="col-1-8 padding align-right header-txt"></div>
+                <div class="col-1-4 padding align-right header-txt">
+                    <p>Bienvenido, 
+                        <span th:text="${#authentication.getPrincipal().getUsername()}"></span>
+                    </p>
+                </div>    
+                <div class="col-1-8 padding align-right">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div><hr></hr></div>
+        <center><h1>ASAMBLEA DE ACCIONISTAS REGLAS DE OPERACION</h1></center>
+
+        <center>
+            <select id="year" style="width: 12%">
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+            </select>
+        </center> 
+        <br></br>
+        <table style="width:100%; border: none">     
+            <tr style="border: none">
+                <td style="border: none" class="center">
+                    <p><a id="ConvocatoriaR" class="ui-button-Asamblea">CONVOCATORIA</a></p>
+                </td>
+                <td style="border: none" class="center">
+                    <p><a id="OrdenDiaR" class="ui-button-Asamblea">ORDEN DEL DIA</a></p>
+                </td>
+                <td style="border: none" class="center">
+                    <center><p><a id="PresenInformaR" class="ui-button-Asamblea">PRESENTACION / INFORMACION</a></p></center>g
+                </td>
+                <td style="border: none" class="center">
+                    <p><a id="MinutaR" class="ui-button-Asamblea">MINUTA</a></p>
+                </td>
+            </tr> 
+        </table>          
+    </body>
+</html>

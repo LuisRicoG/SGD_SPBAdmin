@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>SGD-GOBIERNO CORPORATIVO</title>
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/> 
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/descargageneral.js}"></script>         
+        <script th:src="@{js/view/gobiernocorporativo.js}"></script>
+        <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+
+    </head>
+    <body>
+        <div class="row header bg-transparent">
+            <div class="row header bg-transparent">
+                <div>
+                    <div class="col-1-2 padding align-left">
+                        <p>
+                            <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                        </p> 
+                    </div>
+                    <div class="col-1-8 padding align-right header-txt"></div>
+                    <div class="col-1-4 padding align-right header-txt">
+                        <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                        </p>
+                    </div>    
+                    <div class="col-1-8 padding align-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row header center bg-transparent">
+            <h1>GOBIERNO CORPORATIVO</h1>
+        </div>
+
+        <div class="absolute" style="left: 50px;top: 180px;">
+            <form method="POST" th:object="${vinculo}">
+                <a id="NuestroModelo" class="conocenos"><div class="bottomleft"></div></a>
+            </form>
+        </div>
+
+
+        <div class="absolute" style="left: 1250px;top: 290px;">
+            <form method="POST" th:object="${vinculo}">
+                <p><a id="EnlacesCorpo" class="btn large solid gray" style="opacity: 0.7;padding-right: 25px;padding-left: 25px;" >ENLACES CORPORATIVOS</a></p>  
+            </form>
+        </div>
+
+        <div class="organigrama" style="margin-left: 550px;margin-bottom:50px;">
+            <form method="POST" th:object="${vinculo}">
+                <center>
+
+                    <ul>
+                        <li>
+                            <p><a href="/SGDADMIN/gestor?pantalla=5" class="btn large solid gray" style="padding-left: 20px;padding-right: 20px; opacity: 0.7">ASAMBLEA DE ACCIONISTAS</a></p>
+
+                            <ul>
+                                <p><a href="/SGDADMIN/consejoadministracion" class="btn large solid gray" style="padding-left: 20px;padding-right: 20px;opacity: 0.7">CONSEJO DE ADMINISTRACION</a></p>
+                            </ul>
+
+                            <ul>
+
+                                <li><p><a href="/SGDADMIN/comiteinversiones" class="btn large solid gray" style="padding-left: 20px;padding-right: 20px;opacity: 0.7">COMITE INVERSIONES</a></p></li>
+                                <li><p><a href="/SGDADMIN/comiteengorda" class="btn large solid gray" style="padding-left: 20px;padding-right: 20px;opacity: 0.7">COMITES ENGORDA</a></p></li>
+                                <li><p><a href="/SGDADMIN/comitecomercial" class="btn large solid gray" style="padding-left: 20px;padding-right: 20px;opacity: 0.7">COMITE COMERCIAL</a></p></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </center>
+            </form>
+        </div>
+        <div class="co-1-2-4 padding">
+            <form method="POST" style="height:200px;"th:object="${vinculo}">
+
+                <table style="border: none;width:90;height:200px;margin-top: 0px;margin-bottom:0px;padding-top: 100px;padding-top: 85px;">
+                    <tr style="border: none">
+                        <td style="border: none"><a id="ProtocoloAccionistas" class="ui-button-gobierno-mod protocolo-Acc"><div class="bottomleft">PROTOCOLO DE ACCIONISTAS</div></a></td>
+                        <td style="border: none"><a class="ui-button-gobierno-mod reglasOper"><div class="bottomleft">REGLAS DE OPERACION</div></a></td>
+                        <td style="border: none"><a id="CodigoEtica" class="ui-button-gobierno-mod codigoetica"><div class="bottomleft">CODIGO DE ETICA <br> </br></div></a></td>
+                        <td style="border: none"><a href="/SGDADMIN/plantrabajo" class="ui-button-gobierno-mod PlanTrabAnual"><div class="bottomleft">PLAN DE TRABAJO ANUAL</div></a></td>
+                        <td style="border: none"><a href="/SGDADMIN/informeactividades" class="ui-button-gobierno-mod informaAct"><div class="bottomleft">INFORME DE ACTIVIDADES</div></a></td>
+                    </tr> 
+                </table>
+            </form>
+        </div>          
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!--
+ing_farias@live.com
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>SGD-ESCRITURAS</title>
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/> 
+        <!-- jquery
+                    ============================================  -->
+        <script src="js/jquery/jquery-3.3.1.js"></script>   
+
+        <!-- jQuery UI
+                    ============================================ -->    
+        <link type="text/css" rel="stylesheet" href="js/jqueryui/jquery-ui.min.css" />    
+        <script type="text/javascript" src="js/jqueryui/jquery-ui.min.js"></script>   
+
+        <!-- jsGrid
+                    ============================================ -->    
+        <link type="text/css" rel="stylesheet" href="js/jsgrid/jsgrid.min.css" />
+        <link type="text/css" rel="stylesheet" href="js/jsgrid/jsgrid-theme.min.css" />
+
+        <script type="text/javascript" src="js/jsgrid/jsgrid.min.js"></script>   
+        <script type="text/javascript" src="js/jqueryui/datepicker-es.js"></script>   
+
+        <!-- view JS
+                    ============================================ -->
+        <script>
+            var pantalla = [[${pantalla}]];
+        </script>
+        
+        <script>
+function goBack() {
+  window.history.back();
+}
+</script>
+        <script src="js/view/descargageneral.js"></script>          
+        <script src="js/view/gridlist.js"></script>        
+        <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+    </head>
+
+    <body>
+            <div class="row header bg-transparent">
+                <div>
+                    <div class="col-1-2 padding align-left">
+                        <p>
+                            <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                        </p> 
+                    </div>
+                    <div class="col-1-8 padding align-right header-txt"></div>
+                    <div class="col-1-4 padding align-right header-txt">
+                        <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                            <a onclick="goBack()" class="ui-buttonhome ui-botton-regreso"></a>
+                        </p>
+                    </div>    
+                    <div class="col-1-8 padding align-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <div></div>
+        <div class="row header center bg-transparent">
+            <h1><span th:text="${titulo}"></span></h1>
+        </div>
+        <p class="col-2-4"></p>
+        <div class="co-1-2-4 padding"></div>
+        <div class="co-1-2-4 padding">
+            <div id="jsGrid" class="jsgrid" style="position: relative; height: 70%; width: 100%;"></div>
+        </div>
+        <div class="row footer bg-transparent"></div>
+    </body>
+</html>

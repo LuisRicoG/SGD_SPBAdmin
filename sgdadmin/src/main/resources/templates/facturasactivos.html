@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Facturas de Activos</title>  
+        <link rel="stylesheet" type="text/css" href="css/vital.css"/>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        
+        <script th:src="@{js/jquery/jquery-3.3.1.js}"></script>
+        <script th:src="@{js/view/descargageneral.js}"></script>        
+        <script th:src="@{js/view/facturasactivos.js}"></script>
+        <script th:src="@{js/view/facturasactivoszip.js}"></script>
+         <link rel="shortcut icon" type="images/x-icon" href="images/favicon.ico">
+    </head>
+    <body>
+          <div class="row header bg-transparent">
+                <div>
+                    <div class="col-1-2 padding align-left">
+                        <p>
+                            <h2> Bienvenido,<span th:text="${#authentication.getPrincipal().getUsername()}"></span> </h2>
+                        </p> 
+                    </div>
+                    <div class="col-1-8 padding align-right header-txt"></div>
+                    <div class="col-1-4 padding align-right header-txt">
+                        <p><a href="/SGDADMIN/menu" class="ui-buttonhome ui-botton-menu"></a>
+                   
+                        </p>
+                    </div>    
+                    <div class="col-1-8 padding align-right">
+                        <form th:action="@{/logout}" method="post">
+                            <input type="submit" value="Cerrar sesión" class="header-btn bg-transparent "/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <div></div>
+        <div class="notice" data-sel-notice="" id="notice" hidden="true">
+            <div class="inner">
+                <p id="flash_message" data-sel-notice-message="">
+                </p><p>El archivo no se encuentra disponible. Por favor contacte al Administrador.</p>
+                <span class="close-flash-message" onclick="document.getElementById('notice').style.display = 'none'; return false;">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" title="Dismiss">
+                        <path d="M44.4 7.7l-2.1-2.1L25 22.9 7.7 5.6 5.6 7.7 22.9 25 5.6 42.3l2.1 2.1L25 27.1l17.3 17.3 2.1-2.1L27.1 25z"></path>
+                    </svg>
+                </span>
+                <p></p>
+            </div>
+        </div>
+        <div class="row header center bg-transparent">
+            <h1>
+                FACTURAS DE ACTIVOS
+            </h1>
+        </div>        
+        <br/>
+        <div>
+            <form method="POST" th:object="${vinculo}">
+                <table class="facturas">
+                    <thead>
+                        <tr>
+                            <td>
+                                <!--NADA -->                    
+                            </td>
+                            <td>                            
+                                <center><div class="factlabel">ENGORDA</div></center>
+                            </td>
+                            <td>
+                                <center><div class="factlabel">RASTRO TIF</div></center>
+                            </td>
+                            <td>
+                                <center><div class="factlabel">SALA DE CORTES</div></center>
+                            </td>
+                            <td>
+                                <center><div class="factlabel">CORPORATIVO</div></center>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a id="inmuebles" class="factbutton1">INMUEBLES</a>
+                            </td>
+                            <td>
+                                <center><a id="Iengorda" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="Irastro" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="Icortes" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="Icorporativo" class="palomita"></a></center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a id="maqyequipo" class="factbutton1">MAQUINARIA Y EQUIPO</a>
+                            </td>
+                            <td>
+                                <center><a id="MyEengorda" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="MyErastro" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="MyEcortes" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="MyEcorporativo" class="palomita"></a></center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a id="eqtransporte" class="factbutton1">EQUIPO DE TRANSPORTE</a>
+                            </td>
+                            <td>
+                                <center><a id="EdTengorda" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="EdTrastro" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="EdTcortes" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="EdTcorporativo" class="palomita"></a></center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a id="mobiliario" class="factbutton1">MOBILIARIO</a>
+                            </td>
+                            <td>
+                                <center><a id="Moengorda" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="Morastro" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="Mocortes" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="Mocorporativo" class="palomita"></a></center>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a id="eqcomputo" class="factbutton1">EQUIPO DE COMPUTO</a>
+                            </td>
+                            <td>
+                                <center><a id="EdCengorda" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="EdCrastro" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="EdCcortes" class="palomita"></a></center>
+                            </td>
+                            <td>
+                                <center><a id="EdCcorporativo" class="palomita"></a></center>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>    
+        </div>
+        <div class="row footer bg-transparent">
+            <div class="circleBase type1"></div>
+        </div>
+    </body>
+</html>
