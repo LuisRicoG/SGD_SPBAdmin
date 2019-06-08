@@ -497,6 +497,125 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${planosinfraestructurafile}")
     private String planosinfraestructurafile;
 
+    @Value("${dirreportesmensualess}")
+    private String dirreportesmensualess;
+
+    @Value("${direscritosenviados}")
+    private String direscritosenviados;
+
+    @Value("${dirrespuestassagarpa}")
+    private String dirrespuestassagarpa;
+
+    @Value("${filereportesmensualess}")
+    private String filereportesmensualess;
+
+    @Value("${fileescritosenviados}")
+    private String fileescritosenviados;
+
+    @Value("${filerespuestassagarpa}")
+    private String filerespuestassagarpa;
+
+    @Value("${presentacionesfolder}")
+    private String presentacionesfolder;
+
+    @Value("${tarjetaejecutivafolder}")
+    private String tarjetaejecutivafolder;
+
+    @Value("${justificacionespanolfolder}")
+    private String justificacionespanolfolder;
+
+    @Value("${justificacioninglesfolder}")
+    private String justificacioninglesfolder;
+
+    @Value("${tarjetaejecutivafile}")
+    private String tarjetaejecutivafile;
+
+    @Value("${justificacionespanolfile}")
+    private String justificacionespanolfile;
+
+    @Value("${justificacioninglesfile}")
+    private String justificacioninglesfile;
+
+    @Value("${reglasreglasoperacioncomercialfolder}")
+    private String reglasreglasoperacioncomercialfolder;
+
+    @Value("${reglasreglasoperacioncomercialfile}")
+    private String reglasreglasoperacioncomercialfile;
+
+    @Value("${reglascurriculummiembroscomercialfolder}")
+    private String reglascurriculummiembroscomercialfolder;
+
+    @Value("${reglascurriculummiembroscomercialfile}")
+    private String reglascurriculummiembroscomercialfile;
+
+    @Value("${reglascartasconfidcomercialfolder}")
+    private String reglascartasconfidcomercialfolder;
+
+    @Value("${reglascartasconfidcomercialfile}")
+    private String reglascartasconfidcomercialfile;
+
+    @Value("${reglasplananualsescomercialfolder}")
+    private String reglasplananualsescomercialfolder;
+
+    @Value("${reglasplananualsescomercialfile}")
+    private String reglasplananualsescomercialfile;
+
+    @Value("${reglasreportetriconsejocomercialfolder}")
+    private String reglasreportetriconsejocomercialfolder;
+
+    @Value("${reglasreportetriconsejocomercialfile}")
+    private String reglasreportetriconsejocomercialfile;
+
+    @Value("${reglasoperacioncomercialfolder}")
+    private String reglasoperacioncomercialfolder;
+
+    @Value("${reglasoperacioncomercialfile}")
+    private String reglasoperacioncomercialfile;
+
+    @Value("${filenuestrogobierno}")
+    private String filenuestrogobierno;
+
+      @Value("${comitecomercialfolder}")
+    private String comitecomercialfolder;
+    
+    @Value("${curriculummiembroscomercialfolder}")
+    private String curriculummiembroscomercialfolder;
+
+    @Value("${curriculummiembroscomercialfile}")
+    private String curriculummiembroscomercialfile;
+
+    @Value("${cartasconfidcomercialfolder}")
+    private String cartasconfidcomercialfolder;
+
+    @Value("${cartasconfidcomercialfile}")
+    private String cartasconfidcomercialfile;
+
+    @Value("${plananualsescomercialfolder}")
+    private String plananualsescomercialfolder;
+
+    @Value("${plananualsescomercialfile}")
+    private String plananualsescomercialfile;
+
+    @Value("${reportetriconsejocomercialfolder}")
+    private String reportetriconsejocomercialfolder;
+
+    @Value("${reportetriconsejocomercialfile}")
+    private String reportetriconsejocomercialfile;
+    
+          @Value("${codigoeticafolder}")
+    private String codigoeticafolder;
+            @Value("${codigoeticafile}")
+    private String codigoeticafile;
+         @Value("${informeactividadesfile}")
+    private String informeactividadesfile;
+    
+    
+    
+  
+    
+    
+    
+
     @Autowired
     DocumentosActivosRepository activosRepository;
     @Autowired
@@ -614,6 +733,36 @@ public class VentanaServiceImpl implements VentanaServices {
                 case "Sagarpa Comprobante de Pagos":
                     pathDocUnicos += sagarpafolder + File.separator + comprobantepagosfolder + File.separator;
                     fileName = comprobantepagosfile + year + ".pdf";
+                    break;
+
+                case "Sagarpa Reportes Mensuales":
+                    pathDocUnicos += sagarpafolder + File.separator + dirreportesmensualess + File.separator;
+                    fileName = filereportesmensualess + "-" + year + ".pdf";
+                    break;
+
+                case "Sagarpa Escritos Enviados":
+                    pathDocUnicos += sagarpafolder + File.separator + direscritosenviados + File.separator;
+                    fileName = fileescritosenviados + "-" + year + ".pdf";
+                    break;
+
+                case "Sagarpa Respuestas Sagarpa":
+                    pathDocUnicos += sagarpafolder + File.separator + dirrespuestassagarpa + File.separator;
+                    fileName = filerespuestassagarpa + "-" + year + ".pdf";
+                    break;
+
+                case "Presentaciones Tarjeta Ejecutiva":
+                    pathDocUnicos += presentacionesfolder + File.separator + tarjetaejecutivafolder + File.separator;
+                    fileName = tarjetaejecutivafile;
+                    break;
+
+                case "Presentaciones Justificacion(Espanol)":
+                    pathDocUnicos += presentacionesfolder + File.separator + justificacionespanolfolder + File.separator;
+                    fileName = justificacionespanolfile;
+                    break;
+
+                case "Presentaciones Justificacion(Ingles)":
+                    pathDocUnicos += presentacionesfolder + File.separator + justificacioninglesfolder + File.separator;
+                    fileName = justificacioninglesfile;
                     break;
 
                 case "Activos Engorda Inmuebles":
@@ -943,8 +1092,53 @@ public class VentanaServiceImpl implements VentanaServices {
                     fileName = precioalimentofile;
                     break;
 
-                case "Asamblea de Accionistas Convocatoria":
-                    pantalla = 21;
+                case "Consejo de Administracion Reglas de Operacion":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + consejofolder + File.separator + reglasreglasoperacioncomercialfolder + File.separator;
+                    fileName = fileReglasOperacionesComercial;
+                    break;
+
+                case "Consejo de Administracion Curriculum Miembros":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + consejofolder + File.separator + reglascurriculummiembroscomercialfolder + File.separator;
+                    fileName = reglascurriculummiembroscomercialfile;
+                    break;
+
+                case "Consejo de Administracion Cartas de Confidencialidad":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + consejofolder + File.separator + reglascartasconfidcomercialfolder + File.separator;
+                    fileName = reglascartasconfidcomercialfile;
+                    break;
+
+                case "Consejo de Administracion Plan Anual Sesiones":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + consejofolder + File.separator + reglasplananualsescomercialfolder + File.separator;
+                    fileName = reglasplananualsescomercialfile;
+                    break;
+
+                case "Consejo de Administracion Reportes Trimestrales":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + consejofolder + File.separator + reglasreportetriconsejocomercialfolder + File.separator;
+                    fileName = reglasreportetriconsejocomercialfile;
+                    break;
+
+                case "Comite Inversiones Sesiones":
+                    pantalla = 9;
+                    fileName = file.getOriginalFilename();
+                    break;
+
+                case "Comite Engorda Sesiones":
+                    pantalla = 8;
+                    fileName = file.getOriginalFilename();
+                    break;
+
+                case "Gobierno Nuestro Gobierno":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator;
+                    fileName = filenuestrogobierno;
+                    break;
+
+                case "Gobierno Asamblea de Accionistas":
+                    pantalla = 5;
+                    fileName = file.getOriginalFilename();
+                    break;
+
+                case "Consejo de Administracion Sesiones":
+                    pantalla = 6;
                     fileName = file.getOriginalFilename();
                     break;
 
@@ -1018,23 +1212,8 @@ public class VentanaServiceImpl implements VentanaServices {
                     fileName = fileReporteTrimestralInversiones;
                     break;
 
-                case "Comite Engorda Convocatoria":
-                    pantalla = 13;
-                    fileName = file.getOriginalFilename();
-                    break;
-
-                case "Comite Engorda Orden del Dia":
-                    pantalla = 14;
-                    fileName = file.getOriginalFilename();
-                    break;
-
-                case "Comite Engorda Presentacion de Informacion":
-                    pantalla = 15;
-                    fileName = file.getOriginalFilename();
-                    break;
-
-                case "Comite Engorda Minuta":
-                    pantalla = 16;
+                case "Comite Comercial Sesiones":
+                    pantalla = 7;
                     fileName = file.getOriginalFilename();
                     break;
 
@@ -1062,6 +1241,54 @@ public class VentanaServiceImpl implements VentanaServices {
                     pathDocUnicos += gobiernocorporativofolder + File.separator + dirComiteEngorda + File.separator + dirReporteTrimestralEngorda + File.separator;
                     fileName = fileReporteTrimestralEngorda;
                     break;
+
+                case "Comite Comercial Reglas de Operacion":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + comitecomercialfolder + File.separator + reglasoperacioncomercialfolder + File.separator;
+                    fileName = reglasoperacioncomercialfile;
+                    break;
+
+                case "Comite Comercial Curriculum Miembros":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + comitecomercialfolder + File.separator + curriculummiembroscomercialfolder + File.separator;
+                    fileName = curriculummiembroscomercialfile;
+                    break;
+
+                case "Comite Comercial Cartas de Confidencialidad":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + comitecomercialfolder + File.separator + cartasconfidcomercialfolder + File.separator;
+                    fileName = cartasconfidcomercialfile;
+                    break;
+
+                case "Comite Comercial Plan Anual Sesiones":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + comitecomercialfolder + File.separator + plananualsescomercialfolder + File.separator;
+                    fileName = plananualsescomercialfile;
+                    break;
+
+                case "Comite Comercial Reportes Trimestrales":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + comitecomercialfolder + File.separator + reportetriconsejocomercialfolder + File.separator;
+                    fileName = reportetriconsejocomercialfile;
+                    break;
+                    
+                    
+                    
+                case "Gobierno Corporativo Protocolo de Accionistas":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + protocoloacciofolder + File.separator;
+                    fileName = protocoloacciofile;
+                    break;
+                    
+                    case "Gobierno Corporativo Codigo de Etica":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + codigoeticafolder + File.separator;
+                    fileName = codigoeticafile;
+                    break;
+                    
+                    
+                       case "Gobierno Corporativo Informe de Actividades":
+                    pathDocUnicos += gobiernocorporativofolder + File.separator + informaactivifolder + File.separator + year + File.separator;
+                    fileName = informeactividadesfile + month + "-" + year + ".pdf";
+                    break;
+                    
+                    
+                    
+                    
+
                 case "Acta Asamblea":
                     pantalla = 1;
                     fileName = file.getOriginalFilename();
@@ -1078,126 +1305,94 @@ public class VentanaServiceImpl implements VentanaServices {
                     pantalla = 4;
                     fileName = file.getOriginalFilename();
                     break;
-                case "Comite Comercial Convocatoria":
-                    pantalla = 17;
-                    fileName = file.getOriginalFilename();
-                    break;
-                case "Comite Comercial Orden del Dia":
-                    pantalla = 18;
-                    fileName = file.getOriginalFilename();
-                    break;
-                case "Comite Comercial Presentacion de Informacion":
-                    pantalla = 19;
-                    fileName = file.getOriginalFilename();
-                    break;
-                case "Comite Comercial Minuta":
-                    pantalla = 20;
-                    fileName = file.getOriginalFilename();
-                    break;
-                case "Consejo de Administracion Convocatoria":
-                    pantalla = 5;
-                    fileName = file.getOriginalFilename();
-                    break;
-                case "Consejo de Administracion Orden del Dia":
-                    pantalla = 6;
-                    fileName = file.getOriginalFilename();
-                    break;
-                case "Consejo de Administracion Presentacion de Informacion":
-                    pantalla = 7;
-                    fileName = file.getOriginalFilename();
-                    break;
-                case "Consejo de Administracion Minuta":
-                    pantalla = 8;
-                    fileName = file.getOriginalFilename();
-                    break;
 
                 case "Estructura del Terreno":
-                    path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
                     fileName = estructuraterrenofile;
                     break;
 
                 case "Avaluo del Terreno":
-                    path += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + terrenofolder + File.separator;
                     fileName = avaluoterrenofile;
                     break;
 
                 case "Proyecto Entregado TIF 2000":
-                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
                     fileName = proyectoentregadofile;
                     break;
 
                 case "Programa General de Necesidades":
-                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
                     fileName = programanecesidadesfile;
                     break;
 
                 case "Programa Particular de Necesidades":
-                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
                     fileName = programaparticularfile;
                     break;
 
                 case "Justificacion del Proyecto":
-                    path += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + proyectofolder + File.separator;
                     fileName = justificacionproyectofile;
                     break;
 
                 case "Estudios Mecanica de Suelos":
-                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
                     fileName = impactomecanicadesuelosfile;
                     break;
 
                 case "Estudio Impacto Ambiental":
-                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
                     fileName = impactoambientalfile;
                     break;
 
                 case "Estudio Impacto Vial":
-                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
                     fileName = impactovialfile;
                     break;
 
                 case "Factibilidad Servicio Energia Electrica":
-                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
                     fileName = energiaelectricafile;
                     break;
 
                 case "Estudio Hidrologico":
-                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
                     fileName = estudiohidrologicofile;
                     break;
 
                 case "Factibilidad de Uso de Suelo":
-                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
                     fileName = usodesuelofile;
                     break;
 
                 case "Concesion de Aguas Nacionales":
-                    path += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + estudiosfolder + File.separator;
                     fileName = concesionaguasfile;
                     break;
 
                 case "Plano de Terreno Regional":
-                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
                     fileName = planoregionalfile;
                     break;
 
                 case "Plano de Terreno Rural":
-                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
                     fileName = planoruralfile;
                     break;
 
                 case "Plano Topografico":
-                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
                     fileName = planotopograficofile;
                     break;
 
                 case "Justificacion del Terreno":
-                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
                     fileName = ubicacionterrenofile;
                     break;
 
                 case "Planos Infraestructura":
-                    path += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
                     fileName = planosinfraestructurafile;
                     break;
                 default:
@@ -1235,7 +1430,6 @@ public class VentanaServiceImpl implements VentanaServices {
                 DocumentosAcumuladosEntity doctoExiste = acumuladosRepository.findByRutaAndDescripcionAndPantalla(pathDocAcumulados, descripcion, pantalla);
                 DocumentosAcumuladosEntity entity = new DocumentosAcumuladosEntity();
 
-                
                 if (doctoExiste != null) {
                     return "El documento existe";
                 } else {
@@ -1280,6 +1474,12 @@ public class VentanaServiceImpl implements VentanaServices {
                 mv.addObject("lista2", true);
                 mv.addObject("descripcion", false);
                 break;
+                
+                case "Gobierno Corporativo Informe de Actividades":
+                mv.addObject("lista1", true);
+                mv.addObject("lista2", true);
+                mv.addObject("descripcion", false);
+                    break;
             case "Reporte de Ventas":
                 mv.addObject("lista1", true);
                 mv.addObject("lista2", true);
@@ -1297,6 +1497,46 @@ public class VentanaServiceImpl implements VentanaServices {
                 break;
 
             case "Sagarpa Comprobante de Pagos":
+                mv.addObject("lista1", true);
+                mv.addObject("descripcion", false);
+                break;
+
+            case "Gobierno Asamblea de Accionistas":
+                mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
+                break;
+
+            case "Comite Engorda Sesiones":
+                mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
+                break;
+
+            case "Comite Comercial Sesiones":
+                mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
+                break;
+
+            case "Consejo de Administracion Sesiones":
+                mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
+                break;
+
+            case "Comite Inversiones Sesiones":
+                mv.addObject("descripcion", true);
+                mv.addObject("calendario", true);
+                break;
+
+            case "Sagarpa Reportes Mensuales":
+                mv.addObject("lista1", true);
+                mv.addObject("descripcion", false);
+                break;
+
+            case "Sagarpa Escritos Enviados":
+                mv.addObject("lista1", true);
+                mv.addObject("descripcion", false);
+                break;
+
+            case "Sagarpa Respuestas Sagarpa":
                 mv.addObject("lista1", true);
                 mv.addObject("descripcion", false);
                 break;
