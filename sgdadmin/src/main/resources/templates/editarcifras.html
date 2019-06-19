@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <link rel="icon" type="image/x-icon" href="favicon.ico">
+   <title>Editar Totales de Avaluos de Activos</title>
+   <!-- =============== VENDOR STYLES ===============-->
+   <!-- FONT AWESOME-->
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/brands.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/regular.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/solid.css">
+   <link rel="stylesheet" href="vendor/@fortawesome/fontawesome-free/css/fontawesome.css">
+   <!-- SIMPLE LINE ICONS-->
+   <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+   <!-- ANIMATE.CSS-->
+   <link rel="stylesheet" href="vendor/animate.css/animate.css">
+   <!-- WHIRL (spinners)-->
+   <link rel="stylesheet" href="vendor/whirl/dist/whirl.css">
+   <!-- =============== PAGE VENDOR STYLES ===============-->
+   <!-- =============== BOOTSTRAP STYLES ===============-->
+   <link rel="stylesheet" href="css/bootstrap.css" id="bscss">
+   <!-- =============== APP STYLES ===============-->
+   <link rel="stylesheet" href="css/app.css" id="maincss">
+   <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="images/x-icon" href="static/images/favicon.ico">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.theme.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/main.css">
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/educate-custon-icon.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
+    <!-- calendar CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
+    <!-- modernizr JS
+		============================================ -->
+    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body>
+    <!-- Start Header menu area -->
+           <div class="left-sidebar-pro">
+        <div th:replace="menulateral :: nav">...</div>
+    </div>
+    <!-- End Header menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="logo-pro">
+                            <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+					
+					</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+															
+                                                        <span class="admin-name">Bienvenido, </span>
+															<span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>
+															
+														</a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                    
+                                                        <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
+                                                            <form th:action="@{/logout}" method="post">
+                                                                <input type="submit" value="Cerrar sesión" class="header-btn"/>
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+ <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                 <div th:replace="menulateralmovil :: nav">...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->
+            
+        </div>
+
+        <div class="breadcome-area">      
+	  <!--<section class="section-container">-->
+         <!-- Page content-->
+         <div class="content-wrapper">			
+			<div class="row">
+               <div class="col-lg-12">
+                  <form class="form-horizontal" method="post" th:action="@{/registrocifra}" th:object="${registrocifra}" data-parsley-validate="" novalidate="">
+                     <!-- START card-->
+                     <!--<table style="border: hidden">
+                     <tr style="border: hidden" th:each="cifras : ${editarcifras}">-->
+                     <div class="card card-default">
+                        <div class="card-header">
+                           <div class="card-title">Edición de Cifras</div>
+                        </div>
+                        <div class="bg-gray-lighter px-3 py-2 my-3">Los campos marcados con (*) son requeridos</div>
+                        <div class="card-body">
+                           <fieldset>
+                              <div class="form-group row">
+                                 <label for="inmuebles" class="col-md-2 col-form-label">Inmuebles</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{inmuebles}" class="form-control" type="text" name="inmuebles" id="inmuebles" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="maqyeq" class="col-md-2 col-form-label">Maquinaria y Equipo</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{maqyeq}" class="form-control" type="text" name="maqyeq" id="maqyeq" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="eqtrans" class="col-md-2 col-form-label">Equipo de Transporte</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{eqtrans}" class="form-control" type="text" name="eqtrans" id="eqtrans" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>
+						   <fieldset>
+                              <div class="form-group row">
+                                 <label for="mobiliario" class="col-md-2 col-form-label">Mobiliario</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{mobiliario}" class="form-control" type="text" name="mobiliario" id="mobiliario" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>						   
+                           <fieldset>
+                              <div class="form-group row">
+                                 <label for="eqcomputo" class="col-md-2 col-form-label">Equipo de Cómputo</label>
+                                 <div class="col-md-6">
+                                    <input th:field="*{eqcomputo}" class="form-control" type="text" name="eqcomputo" id="eqcomputo" required="required" data-parsley-type="number">
+                                 </div>
+                                 <div class="col-md-4"><code>*</code></div>
+                              </div>
+                           </fieldset>                        
+                        </div>                        
+                        <div class="card-footer text-center">
+                           <button class="btn btn-info" type="submit">Actualizar</button>
+                        </div>
+                     </div>
+                     <!--</tr>
+                     </table>-->
+                     <!-- END card-->
+                  </form>
+               </div>
+            </div>
+            <!-- END row-->
+         </div>
+      <!--</section>-->
+      <!-- Page footer-->
+      <footer class="footer-container">
+         <span></span>
+      </footer>
+   </div>
+   <!-- =============== VENDOR SCRIPTS ===============-->
+   <!-- MODERNIZR-->
+   <script src="vendor/modernizr/modernizr.custom.js"></script>
+   <!-- STORAGE API-->
+   <script src="vendor/js-storage/js.storage.js"></script>
+   <!-- SCREENFULL-->
+   <script src="vendor/screenfull/dist/screenfull.js"></script>
+   <!-- i18next-->
+   <script src="vendor/i18next/i18next.js"></script>
+   <script src="vendor/i18next-xhr-backend/i18nextXHRBackend.js"></script>
+   <script src="vendor/jquery/dist/jquery.js"></script>
+   <script src="vendor/popper.js/dist/umd/popper.js"></script>
+   <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+   <!-- =============== PAGE VENDOR SCRIPTS ===============-->
+   <!-- PARSLEY-->
+   <script src="vendor/parsleyjs/dist/parsley.js"></script>
+   <!-- =============== APP SCRIPTS ===============-->
+   <script src="js/app.js"></script>
+        
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	<!-- jquery
+		============================================ -->
+    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="static/js/bootstrap.min.js"></script>
+    <!-- wow JS
+		============================================ -->
+    <script src="static/js/wow.min.js"></script>
+    <!-- price-slider JS
+		============================================ -->
+    <script src="static/js/jquery-price-slider.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="static/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="static/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="static/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="static/js/jquery.scrollUp.min.js"></script>
+    <!-- counterup JS
+		============================================ -->
+    <script src="static/js/counterup/jquery.counterup.min.js"></script>
+    <script src="static/js/counterup/waypoints.min.js"></script>
+    <script src="static/js/counterup/counterup-active.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="static/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="static/js/metisMenu/metisMenu.min.js"></script>
+    <script src="static/js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="static/js/morrisjs/raphael-min.js"></script>
+    <script src="static/js/morrisjs/morris.js"></script>
+    <script src="static/js/morrisjs/morris-active.js"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="static/js/sparkline/sparkline-active.js"></script>
+    <!-- calendar JS
+		============================================ -->
+    <script src="static/js/calendar/moment.min.js"></script>
+    <script src="static/js/calendar/fullcalendar.min.js"></script>
+    <script src="static/js/calendar/fullcalendar-active.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="static/js/plugins.js"></script>
+    <!-- main JS
+		============================================ -->
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>

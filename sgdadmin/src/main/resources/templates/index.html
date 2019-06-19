@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>SDG Administrador</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/adminpagecss/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.theme.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.transitions.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/animate.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/normalize.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/main.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/morrisjs/morris.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/form/all-type-forms.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/style.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
+    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+
+
+    <body background="static/images/cows.jpg" style="background-size: 100% 100%;background-attachment:fixed; ">
+	<div class="error-pagewrap">
+		<div class="error-page-int">
+			<div class="text-center m-b-md custom-login">
+				<h3>AGROPARQUE GANADERO DEL SURESTE</h3>
+				<h3>ADMINISTRADOR SGD</h3>
+			</div>
+			<div class="content-error">
+				<div class="hpanel">
+                    <div class="panel-body">
+                                        <form action="#" th:action="@{/index}" th:object="${user}" method="post">
+                                            <div class="form-group">
+                                            <label class="control-label" for="usuario" th:text="USUARIO">USUARIO</label>
+                                            <input title="Introduzca su Usuario" required="" value=""  id="username" name="username" type="text" class="form-control">                 
+                                            </div>
+
+                                              <div class="form-group">
+                                <label class="control-label" for="contrasena" th:text="CONTRASENA">CONTRASENA</label>
+                                <input title="Introduzca su Contraseña" placeholder="******" required="" value="" id="password" name="password" type="password" class="form-control">
+                            </div>
+                                           <input type="submit" class="btn btn-success btn-block loginbtn" value="LOG IN" />
+                                        </form>
+                                        </div>
+                </div>
+			</div>
+			<div class="text-center login-footer">
+				<p>Copyright 2019. Agroparque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
+			</div>
+		</div>   
+    </div>
+</body>
+
+</html>

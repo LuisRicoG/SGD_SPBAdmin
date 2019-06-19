@@ -1,0 +1,93 @@
+
+
+
+body{
+	background: #FE4821;
+}
+
+header{
+	border: 15px solid #0C88A5   ;	
+	background:#FFC300  ;
+	color:#bb2125;
+	padding: 10px;
+	text-align: center;
+}
+
+p{
+	font-family: 'Architects Daughter', cursive;
+	font-size: 2em;
+}
+
+label, tr, td, fieldset{
+	font-family: 'Days One', sans-serif;
+}
+
+h1{
+	text-transform: capitalize;
+	font-size: 3em;
+	font-family: 'Architects Daughter', cursive;
+}
+
+
+
+div {
+  margin: .4em 0;
+  
+
+}
+
+div label {
+
+  width: 50%;
+  float: left;
+
+}
+
+form{
+
+	background: #1074A0   ;
+	padding: 10px;
+	width: 610px;
+	border: 10px #34495E solid ;
+	color: #fff;
+
+}
+
+#btnenviar{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #F46E0F;
+    border-radius: 10px;
+    border: 2px solid #7E5109  ;
+    
+}
+#btnenviar:hover{
+    color: #7E5109 ;
+    background-color: #FFC300 ;
+  }
+ 
+
+
+
+div table{
+	background:#D68910 ;
+	border-spacing: 0px;
+    border-collapse: separate;
+    border: 10px solid  #784212  ;
+    padding: 30px;
+	width: 650px
+
+    
+	
+    
+}
+
+#container{
+	
+	display: inline-block;
+	padding-left: 400px;
+	padding-right: 450px;
+}

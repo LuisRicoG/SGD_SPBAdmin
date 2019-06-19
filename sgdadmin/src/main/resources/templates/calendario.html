@@ -1,0 +1,221 @@
+<!--
+ing_farias@live.com
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Editar Eventos de Gobierno Corporativo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+		============================================ -->
+    <link rel="shortcut icon" type="images/x-icon" href="static/images/favicon.ico">
+    <!-- Google Fonts
+		============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/bootstrap.min.css">
+    <!-- Bootstrap CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/font-awesome.min.css">
+    <!-- owl.carousel CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.carousel.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.theme.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/owl.transitions.css">
+    <!-- animate CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/animate.css">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/normalize.css">
+    <!-- meanmenu icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/meanmenu.min.css">
+    <!-- main CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/main.css">
+    <!-- educate icon CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/educate-custon-icon.css">
+    <!-- morrisjs CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/morrisjs/morris.css">
+    <!-- mCustomScrollbar CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- metisMenu CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
+    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
+    <!-- style CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/style.css">
+    <!-- responsive CSS
+		============================================ -->
+    <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">    
+    <!-- modernizr JS
+		============================================ -->
+    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
+    <!-- jquery
+		============================================  -->
+    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>    
+    <!-- bootstrap JS
+		============================================ -->
+    <script src="static/js/bootstrap.min.js"></script> 
+    <!-- Full Calendar
+		============================================ -->
+    <link href="static/js/packages/core/main.css" rel="stylesheet" />
+    <link href="static/js/packages/daygrid/main.css" rel="stylesheet" />
+    <link href="static/js/packages/timegrid/main.css" rel="stylesheet" />
+    <link href="static/js/packages/list/main.css" rel="stylesheet" />
+    <script src="static/js/packages/core/main.js"></script>
+    <script src='static/js/packages/core/locales-all.js'></script>
+    <script src="static/js/packages/interaction/main.js"></script>
+    <script src="static/js/packages/daygrid/main.js"></script>
+    <script src="static/js/packages/timegrid/main.js"></script>
+    <script src="static/js/packages/list/main.js"></script>
+    <!-- view JS
+		============================================ -->
+    <script src="static/js/view/calendario.js"></script>   
+    <!-- calendario CSS
+		============================================ -->
+    <link rel="stylesheet" href="css/calendario.css">
+    <link type="text/css" rel="stylesheet" href="js/view/administradorusuarios.css" />        
+</head>
+<body>
+    <!--[if lt IE 8]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+	<![endif]-->
+    <!-- Start Header menu area -->
+           <div class="left-sidebar-pro">
+        <div th:replace="menulateral :: nav">...</div>
+    </div>
+    <!-- End Header menu area -->
+    <!-- Start Welcome area -->
+    <div class="all-content-wrapper">
+        <div class="header-advance-area">
+            <div class="header-top-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="header-top-wraper">
+                                <div class="row">
+                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                        <div class="menu-switcher-pro">
+                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn"></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                        <div class="header-right-info">
+                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                <li class="nav-item">
+                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">															
+                                                        <span class="admin-name">Bienvenido, </span>
+                                                        <span th:text="${#authentication.getPrincipal().getUsername()}" class="admin-name"></span>															
+                                                    </a>
+                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">                                                    
+                                                        <li><!--<a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>-->
+                                                            <form th:action="@{/logout}" method="post">
+                                                                <input type="submit" value="Cerrar sesión" class="header-btn"/>
+                                                            </form>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu start -->
+            <div class="mobile-menu-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="mobile-menu">
+                                 <div th:replace="menulateralmovil :: nav">...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu end -->       
+<!-- Calendario -->        
+        <div id='wrap'>
+            <br>
+            <div id='external-events'>
+                <h4>Eventos</h4>
+                <div id='external-events-list'>
+                    <div class='fc-event kickoff'>Kick Off</div>
+                    <div class='fc-event debrief'>Debrief/Clausura</div>
+                <h4>Organos de Gobierno Corporativo</h4>
+                    <div class='fc-event gobcorp'>Asamblea de Accionistas</div>
+                    <div class='fc-event gobcorp'>Consejo de Administración</div>
+                    <div class='fc-event gobcorp'>Comité de Engorda</div>
+                    <div class='fc-event gobcorp'>Comité de Inversiones</div>
+                    <div class='fc-event gobcorp'>Comité Comercial</div>
+                <h4>Talleres</h4>
+                    <div class='fc-event taller'>Gobierno Corporativo</div>
+                    <div class='fc-event taller'>Finanzas Corporativas</div>
+                    <div class='fc-event taller'>Planeación Estratégica</div>                    
+                </div>
+            </div>
+            <div id='calendar'></div>
+            <div style='clear:both'></div>
+        </div>
+<!-- Calendario end -->
+        <div class="footer-copyright-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="footer-copy-right">
+                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div></div>
+    <!-- wow JS
+		============================================ -->
+    <script src="static/js/wow.min.js"></script>
+    <!-- meanmenu JS
+		============================================ -->
+    <script src="static/js/jquery.meanmenu.js"></script>
+    <!-- owl.carousel JS
+		============================================ -->
+    <script src="static/js/owl.carousel.min.js"></script>
+    <!-- sticky JS
+		============================================ -->
+    <script src="static/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+		============================================ -->
+    <script src="static/js/jquery.scrollUp.min.js"></script>
+    <!-- mCustomScrollbar JS
+		============================================ -->
+    <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="static/js/scrollbar/mCustomScrollbar-active.js"></script>
+    <!-- metisMenu JS
+		============================================ -->
+    <script src="static/js/metisMenu/metisMenu.min.js"></script>
+    <script src="static/js/metisMenu/metisMenu-active.js"></script>
+    <!-- morrisjs JS
+		============================================ -->
+    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="static/js/sparkline/sparkline-active.js"></script>
+    <!-- plugins JS
+		============================================ -->
+    <script src="static/js/plugins.js"></script>
+</body>
+
+</html>
