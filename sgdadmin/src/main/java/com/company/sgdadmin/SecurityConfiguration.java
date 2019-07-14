@@ -61,25 +61,49 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/vendor/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/fullcalendar/**").permitAll()
-                .antMatchers("/menu").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/listausuarios").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/nuevousuario").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/registro").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/administradorusuarios").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/cargaarchivos").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/upload").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/js").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/selectdinamico").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/editarcifras").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/registrocifra").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/listaarchivos").hasAnyRole("USER", "ADMIN")
-                .antMatchers(HttpMethod.POST,"/getDocto").hasAnyRole("USER", "ADMIN")
+                
+            //ADMINISTRADOR DE ARCHIVOS-------------------------------------------------------------------
+                .antMatchers("/listaarchivos").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/getDocto").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/getDoctoAcumulado").hasAnyRole("ADMIN")
+                .antMatchers("/alldocuments").hasAnyRole("ADMIN")
+                .antMatchers("/alldocumentsacumulados").hasAnyRole("ADMIN")
+                
+            //ADMINISTRADOR DE USUARIOS-------------------------------------------------------------------    
+                .antMatchers("/administradorusuarios").hasAnyRole("ADMIN")
+                .antMatchers("/administradorusuarios/**").hasAnyRole("ADMIN")
+                
+            //CALENDARIO----------------------------------------------------------------------------------
+                .antMatchers("/calendario").hasAnyRole("ADMIN")
+                .antMatchers("/calendario/**").hasAnyRole("ADMIN")
+                
+            //CIFRAS--------------------------------------------------------------------------------------
+                .antMatchers("/editarcifras").hasAnyRole("ADMIN")
+                .antMatchers("/registrocifra").hasAnyRole("ADMIN")
+                
+            //ERRORES-------------------------------------------------------------------------------------
+                .antMatchers("/307").hasAnyRole("ADMIN")
+                .antMatchers("/403").hasAnyRole("ADMIN")
+                .antMatchers("/404").hasAnyRole("ADMIN")
+                .antMatchers("/500").hasAnyRole("ADMIN")
+                
+            //MENU----------------------------------------------------------------------------------------
+                .antMatchers("/menu").hasAnyRole("ADMIN")
+                
+            //NOMBRES DE GOBIERNO CORPORATIVO-------------------------------------------------------------
+                .antMatchers("/editarnombres").hasAnyRole("ADMIN")
+                .antMatchers("/editarnombres/**").hasAnyRole("ADMIN")
+                
+            //VENTANAS------------------------------------------------------------------------------------
+                .antMatchers("/cargaarchivos").hasAnyRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/upload").hasAnyRole("ADMIN")                
+                
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/index").failureUrl("/500")
-                .permitAll()
                 .defaultSuccessUrl("/menu", true)
+                .permitAll()
                 .and()
                 .logout()
                 .permitAll()
@@ -87,7 +111,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         http
                 .formLogin()
-                .permitAll().and().sessionManagement().maximumSessions(1);
+                .permitAll().and().sessionManagement().maximumSessions(1).expiredUrl("/307");
 
         http
                 .headers()

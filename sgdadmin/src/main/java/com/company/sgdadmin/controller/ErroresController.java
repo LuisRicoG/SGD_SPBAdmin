@@ -33,4 +33,10 @@ public class ErroresController {
         return mv;
     }
 
+    @GetMapping("/307")
+    public ModelAndView error307() {
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("307");
+        return mv;
+    }
 }

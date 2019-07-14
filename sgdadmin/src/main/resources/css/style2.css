@@ -1,13 +1,14 @@
 /**/
 :root {
   --main-color: #eaeaea;
-  --stroke-color: black;
-  
+  --stroke-color: black;  
 }
 /**/
 body {
-  background-image: url("../images/cows.jpg");
+    background-image: url("../images/cows.jpg");
     background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment:fixed; 
 }
 h1 {
   margin: 100px auto 0 auto;
