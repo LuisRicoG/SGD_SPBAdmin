@@ -614,6 +614,10 @@ public class VentanaServiceImpl implements VentanaServices {
     private String dircensoganadero;
     @Value("${censoganaderofile}")
     private String censoganaderofile;
+    @Value("${plantrabajofolderfile}")
+    private String plantrabajofolderfile;
+    
+    
 
     @Autowired
     DocumentosActivosRepository activosRepository;
@@ -1168,6 +1172,11 @@ public class VentanaServiceImpl implements VentanaServices {
                 case "Gobierno Corporativo Enlaces Corporativo":
                     pathDocUnicos += gobiernocorporativofolder + File.separator + dirEnlacesCorporativos + File.separator;
                     fileName = fileEnlacesCorporativos;
+                    break;
+                    
+                    case "Plan de Trabajo Anual":
+                    pathDocUnicos += plantrabajofolderfile + File.separator;
+                    fileName = plantrabajofolderfile +".pdf";
                     break;
 
                 case "Comite de Inversiones Convocatoria":
