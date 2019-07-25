@@ -575,9 +575,9 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${filenuestrogobierno}")
     private String filenuestrogobierno;
 
-      @Value("${comitecomercialfolder}")
+    @Value("${comitecomercialfolder}")
     private String comitecomercialfolder;
-    
+
     @Value("${curriculummiembroscomercialfolder}")
     private String curriculummiembroscomercialfolder;
 
@@ -601,20 +601,19 @@ public class VentanaServiceImpl implements VentanaServices {
 
     @Value("${reportetriconsejocomercialfile}")
     private String reportetriconsejocomercialfile;
-    
-          @Value("${codigoeticafolder}")
+
+    @Value("${codigoeticafolder}")
     private String codigoeticafolder;
-            @Value("${codigoeticafile}")
+    @Value("${codigoeticafile}")
     private String codigoeticafile;
-         @Value("${informeactividadesfile}")
+    @Value("${informeactividadesfile}")
     private String informeactividadesfile;
-    
-    
-    
-  
-    
-    
-    
+    @Value("${layoutfile}")
+    private String layoutfile;
+    @Value("${dircensoganadero}")
+    private String dircensoganadero;
+    @Value("${censoganaderofile}")
+    private String censoganaderofile;
 
     @Autowired
     DocumentosActivosRepository activosRepository;
@@ -1091,6 +1090,10 @@ public class VentanaServiceImpl implements VentanaServices {
                     pathDocUnicos += informacionIndusfolder + File.separator + precioalimentofolder + File.separator;
                     fileName = precioalimentofile;
                     break;
+                case "Censo Ganadero Agssa":
+                    pathDocUnicos += informacionIndusfolder + File.separator + dircensoganadero + File.separator;
+                    fileName = censoganaderofile;
+                    break;
 
                 case "Consejo de Administracion Reglas de Operacion":
                     pathDocUnicos += gobiernocorporativofolder + File.separator + consejofolder + File.separator + reglasreglasoperacioncomercialfolder + File.separator;
@@ -1266,28 +1269,21 @@ public class VentanaServiceImpl implements VentanaServices {
                     pathDocUnicos += gobiernocorporativofolder + File.separator + comitecomercialfolder + File.separator + reportetriconsejocomercialfolder + File.separator;
                     fileName = reportetriconsejocomercialfile;
                     break;
-                    
-                    
-                    
+
                 case "Gobierno Corporativo Protocolo de Accionistas":
                     pathDocUnicos += gobiernocorporativofolder + File.separator + protocoloacciofolder + File.separator;
                     fileName = protocoloacciofile;
                     break;
-                    
-                    case "Gobierno Corporativo Codigo de Etica":
+
+                case "Gobierno Corporativo Codigo de Etica":
                     pathDocUnicos += gobiernocorporativofolder + File.separator + codigoeticafolder + File.separator;
                     fileName = codigoeticafile;
                     break;
-                    
-                    
-                       case "Gobierno Corporativo Informe de Actividades":
+
+                case "Gobierno Corporativo Informe de Actividades":
                     pathDocUnicos += gobiernocorporativofolder + File.separator + informaactivifolder + File.separator + year + File.separator;
                     fileName = informeactividadesfile + month + "-" + year + ".pdf";
                     break;
-                    
-                    
-                    
-                    
 
                 case "Acta Asamblea":
                     pantalla = 1;
@@ -1395,6 +1391,12 @@ public class VentanaServiceImpl implements VentanaServices {
                     pathDocUnicos += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
                     fileName = planosinfraestructurafile;
                     break;
+
+                case "Layout":
+                    pathDocUnicos += proyectoejecutivofolder + File.separator + planosfolder + File.separator;
+                    fileName = layoutfile;
+                    break;
+
                 default:
                     throw new DownloadException();
 
@@ -1474,12 +1476,12 @@ public class VentanaServiceImpl implements VentanaServices {
                 mv.addObject("lista2", true);
                 mv.addObject("descripcion", false);
                 break;
-                
-                case "Gobierno Corporativo Informe de Actividades":
+
+            case "Gobierno Corporativo Informe de Actividades":
                 mv.addObject("lista1", true);
                 mv.addObject("lista2", true);
                 mv.addObject("descripcion", false);
-                    break;
+                break;
             case "Reporte de Ventas":
                 mv.addObject("lista1", true);
                 mv.addObject("lista2", true);
