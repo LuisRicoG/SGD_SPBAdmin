@@ -5,459 +5,457 @@ ing_farias@live.com
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" class="no-js" lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CARGA DE ARCHIVOS</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- favicon
-		============================================ -->
-    <link rel="shortcut icon" type="images/x-icon" href="static/images/favicon.ico">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/bootstrap.min.css">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/font-awesome.min.css">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/owl.carousel.css">
-    <link rel="stylesheet" href="static/css/adminpagecss/owl.theme.css">
-    <link rel="stylesheet" href="static/css/adminpagecss/owl.transitions.css">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/animate.css">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/normalize.css">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/meanmenu.min.css">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/main.css">
-    <!-- educate icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/educate-custon-icon.css">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/morrisjs/morris.css">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/scrollbar/jquery.mCustomScrollbar.min.css">
-    <!-- metisMenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
-    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/style.css">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
-    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
- 
-    
-    
-</head>
-    
-    <style>
-    #customFile .custom-file-control::after {
-        content: "Select file...";
-    }
+    <head>
+        <meta charset="utf-8">
+            <meta http-equiv="x-ua-compatible" content="ie=edge">
+                <title>CARGA DE ARCHIVOS</title>
+                <meta name="description" content="">
+                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                        <!-- favicon
+                                    ============================================ -->
+                        <link rel="shortcut icon" type="images/x-icon" href="static/images/favicon.ico">
+                            <!-- Google Fonts
+                                        ============================================ -->
+                            <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
+                                <!-- Bootstrap CSS
+                                            ============================================ -->
+                                <link rel="stylesheet" href="static/css/adminpagecss/bootstrap.min.css">
+                                    <!-- Bootstrap CSS
+                                                ============================================ -->
+                                    <link rel="stylesheet" href="static/css/adminpagecss/font-awesome.min.css">
+                                        <!-- owl.carousel CSS
+                                                    ============================================ -->
+                                        <link rel="stylesheet" href="static/css/adminpagecss/owl.carousel.css">
+                                            <link rel="stylesheet" href="static/css/adminpagecss/owl.theme.css">
+                                                <link rel="stylesheet" href="static/css/adminpagecss/owl.transitions.css">
+                                                    <!-- animate CSS
+                                                                ============================================ -->
+                                                    <link rel="stylesheet" href="static/css/adminpagecss/animate.css">
+                                                        <!-- normalize CSS
+                                                                    ============================================ -->
+                                                        <link rel="stylesheet" href="static/css/adminpagecss/normalize.css">
+                                                            <!-- meanmenu icon CSS
+                                                                        ============================================ -->
+                                                            <link rel="stylesheet" href="static/css/adminpagecss/meanmenu.min.css">
+                                                                <!-- main CSS
+                                                                            ============================================ -->
+                                                                <link rel="stylesheet" href="static/css/adminpagecss/main.css">
+                                                                    <!-- educate icon CSS
+                                                                                ============================================ -->
+                                                                    <link rel="stylesheet" href="static/css/adminpagecss/educate-custon-icon.css">
+                                                                        <!-- morrisjs CSS
+                                                                                    ============================================ -->
+                                                                        <link rel="stylesheet" href="static/css/adminpagecss/morrisjs/morris.css">
+                                                                            <!-- mCustomScrollbar CSS
+                                                                                        ============================================ -->
+                                                                            <link rel="stylesheet" href="static/css/adminpagecss/scrollbar/jquery.mCustomScrollbar.min.css">
+                                                                                <!-- metisMenu CSS
+                                                                                            ============================================ -->
+                                                                                <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu.min.css">
+                                                                                    <link rel="stylesheet" href="static/css/adminpagecss/metisMenu/metisMenu-vertical.css">
+                                                                                        <!-- calendar CSS
+                                                                                                    ============================================ -->
+                                                                                        <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.min.css">
+                                                                                            <link rel="stylesheet" href="static/css/adminpagecss/calendar/fullcalendar.print.min.css">
+                                                                                                <!-- style CSS
+                                                                                                            ============================================ -->
+                                                                                                <link rel="stylesheet" href="static/css/adminpagecss/style.css">
+                                                                                                    <!-- responsive CSS
+                                                                                                                ============================================ -->
+                                                                                                    <link rel="stylesheet" href="static/css/adminpagecss/responsive.css">
+                                                                                                        <!-- modernizr JS
+                                                                                                                    ============================================ -->
+                                                                                                        <script src="static/js/vendor/modernizr-2.8.3.min.js"></script>
 
-    #customFile .custom-file-control::before {
-        content: "Click me";
-    }
-
-    #customFile .custom-file-control:lang(es)::after {
-        content: "Seleccionar archivo...";
-    }
-
-    #customFile .custom-file-control:lang(es)::before {
-        content: "Seleccionar";
-    }
-
-    .custom-file-control.selected:lang(en)::after {
-        content: "" !important;
-    }
-
-    .custom-file {
-        overflow: hidden;
-    }
-    .custom-file-control {
-        white-space: nowrap;
-    }
-</style>
+                                                                                                        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+                                                                                                            <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+                                                                                                            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+                                                                                                            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
 
-<body>
-    <!--[if lt IE 8]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
-    <!-- Start Header menu area -->
-    <div class="left-sidebar-pro">
-        <nav id="sidebar" class="">
-            <div class="sidebar-header">
-                <a href="menu.mvc"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
-                <strong><a href="login.mvc"><img src="static/images/logo/logocow.png" alt="" /></a></strong>
-            </div>
-            <div class="left-custom-menu-adp-wrap comment-scrollbar">
-                <nav class="sidebar-nav left-sidebar-menu-pro">
-                    <ul class="metismenu" id="menu1">
 
-                        <li>
-                            <a title="estadosfinancieros" href="/SGDADMIN/cargaarchivos" aria-expanded="false"><span class="mini-click-non">CARGA DE ARCHIVOS</span></a>
-                        </li>
+                                                                                                            </head>
 
-                         <li>
-                            <a title="reporteventas" href="/SGDADMIN/administradorusuarios" aria-expanded="false"><span  aria-hidden="true"></span> <span class="mini-click-non">ADMINISTRACION DE <br>USUARIOS</span></a>
-                        </li>   
-                          
-                       
-                    </ul>
-                </nav>
-            </div>
-        </nav>
-    </div>
-    <!-- End Header menu area -->
-    <!-- Start Welcome area -->
-    <div class="all-content-wrapper">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="logo-pro">
-                            <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="header-advance-area">
-            <div class="header-top-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="header-top-wraper">
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-					
-					</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
-                                        <div class="header-right-info">
-                                            <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                                                                                            <style>
+                                                                                                                #customFile .custom-file-control::after {
+                                                                                                                    content: "Select file...";
+                                                                                                                }
 
-                                                <li class="nav-item">
-                                                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-															
-															<span class="admin-name">Usuario</span>
-															
-														</a>
-                                                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    
-                                                        <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
-                                                        </li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu start -->
-           <div class="mobile-menu-area">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="mobile-menu">
-                                <nav id="dropdown">
-                                    <ul class="mobile-menu-nav">
-                                        <li><a href="events.html">Estados Financieros</a></li>
-                                        <li><a href="events.html">Estados Financieros</a></li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu end -->
-            <div class="breadcome-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="breadcome-list">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <div class="breadcome-heading">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                        <ul class="breadcome-menu">
-                                         
-                                           
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                                                                                                #customFile .custom-file-control::before {
+                                                                                                                    content: "Click me";
+                                                                                                                }
 
-        
-      <div class="container" style="margin-top: 30px">
-    <div class="card">
-        
-        <div class="jumbotron">
-            <h1 style="text-align: center;">Carga de Archivos</h1>
-        </div>
-        <form method="post" th:action="@{/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
-            
-            <div>
-                
-        <select id="menu" name="menu">
-        <option codigo="01" value="01">Documentacion Legal</option>
-		<option codigo="02" value="02">Estados Financieros</option>
-		<option codigo="03" value="03">Contratos Firmados</option>
-	    <option codigo="04" value="04">Reporte de Ventas Mensual</option>
-		<option codigo="05" value="05">Sagarpa</option>
-	    <option codigo="06" value="06">Presentaciones Corporativas</option>
-	    <option codigo="07" value="07">Gobierno Corporativo</option>
-		<option codigo="08" value="08">Factura de Activos</option>
-		<option codigo="09" value="09">Seguros</option>
-        <option codigo="10" value="10">Avaluo de Activos</option>
-		<option codigo="11" value="11">Estructura Organigramas</option>
-		<option codigo="12" value="12">Informacion de la Industria</option>
-    </select>
+                                                                                                                #customFile .custom-file-control:lang(es)::after {
+                                                                                                                    content: "Seleccionar archivo...";
+                                                                                                                }
 
-    <select id="submenu" name="submenu">
-	<option codigo="01" value="1">Escrituras</option>
-	<option codigo="01" value="2">Identificaciones</option>
-	<option codigo="01" value="3">Rfc</option>
-	<option codigo="01" value="4">Fiel</option>
-	<option codigo="01" value="5">Sello Digital</option>
-	<option codigo="01" value="6">Aviso de Privacidad</option>
-	<option codigo="01" value="7">Cumplimiento de Obligaciones</option>
-	<option codigo="01" value="8">Comprobante de Domicilio</option>
-	<option codigo="01" value="9">Asamblea Ordinaria</option>
-	<option codigo="02" value="10">2018</option>
-	<option codigo="02" value="11">2019</option>
-	<option codigo="02" value="12">2020</option>
-	<option codigo="03" value="12">Financieros</option>
-    <option codigo="03" value="13">Provedores</option>
-	<option codigo="03" value="14">Clientes</option>
-	<option codigo="03" value="15">Personal</option>
-    <option codigo="04" value="16">2018</option>
-	<option codigo="04" value="17">2019</option>
-	<option codigo="04" value="18">2020</option>
-	<option codigo="05" value="19">Documento de Solicitud</option>
-	<option codigo="05" value="20">Deposito</option>
-	<option codigo="05" value="21">Comprobante de Pagos</option>
-    <option codigo="07" value="22">Asamblea de Accionistas</option>
-	<option codigo="07" value="23">Consejo</option>
-	<option codigo="07" value="24">Comites</option>
-    <option codigo="07" value="25">Protocolo de Accionistas</option>
-	<option codigo="07" value="26">Reglas de Accionistas</option>
-	<option codigo="07" value="27">Plan de Trabajo Anual</option>
-	<option codigo="07" value="28">Informe de Actividades Mensuales</option>
-    </select>
-	
-	
-	    <select id="submenu2" name="submenu2">
-	<option codigo="" value="1"></option>	
-	<option codigo="02" value="1">Enero</option>
-	<option codigo="02" value="2">Febrero</option>
-	<option codigo="02" value="3">Marzo</option>   
-    </select>
-    
-    <script type="text/javascript">
-        // Consigue el elemento provincias/poblaciones por su identificador id. Es un método del DOM de HTML
-        var id1 = document.getElementById("menu");
-        var id2 = document.getElementById("submenu");
-        
-        // Añade un evento change al elemento id1, asociado a la función cambiar()
-        if (id1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
-            id1.addEventListener("change", cambiar);
-        } else if (id1.attachEvent) {   // Para IE 8 y anteriores
-            id1.attachEvent("change", cambiar); // attachEvent() es el método equivalente a addEventListener()
-        }
+                                                                                                                #customFile .custom-file-control:lang(es)::before {
+                                                                                                                    content: "Seleccionar";
+                                                                                                                }
 
-        // Definición de la función cambiar()
-        function cambiar() {
-            for (var i = 0; i < id2.options.length; i++)
-            
-            // -- Inicio del comentario -- 
-            // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
-            if(id2.options[i].getAttribute("codigo") == id1.options[id1.selectedIndex].getAttribute("codigo")){
-                id2.options[i].style.display = "block";
-            }else{
-                id2.options[i].style.display = "none";
-            }
-            // -- Fin del comentario --
-                    
-            id2.value = "";
-        }
+                                                                                                                .custom-file-control.selected:lang(en)::after {
+                                                                                                                    content: "" !important;
+                                                                                                                }
 
-        // Llamada a la función cambiar()
-        cambiar();
-    </script>
-	
-	<script type="text/javascript">
-        // Consigue el elemento provincias/poblaciones por su identificador id. Es un método del DOM de HTML
-        var ids1 = document.getElementById("submenu");
-        var ids2 = document.getElementById("submenu2");
-        
-        // Añade un evento change al elemento id1, asociado a la función cambiar()
-        if (ids1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
-            ids1.addEventListener("change", cambiar2);
-        } else if (ids1.attachEvent) {   // Para IE 8 y anteriores
-            ids1.attachEvent("change", cambiar2); // attachEvent() es el método equivalente a addEventListener()
-        }
+                                                                                                                .custom-file {
+                                                                                                                    overflow: hidden;
+                                                                                                                }
+                                                                                                                .custom-file-control {
+                                                                                                                    white-space: nowrap;
+                                                                                                                }
+                                                                                                            </style>
 
-        // Definición de la función cambiar()
-        function cambiar2() {
-            for (var i = 0; i < ids2.options.length; i++)
-            
-            // -- Inicio del comentario -- 
-            // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
-            if(ids2.options[i].getAttribute("codigo") == ids1.options[ids1.selectedIndex].getAttribute("codigo")){
-                ids2.options[i].style.display = "block";
-            }else{
-                ids2.options[i].style.display = "none";
-            }
-            // -- Fin del comentario --
-                    
-            ids2.value = "";
-        }
 
-        // Llamada a la función cambiar()
-        cambiar2();
-    </script>               
-                
-            </div>
-            <br>
-                <br>
-            
-            <div class="form-group">
-                <label class="custom-file" id="customFile">
-                    <input type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
-                    <span class="custom-file-control form-control-file"></span>
-                </label>
-            </div>
-            <div style="margin-bottom: 10px">
-                <button type="submit" class="btn btn-success">Enviar</button>
-            </div>
-        </form>
-    </div>
-</div>
-        
-        
-        
-        
-        
-        
-        
-        
-        <div class="footer-copyright-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                                                                                            <body>
+                                                                                                                <!--[if lt IE 8]>
+                                                                                                                            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+                                                                                                                    <![endif]-->
+                                                                                                                <!-- Start Header menu area -->
+                                                                                                                <div class="left-sidebar-pro">
+                                                                                                                    <nav id="sidebar" class="">
+                                                                                                                        <div class="sidebar-header">
+                                                                                                                            <a href="menu.mvc"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                                                                                                                            <strong><a href="login.mvc"><img src="static/images/logo/logocow.png" alt="" /></a></strong>
+                                                                                                                        </div>
+                                                                                                                        <div class="left-custom-menu-adp-wrap comment-scrollbar">
+                                                                                                                            <nav class="sidebar-nav left-sidebar-menu-pro">
+                                                                                                                                <ul class="metismenu" id="menu1">
 
-    <!-- jquery
-		============================================ -->
-    <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- bootstrap JS
-		============================================ -->
-    <script src="static/js/bootstrap.min.js"></script>
-    <!-- wow JS
-		============================================ -->
-    <script src="static/js/wow.min.js"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="static/js/jquery-price-slider.js"></script>
-    <!-- meanmenu JS
-		============================================ -->
-    <script src="static/js/jquery.meanmenu.js"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="static/js/owl.carousel.min.js"></script>
-    <!-- sticky JS
-		============================================ -->
-    <script src="static/js/jquery.sticky.js"></script>
-    <!-- scrollUp JS
-		============================================ -->
-    <script src="static/js/jquery.scrollUp.min.js"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="static/js/counterup/jquery.counterup.min.js"></script>
-    <script src="static/js/counterup/waypoints.min.js"></script>
-    <script src="static/js/counterup/counterup-active.js"></script>
-    <!-- mCustomScrollbar JS
-		============================================ -->
-    <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="static/js/scrollbar/mCustomScrollbar-active.js"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="static/js/metisMenu/metisMenu.min.js"></script>
-    <script src="static/js/metisMenu/metisMenu-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/morrisjs/raphael-min.js"></script>
-    <script src="static/js/morrisjs/morris.js"></script>
-    <script src="static/js/morrisjs/morris-active.js"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
-    <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
-    <script src="static/js/sparkline/sparkline-active.js"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="static/js/calendar/moment.min.js"></script>
-    <script src="static/js/calendar/fullcalendar.min.js"></script>
-    <script src="static/js/calendar/fullcalendar-active.js"></script>
-    <!-- plugins JS
-		============================================ -->
-    <script src="static/js/plugins.js"></script>
-    <!-- main JS
-		============================================ -->
-    <script src="static/js/main.js"></script>
-</body>
-    <script>
-    $('.custom-file-input').on('change',function(){
-        $(this).next('.form-control-file').addClass("selected").html($(this).val());
-    })
-</script>
+                                                                                                                                    <li>
+                                                                                                                                        <a title="estadosfinancieros" href="/SGDADMIN/cargaarchivos" aria-expanded="false"><span class="mini-click-non">CARGA DE ARCHIVOS</span></a>
+                                                                                                                                    </li>
 
-</html>
+                                                                                                                                    <li>
+                                                                                                                                        <a title="reporteventas" href="/SGDADMIN/administradorusuarios" aria-expanded="false"><span  aria-hidden="true"></span> <span class="mini-click-non">ADMINISTRACION DE <br>USUARIOS</span></a>
+                                                                                                                                    </li>   
+
+
+                                                                                                                                </ul>
+                                                                                                                            </nav>
+                                                                                                                        </div>
+                                                                                                                    </nav>
+                                                                                                                </div>
+                                                                                                                <!-- End Header menu area -->
+                                                                                                                <!-- Start Welcome area -->
+                                                                                                                <div class="all-content-wrapper">
+                                                                                                                    <div class="container-fluid">
+                                                                                                                        <div class="row">
+                                                                                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                                                                                <div class="logo-pro">
+                                                                                                                                    <a href="index.html"><img class="main-logo" src="static/images/logo/logocow.png" alt="" /></a>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+                                                                                                                    <div class="header-advance-area">
+                                                                                                                        <div class="header-top-area">
+                                                                                                                            <div class="container-fluid">
+                                                                                                                                <div class="row">
+                                                                                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                                                                                        <div class="header-top-wraper">
+                                                                                                                                            <div class="row">
+                                                                                                                                                <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
+                                                                                                                                                    <div class="menu-switcher-pro">
+                                                                                                                                                        <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
+
+                                                                                                                                                        </button>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                                                                                                                                                    <div class="header-right-info">
+                                                                                                                                                        <ul class="nav navbar-nav mai-top-nav header-right-menu">
+
+                                                                                                                                                            <li class="nav-item">
+                                                                                                                                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+
+                                                                                                                                                                    <span class="admin-name">Usuario</span>
+
+                                                                                                                                                                </a>
+                                                                                                                                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+
+                                                                                                                                                                    <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                                                                                                                                    </li>
+                                                                                                                                                                </ul>
+                                                                                                                                                            </li>
+                                                                                                                                                        </ul>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <!-- Mobile Menu start -->
+                                                                                                                        <div class="mobile-menu-area">
+                                                                                                                            <div class="container">
+                                                                                                                                <div class="row">
+                                                                                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                                                                                        <div class="mobile-menu">
+                                                                                                                                            <nav id="dropdown">
+                                                                                                                                                <ul class="mobile-menu-nav">
+                                                                                                                                                    <li><a href="events.html">Estados Financieros</a></li>
+                                                                                                                                                    <li><a href="events.html">Estados Financieros</a></li>
+                                                                                                                                                </ul>
+                                                                                                                                            </nav>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                        <!-- Mobile Menu end -->
+                                                                                                                        <div class="breadcome-area">
+                                                                                                                            <div class="container-fluid">
+                                                                                                                                <div class="row">
+                                                                                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                                                                                        <div class="breadcome-list">
+                                                                                                                                            <div class="row">
+                                                                                                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                                                                                                    <div class="breadcome-heading">
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                                                                                                    <ul class="breadcome-menu">
+
+
+                                                                                                                                                    </ul>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        </div>
+                                                                                                                    </div>
+
+
+                                                                                                                    <div class="container" style="margin-top: 30px">
+                                                                                                                        <div class="card">
+
+                                                                                                                            <div class="jumbotron">
+                                                                                                                                <h1 style="text-align: center;">Carga de Archivos</h1>
+                                                                                                                            </div>
+                                                                                                                            <form method="post" th:action="@{/upload}" enctype="multipart/form-data" id="fileUploadForm" class="container">
+
+                                                                                                                                <div>
+
+                                                                                                                                    <select id="menu" name="menu">
+                                                                                                                                        <option codigo="01" value="01">Documentacion Legal</option>
+                                                                                                                                        <option codigo="02" value="02">Estados Financieros</option>
+                                                                                                                                        <option codigo="03" value="03">Contratos Firmados</option>
+                                                                                                                                        <option codigo="04" value="04">Reporte de Ventas Mensual</option>
+                                                                                                                                        <option codigo="05" value="05">Sagarpa</option>
+                                                                                                                                        <option codigo="06" value="06">Presentaciones Corporativas</option>
+                                                                                                                                        <option codigo="07" value="07">Gobierno Corporativo</option>
+                                                                                                                                        <option codigo="08" value="08">Factura de Activos</option>
+                                                                                                                                        <option codigo="09" value="09">Seguros</option>
+                                                                                                                                        <option codigo="10" value="10">Avaluo de Activos</option>
+                                                                                                                                        <option codigo="11" value="11">Estructura Organigramas</option>
+                                                                                                                                        <option codigo="12" value="12">Informacion de la Industria</option>
+                                                                                                                                    </select>
+
+                                                                                                                                    <select id="submenu" name="submenu">
+                                                                                                                                        <option codigo="01" value="1">Escrituras</option>
+                                                                                                                                        <option codigo="01" value="2">Identificaciones</option>
+                                                                                                                                        <option codigo="01" value="3">Rfc</option>
+                                                                                                                                        <option codigo="01" value="4">Fiel</option>
+                                                                                                                                        <option codigo="01" value="5">Sello Digital</option>
+                                                                                                                                        <option codigo="01" value="6">Aviso de Privacidad</option>
+                                                                                                                                        <option codigo="01" value="7">Cumplimiento de Obligaciones</option>
+                                                                                                                                        <option codigo="01" value="8">Comprobante de Domicilio</option>
+                                                                                                                                        <option codigo="01" value="9">Asamblea Ordinaria</option>
+                                                                                                                                        <option codigo="02" value="10">2018</option>
+                                                                                                                                        <option codigo="02" value="11">2019</option>
+                                                                                                                                        <option codigo="02" value="12">2020</option>
+                                                                                                                                        <option codigo="03" value="12">Financieros</option>
+                                                                                                                                        <option codigo="03" value="13">Provedores</option>
+                                                                                                                                        <option codigo="03" value="14">Clientes</option>
+                                                                                                                                        <option codigo="03" value="15">Personal</option>
+                                                                                                                                        <option codigo="04" value="16">2018</option>
+                                                                                                                                        <option codigo="04" value="17">2019</option>
+                                                                                                                                        <option codigo="04" value="18">2020</option>
+                                                                                                                                        <option codigo="05" value="19">Documento de Solicitud</option>
+                                                                                                                                        <option codigo="05" value="20">Deposito</option>
+                                                                                                                                        <option codigo="05" value="21">Comprobante de Pagos</option>
+                                                                                                                                        <option codigo="07" value="22">Asamblea de Accionistas</option>
+                                                                                                                                        <option codigo="07" value="23">Consejo</option>
+                                                                                                                                        <option codigo="07" value="24">Comites</option>
+                                                                                                                                        <option codigo="07" value="25">Protocolo de Accionistas</option>
+                                                                                                                                        <option codigo="07" value="26">Reglas de Accionistas</option>
+                                                                                                                                        <option codigo="07" value="27">Plan de Trabajo Anual</option>
+                                                                                                                                        <option codigo="07" value="28">Informe de Actividades Mensuales</option>
+                                                                                                                                    </select>
+
+
+                                                                                                                                    <select id="submenu2" name="submenu2">
+                                                                                                                                        <option codigo="" value="1"></option>	
+                                                                                                                                        <option codigo="02" value="1">Enero</option>
+                                                                                                                                        <option codigo="02" value="2">Febrero</option>
+                                                                                                                                        <option codigo="02" value="3">Marzo</option>   
+                                                                                                                                    </select>
+
+                                                                                                                                    <script type="text/javascript">
+                                                                                                                                        // Consigue el elemento provincias/poblaciones por su identificador id. Es un método del DOM de HTML
+                                                                                                                                        var id1 = document.getElementById("menu");
+                                                                                                                                        var id2 = document.getElementById("submenu");
+
+                                                                                                                                        // Añade un evento change al elemento id1, asociado a la función cambiar()
+                                                                                                                                        if (id1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
+                                                                                                                                            id1.addEventListener("change", cambiar);
+                                                                                                                                        } else if (id1.attachEvent) {   // Para IE 8 y anteriores
+                                                                                                                                            id1.attachEvent("change", cambiar); // attachEvent() es el método equivalente a addEventListener()
+                                                                                                                                        }
+
+                                                                                                                                        // Definición de la función cambiar()
+                                                                                                                                        function cambiar() {
+                                                                                                                                            for (var i = 0; i < id2.options.length; i++)
+                                                                                                                                                // -- Inicio del comentario -- 
+                                                                                                                                                // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
+                                                                                                                                                if (id2.options[i].getAttribute("codigo") == id1.options[id1.selectedIndex].getAttribute("codigo")) {
+                                                                                                                                                    id2.options[i].style.display = "block";
+                                                                                                                                                } else {
+                                                                                                                                                    id2.options[i].style.display = "none";
+                                                                                                                                                }
+                                                                                                                                            // -- Fin del comentario --
+
+                                                                                                                                            id2.value = "";
+                                                                                                                                        }
+
+                                                                                                                                        // Llamada a la función cambiar()
+                                                                                                                                        cambiar();
+                                                                                                                                    </script>
+
+                                                                                                                                    <script type="text/javascript">
+                                                                                                                                        // Consigue el elemento provincias/poblaciones por su identificador id. Es un método del DOM de HTML
+                                                                                                                                        var ids1 = document.getElementById("submenu");
+                                                                                                                                        var ids2 = document.getElementById("submenu2");
+
+                                                                                                                                        // Añade un evento change al elemento id1, asociado a la función cambiar()
+                                                                                                                                        if (ids1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
+                                                                                                                                            ids1.addEventListener("change", cambiar2);
+                                                                                                                                        } else if (ids1.attachEvent) {   // Para IE 8 y anteriores
+                                                                                                                                            ids1.attachEvent("change", cambiar2); // attachEvent() es el método equivalente a addEventListener()
+                                                                                                                                        }
+
+                                                                                                                                        // Definición de la función cambiar()
+                                                                                                                                        function cambiar2() {
+                                                                                                                                            for (var i = 0; i < ids2.options.length; i++)
+                                                                                                                                                // -- Inicio del comentario -- 
+                                                                                                                                                // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
+                                                                                                                                                if (ids2.options[i].getAttribute("codigo") == ids1.options[ids1.selectedIndex].getAttribute("codigo")) {
+                                                                                                                                                    ids2.options[i].style.display = "block";
+                                                                                                                                                } else {
+                                                                                                                                                    ids2.options[i].style.display = "none";
+                                                                                                                                                }
+                                                                                                                                            // -- Fin del comentario --
+
+                                                                                                                                            ids2.value = "";
+                                                                                                                                        }
+
+                                                                                                                                        // Llamada a la función cambiar()
+                                                                                                                                        cambiar2();
+                                                                                                                                    </script>               
+
+                                                                                                                                </div>
+                                                                                                                                <br>
+                                                                                                                                    <br>
+
+                                                                                                                                        <div class="form-group">
+                                                                                                                                            <label class="custom-file" id="customFile">
+                                                                                                                                                <input type="file" class="custom-file-input" name="file" aria-describedby="fileHelp">
+                                                                                                                                                    <span class="custom-file-control form-control-file"></span>
+                                                                                                                                            </label>
+                                                                                                                                        </div>
+                                                                                                                                        <div style="margin-bottom: 10px">
+                                                                                                                                            <button type="submit" class="btn btn-success">Enviar</button>
+                                                                                                                                        </div>
+                                                                                                                                        </form>
+                                                                                                                                        </div>
+                                                                                                                                        </div>
+
+
+
+
+
+
+
+
+                                                                                                                                        <div class="footer-copyright-area">
+                                                                                                                                            <div class="container-fluid">
+                                                                                                                                                <div class="row">
+                                                                                                                                                    <div class="col-lg-12">
+                                                                                                                                                        <div class="footer-copy-right">
+                                                                                                                                                            <p>Copyright 2019. All rights reserved. Agro Parque Ganadero del Sureste <a href="https://www.agroparquesureste.com">AgroparqueSureste.com</a></p>
+                                                                                                                                                        </div>
+                                                                                                                                                    </div>
+                                                                                                                                                </div>
+                                                                                                                                            </div>
+                                                                                                                                        </div>
+                                                                                                                                        </div>
+
+                                                                                                                                        <!-- jquery
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/vendor/jquery-1.12.4.min.js"></script>
+                                                                                                                                        <!-- bootstrap JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/bootstrap.min.js"></script>
+                                                                                                                                        <!-- wow JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/wow.min.js"></script>
+                                                                                                                                        <!-- price-slider JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/jquery-price-slider.js"></script>
+                                                                                                                                        <!-- meanmenu JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/jquery.meanmenu.js"></script>
+                                                                                                                                        <!-- owl.carousel JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/owl.carousel.min.js"></script>
+                                                                                                                                        <!-- sticky JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/jquery.sticky.js"></script>
+                                                                                                                                        <!-- scrollUp JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/jquery.scrollUp.min.js"></script>
+                                                                                                                                        <!-- counterup JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/counterup/jquery.counterup.min.js"></script>
+                                                                                                                                        <script src="static/js/counterup/waypoints.min.js"></script>
+                                                                                                                                        <script src="static/js/counterup/counterup-active.js"></script>
+                                                                                                                                        <!-- mCustomScrollbar JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+                                                                                                                                        <script src="static/js/scrollbar/mCustomScrollbar-active.js"></script>
+                                                                                                                                        <!-- metisMenu JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/metisMenu/metisMenu.min.js"></script>
+                                                                                                                                        <script src="static/js/metisMenu/metisMenu-active.js"></script>
+                                                                                                                                        <!-- morrisjs JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/morrisjs/raphael-min.js"></script>
+                                                                                                                                        <script src="static/js/morrisjs/morris.js"></script>
+                                                                                                                                        <script src="static/js/morrisjs/morris-active.js"></script>
+                                                                                                                                        <!-- morrisjs JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/sparkline/jquery.sparkline.min.js"></script>
+                                                                                                                                        <script src="static/js/sparkline/jquery.charts-sparkline.js"></script>
+                                                                                                                                        <script src="static/js/sparkline/sparkline-active.js"></script>
+                                                                                                                                        <!-- calendar JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/calendar/moment.min.js"></script>
+                                                                                                                                        <script src="static/js/calendar/fullcalendar.min.js"></script>
+                                                                                                                                        <script src="static/js/calendar/fullcalendar-active.js"></script>
+                                                                                                                                        <!-- plugins JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/plugins.js"></script>
+                                                                                                                                        <!-- main JS
+                                                                                                                                                    ============================================ -->
+                                                                                                                                        <script src="static/js/main.js"></script>
+                                                                                                                                        </body>
+                                                                                                                                        <script>
+                                                                                                                                        $('.custom-file-input').on('change', function () {
+                                                                                                                                            $(this).next('.form-control-file').addClass("selected").html($(this).val());
+                                                                                                                                        })
+                                                                                                                                        </script>
+
+                                                                                                                                        </html>

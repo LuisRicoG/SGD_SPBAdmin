@@ -1508,8 +1508,23 @@ public class VentanaServiceImpl implements VentanaServices {
                 break;
 
             case "Sagarpa Comprobante de Pagos":
-                mv.addObject("lista1", true);
-                mv.addObject("descripcion", false);
+                mv.addObject("calendario", true);
+                mv.addObject("descripcion", true);
+                break;
+
+            case "Sagarpa Reportes Mensuales":
+                mv.addObject("calendario", true);
+                mv.addObject("descripcion", true);
+                break;
+
+            case "Sagarpa Escritos Enviados":
+                mv.addObject("calendario", true);
+                mv.addObject("descripcion", true);
+                break;
+
+            case "Sagarpa Respuestas Sagarpa":
+                mv.addObject("calendario", true);
+                mv.addObject("descripcion", true);
                 break;
 
             case "Gobierno Asamblea de Accionistas":
@@ -1535,21 +1550,6 @@ public class VentanaServiceImpl implements VentanaServices {
             case "Comite Inversiones Sesiones":
                 mv.addObject("descripcion", true);
                 mv.addObject("calendario", true);
-                break;
-
-            case "Sagarpa Reportes Mensuales":
-                mv.addObject("lista1", true);
-                mv.addObject("descripcion", false);
-                break;
-
-            case "Sagarpa Escritos Enviados":
-                mv.addObject("lista1", true);
-                mv.addObject("descripcion", false);
-                break;
-
-            case "Sagarpa Respuestas Sagarpa":
-                mv.addObject("lista1", true);
-                mv.addObject("descripcion", false);
                 break;
 
             case "Asamblea de Accionistas Convocatoria":
