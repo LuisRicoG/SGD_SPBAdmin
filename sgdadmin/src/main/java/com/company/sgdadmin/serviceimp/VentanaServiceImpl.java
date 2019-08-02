@@ -144,27 +144,6 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${cfpersonalfile}")
     private String cfpersonalfile;
 
-    @Value("${sagarpafolder}")
-    private String sagarpafolder;
-
-    @Value("${comprobantepagosfolder}")
-    private String comprobantepagosfolder;
-
-    @Value("${comprobantepagosfile}")
-    private String comprobantepagosfile;
-
-    @Value("${depositofolder}")
-    private String depositofolder;
-
-    @Value("${depositofile}")
-    private String depositofile;
-
-    @Value("${documentosolifolder}")
-    private String documentosolifolder;
-
-    @Value("${documentosolifile}")
-    private String documentosolifile;
-
     @Value("${presentacionescorpfolder}")
     private String presentacionescorpfolder;
 
@@ -496,24 +475,43 @@ public class VentanaServiceImpl implements VentanaServices {
     private String ubicacionterrenofile;
     @Value("${planosinfraestructurafile}")
     private String planosinfraestructurafile;
+    
+    
+    //SAGARPA        
+    @Value("${sagarpafolder}")
+    private String sagarpafolder;
 
+    @Value("${documentosolifolder}")
+    private String documentosolifolder;
+    @Value("${documentosolifile}")
+    private String documentosolifile;
+
+    @Value("${depositofolder}")
+    private String depositofolder;
+    @Value("${depositofile}")
+    private String depositofile;
+    
+    @Value("${comprobantepagosfolder}")
+    private String comprobantepagosfolder;
+    @Value("${comprobantepagosfile}")
+    private String comprobantepagosfile;
+    
     @Value("${dirreportesmensualess}")
     private String dirreportesmensualess;
-
-    @Value("${direscritosenviados}")
-    private String direscritosenviados;
-
-    @Value("${dirrespuestassagarpa}")
-    private String dirrespuestassagarpa;
-
     @Value("${filereportesmensualess}")
     private String filereportesmensualess;
 
+    @Value("${direscritosenviados}")
+    private String direscritosenviados;
     @Value("${fileescritosenviados}")
     private String fileescritosenviados;
-
+    
+    @Value("${dirrespuestassagarpa}")
+    private String dirrespuestassagarpa;        
     @Value("${filerespuestassagarpa}")
     private String filerespuestassagarpa;
+
+    
 
     @Value("${presentacionesfolder}")
     private String presentacionesfolder;
@@ -734,23 +732,23 @@ public class VentanaServiceImpl implements VentanaServices {
                     break;
 
                 case "Sagarpa Comprobante de Pagos":
-                    pathDocUnicos += sagarpafolder + File.separator + comprobantepagosfolder + File.separator;
-                    fileName = comprobantepagosfile + year + ".pdf";
+                    pantalla = 13;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Sagarpa Reportes Mensuales":
-                    pathDocUnicos += sagarpafolder + File.separator + dirreportesmensualess + File.separator;
-                    fileName = filereportesmensualess + "-" + year + ".pdf";
+                    pantalla = 14;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Sagarpa Escritos Enviados":
-                    pathDocUnicos += sagarpafolder + File.separator + direscritosenviados + File.separator;
-                    fileName = fileescritosenviados + "-" + year + ".pdf";
+                    pantalla = 15;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Sagarpa Respuestas Sagarpa":
-                    pathDocUnicos += sagarpafolder + File.separator + dirrespuestassagarpa + File.separator;
-                    fileName = filerespuestassagarpa + "-" + year + ".pdf";
+                    pantalla = 16;
+                    fileName = file.getOriginalFilename();
                     break;
 
                 case "Presentaciones Tarjeta Ejecutiva":
