@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.company.sgdadmin</groupId>
     <artifactId>sgdadmin</artifactId>
-    <version>1.0.2</version>
+    <version>1.1.0</version>
     <name>sgdadmin</name>
     <description>SDG administrador con spring boot, security y jpa </description>
     <packaging>war</packaging>
