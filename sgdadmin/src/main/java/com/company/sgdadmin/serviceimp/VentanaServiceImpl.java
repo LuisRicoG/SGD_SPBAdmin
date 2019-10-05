@@ -617,6 +617,28 @@ public class VentanaServiceImpl implements VentanaServices {
     @Value("${plantrabajofolderfile}")
     private String plantrabajofolderfile;
     
+    @Value("${actarpt}")
+    private String actarpt;
+    @Value("${actarptfile}")
+    private String actarptfile;
+    @Value("${poderesrpt}")
+    private String poderesrpt;
+    @Value("${poderesrptfile}")
+    private String poderesrptfile;
+    @Value("${asamblearpt}")
+    private String asamblearpt;
+    @Value("${asamblearptfile}")
+    private String asamblearptfile;
+    
+    @Value("${fielfiledos}")
+    private String fielfiledos;
+    
+    
+    
+            
+            
+    
+    
     
 
     @Autowired
@@ -647,15 +669,30 @@ public class VentanaServiceImpl implements VentanaServices {
                     pathDocUnicos += documentacionlegal + File.separator + escrituras + File.separator + actaconstitutiva + File.separator;
                     fileName = actaconstitutivafile;
                     break;
+                    
+                case "RPT Acta Constitutiva":
+                    pathDocUnicos += documentacionlegal + File.separator + escrituras + File.separator + actarpt + File.separator;
+                    fileName = actarptfile;
+                    break;
 
                 case "Poderes":
                     pathDocUnicos += documentacionlegal + File.separator + escrituras + File.separator + poderes + File.separator;
                     fileName = poderesfile;
                     break;
+                    
+                case "RPT Poderes":
+                    pathDocUnicos += documentacionlegal + File.separator + escrituras + File.separator + poderesrpt + File.separator;
+                    fileName = poderesrptfile;
+                    break;
 
                 case "Reforma Estatutos":
                     pathDocUnicos += documentacionlegal + File.separator + escrituras + File.separator + reformaestatutos + File.separator;
                     fileName = reformaestatutosfile;
+                    break;
+                    
+                case "RPT Acta Asamblea":
+                    pathDocUnicos += documentacionlegal + File.separator + escrituras + File.separator + asamblearpt + File.separator;
+                    fileName = asamblearptfile;
                     break;
 
                 case "RFC":
@@ -665,7 +702,7 @@ public class VentanaServiceImpl implements VentanaServices {
 
                 case "Fiel":
                     pathDocUnicos += documentacionlegal + File.separator + fiel + File.separator;
-                    fileName = fielfile;
+                    fileName = fielfiledos;
                     break;
 
                 case "Sello Digital":
